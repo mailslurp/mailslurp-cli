@@ -71,6 +71,7 @@ _mailslurp()
     operations["createNewEmailAddress"]=1
     operations["sendEmailSimple"]=1
     operations["waitForLatestEmail"]=1
+    operations["waitForNthEmail"]=1
     operations["bulkCreateInboxes"]=1
     operations["bulkDeleteInboxes"]=1
     operations["bulkSendEmails"]=1
@@ -94,6 +95,7 @@ _mailslurp()
     operation_parameters["createNewEmailAddress"]=""
     operation_parameters["sendEmailSimple"]=""
     operation_parameters["waitForLatestEmail"]="inboxEmailAddress= inboxId= "
+    operation_parameters["waitForNthEmail"]="inboxId= index= "
     operation_parameters["bulkCreateInboxes"]="count= "
     operation_parameters["bulkDeleteInboxes"]=""
     operation_parameters["bulkSendEmails"]=""

@@ -98,6 +98,8 @@ declare -A operation_parameters_minimum_occurrences
 operation_parameters_minimum_occurrences["sendEmailSimple:::SendEmailOptions"]=1
 operation_parameters_minimum_occurrences["waitForLatestEmail:::inboxEmailAddress"]=0
 operation_parameters_minimum_occurrences["waitForLatestEmail:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForNthEmail:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForNthEmail:::index"]=0
 operation_parameters_minimum_occurrences["bulkCreateInboxes:::count"]=1
 operation_parameters_minimum_occurrences["bulkDeleteInboxes:::request_body"]=1
 operation_parameters_minimum_occurrences["bulkSendEmails:::BulkSendEmailOptions"]=1
@@ -131,6 +133,8 @@ declare -A operation_parameters_maximum_occurrences
 operation_parameters_maximum_occurrences["sendEmailSimple:::SendEmailOptions"]=0
 operation_parameters_maximum_occurrences["waitForLatestEmail:::inboxEmailAddress"]=0
 operation_parameters_maximum_occurrences["waitForLatestEmail:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForNthEmail:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForNthEmail:::index"]=0
 operation_parameters_maximum_occurrences["bulkCreateInboxes:::count"]=0
 operation_parameters_maximum_occurrences["bulkDeleteInboxes:::request_body"]=0
 operation_parameters_maximum_occurrences["bulkSendEmails:::BulkSendEmailOptions"]=0
@@ -161,6 +165,8 @@ declare -A operation_parameters_collection_type
 operation_parameters_collection_type["sendEmailSimple:::SendEmailOptions"]=""
 operation_parameters_collection_type["waitForLatestEmail:::inboxEmailAddress"]=""
 operation_parameters_collection_type["waitForLatestEmail:::inboxId"]=""
+operation_parameters_collection_type["waitForNthEmail:::inboxId"]=""
+operation_parameters_collection_type["waitForNthEmail:::index"]=""
 operation_parameters_collection_type["bulkCreateInboxes:::count"]=""
 operation_parameters_collection_type["bulkDeleteInboxes:::request_body"]=
 operation_parameters_collection_type["bulkSendEmails:::BulkSendEmailOptions"]=""
@@ -567,6 +573,7 @@ read -r -d '' ops <<EOF
   ${CYAN}createNewEmailAddress${OFF};Create new email address (AUTH)
   ${CYAN}sendEmailSimple${OFF};Send an email from a random email address (AUTH)
   ${CYAN}waitForLatestEmail${OFF};Fetch inbox's latest email or if empty wait for email to arrive (AUTH)
+  ${CYAN}waitForNthEmail${OFF};Wait for or fetch the email with a given index in the inbox specified (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -703,6 +710,31 @@ print_waitForLatestEmail_help() {
     echo -e "  * ${GREEN}inboxEmailAddress${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Email address of the inbox we are fetching emails from${YELLOW} Specify as: inboxEmailAddress=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for waitForNthEmail operation
+#
+##############################################################################
+print_waitForNthEmail_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitForNthEmail - Wait for or fetch the email with a given index in the inbox specified${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}index${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Zero based index of the email to wait for${YELLOW} Specify as: index=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1231,6 +1263,42 @@ call_waitForLatestEmail() {
     local path
 
     if ! path=$(build_request_path "/fetchLatestEmail" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call waitForNthEmail operation
+#
+##############################################################################
+call_waitForNthEmail() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(inboxId index  )
+    local path
+
+    if ! path=$(build_request_path "/waitForNthEmail" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2102,6 +2170,9 @@ case $key in
     waitForLatestEmail)
     operation="waitForLatestEmail"
     ;;
+    waitForNthEmail)
+    operation="waitForNthEmail"
+    ;;
     bulkCreateInboxes)
     operation="bulkCreateInboxes"
     ;;
@@ -2242,6 +2313,9 @@ case $operation in
     ;;
     waitForLatestEmail)
     call_waitForLatestEmail
+    ;;
+    waitForNthEmail)
+    call_waitForNthEmail
     ;;
     bulkCreateInboxes)
     call_bulkCreateInboxes

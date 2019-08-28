@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**createNewEmailAddress**](CommonOperationsApi.md#createNewEmailAddress) | **POST** /newEmailAddress | Create new email address
 [**sendEmailSimple**](CommonOperationsApi.md#sendEmailSimple) | **POST** /sendEmail | Send an email from a random email address
 [**waitForLatestEmail**](CommonOperationsApi.md#waitForLatestEmail) | **GET** /fetchLatestEmail | Fetch inbox&#39;s latest email or if empty wait for email to arrive
+[**waitForNthEmail**](CommonOperationsApi.md#waitForNthEmail) | **GET** /waitForNthEmail | Wait for or fetch the email with a given index in the inbox specified
 
 
 ## **createNewEmailAddress**
@@ -87,6 +88,37 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inboxEmailAddress** | **string** | Email address of the inbox we are fetching emails from | [optional] [default to null]
  **inboxId** | [**string**](.md) | Id of the inbox we are fetching emails from | [optional] [default to null]
+
+### Return type
+
+[**Email**](Email.md)
+
+### Authorization
+
+[API_KEY](../README.md#API_KEY)
+
+### HTTP request headers
+
+ - **Content-Type**: Not Applicable
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## **waitForNthEmail**
+
+Wait for or fetch the email with a given index in the inbox specified
+
+### Example
+```bash
+mailslurp waitForNthEmail  inboxId=value  index=value
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inboxId** | [**string**](.md) | Id of the inbox we are fetching emails from | [optional] [default to null]
+ **index** | **integer** | Zero based index of the email to wait for | [optional] [default to null]
 
 ### Return type
 

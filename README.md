@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *CommonOperationsApi* | [**createNewEmailAddress**](docs/CommonOperationsApi.md#createnewemailaddress) | **POST** /newEmailAddress | Create new email address
 *CommonOperationsApi* | [**sendEmailSimple**](docs/CommonOperationsApi.md#sendemailsimple) | **POST** /sendEmail | Send an email from a random email address
 *CommonOperationsApi* | [**waitForLatestEmail**](docs/CommonOperationsApi.md#waitforlatestemail) | **GET** /fetchLatestEmail | Fetch inbox&#39;s latest email or if empty wait for email to arrive
+*CommonOperationsApi* | [**waitForNthEmail**](docs/CommonOperationsApi.md#waitfornthemail) | **GET** /waitForNthEmail | Wait for or fetch the email with a given index in the inbox specified
 *ExtraOperationsApi* | [**bulkCreateInboxes**](docs/ExtraOperationsApi.md#bulkcreateinboxes) | **POST** /bulk/inboxes | Bulk create Inboxes (email addresses)
 *ExtraOperationsApi* | [**bulkDeleteInboxes**](docs/ExtraOperationsApi.md#bulkdeleteinboxes) | **DELETE** /bulk/inboxes | Bulk Delete Inboxes
 *ExtraOperationsApi* | [**bulkSendEmails**](docs/ExtraOperationsApi.md#bulksendemails) | **POST** /bulk/send | Bulk Send Emails

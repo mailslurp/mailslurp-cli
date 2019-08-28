@@ -298,7 +298,8 @@ case $state in
     _values "Operations" \
             "createNewEmailAddress[Create new email address]" \
             "sendEmailSimple[Send an email from a random email address]" \
-            "waitForLatestEmail[Fetch inbox's latest email or if empty wait for email to arrive]"             "bulkCreateInboxes[Bulk create Inboxes (email addresses)]" \
+            "waitForLatestEmail[Fetch inbox's latest email or if empty wait for email to arrive]" \
+            "waitForNthEmail[Wait for or fetch the email with a given index in the inbox specified]"             "bulkCreateInboxes[Bulk create Inboxes (email addresses)]" \
             "bulkDeleteInboxes[Bulk Delete Inboxes]" \
             "bulkSendEmails[Bulk Send Emails]" \
             "createInbox[Create an Inbox (email address)]" \
@@ -337,6 +338,14 @@ case $state in
         _op_arguments=(
                     "inboxEmailAddress=:[QUERY] Email address of the inbox we are fetching emails from"
 "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      waitForNthEmail)
+        local -a _op_arguments
+        _op_arguments=(
+                    "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"index=:[QUERY] Zero based index of the email to wait for"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
