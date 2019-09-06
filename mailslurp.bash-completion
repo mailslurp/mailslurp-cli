@@ -69,15 +69,20 @@ _mailslurp()
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
     operations["createNewEmailAddress"]=1
+    operations["deleteEmail"]=1
+    operations["deleteEmailAddress"]=1
+    operations["emptyInbox"]=1
     operations["sendEmailSimple"]=1
+    operations["waitForEmailCount"]=1
     operations["waitForLatestEmail"]=1
+    operations["waitForMatchingEmail"]=1
     operations["waitForNthEmail"]=1
     operations["bulkCreateInboxes"]=1
     operations["bulkDeleteInboxes"]=1
     operations["bulkSendEmails"]=1
     operations["createInbox"]=1
     operations["createWebhook"]=1
-    operations["deleteEmail"]=1
+    operations["deleteEmail1"]=1
     operations["deleteInbox"]=1
     operations["deleteWebhook"]=1
     operations["downloadAttachment"]=1
@@ -93,15 +98,20 @@ _mailslurp()
     # Only include path, query and header parameters
     declare -A operation_parameters
     operation_parameters["createNewEmailAddress"]=""
+    operation_parameters["deleteEmail"]="emailId= "
+    operation_parameters["deleteEmailAddress"]="inboxId= "
+    operation_parameters["emptyInbox"]="inboxId= "
     operation_parameters["sendEmailSimple"]=""
-    operation_parameters["waitForLatestEmail"]="inboxEmailAddress= inboxId= "
-    operation_parameters["waitForNthEmail"]="inboxId= index= "
+    operation_parameters["waitForEmailCount"]="count= inboxId= timeout= "
+    operation_parameters["waitForLatestEmail"]="inboxId= timeout= "
+    operation_parameters["waitForMatchingEmail"]="count= inboxId= timeout= "
+    operation_parameters["waitForNthEmail"]="inboxId= index= timeout= "
     operation_parameters["bulkCreateInboxes"]="count= "
     operation_parameters["bulkDeleteInboxes"]=""
     operation_parameters["bulkSendEmails"]=""
     operation_parameters["createInbox"]=""
     operation_parameters["createWebhook"]="inboxId= "
-    operation_parameters["deleteEmail"]="emailId= "
+    operation_parameters["deleteEmail1"]="emailId= "
     operation_parameters["deleteInbox"]="inboxId= "
     operation_parameters["deleteWebhook"]="inboxId= webhookId= "
     operation_parameters["downloadAttachment"]="attachmentId= emailId= "

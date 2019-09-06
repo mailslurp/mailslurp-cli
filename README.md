@@ -95,15 +95,20 @@ All URIs are relative to **
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CommonOperationsApi* | [**createNewEmailAddress**](docs/CommonOperationsApi.md#createnewemailaddress) | **POST** /newEmailAddress | Create new email address
+*CommonOperationsApi* | [**deleteEmail**](docs/CommonOperationsApi.md#deleteemail) | **DELETE** /deleteEmail | Delete an email
+*CommonOperationsApi* | [**deleteEmailAddress**](docs/CommonOperationsApi.md#deleteemailaddress) | **DELETE** /deleteEmailAddress | Delete email address and its emails
+*CommonOperationsApi* | [**emptyInbox**](docs/CommonOperationsApi.md#emptyinbox) | **DELETE** /emptyInbox | Delete all emails in an inbox
 *CommonOperationsApi* | [**sendEmailSimple**](docs/CommonOperationsApi.md#sendemailsimple) | **POST** /sendEmail | Send an email from a random email address
-*CommonOperationsApi* | [**waitForLatestEmail**](docs/CommonOperationsApi.md#waitforlatestemail) | **GET** /fetchLatestEmail | Fetch inbox&#39;s latest email or if empty wait for email to arrive
+*CommonOperationsApi* | [**waitForEmailCount**](docs/CommonOperationsApi.md#waitforemailcount) | **GET** /waitForEmailCount | Wait for and return count number of emails
+*CommonOperationsApi* | [**waitForLatestEmail**](docs/CommonOperationsApi.md#waitforlatestemail) | **GET** /waitForLatestEmail | Fetch inbox&#39;s latest email or if empty wait for email to arrive
+*CommonOperationsApi* | [**waitForMatchingEmail**](docs/CommonOperationsApi.md#waitformatchingemail) | **POST** /waitForMatchingEmails | Wait or return list of emails that match simple matching patterns
 *CommonOperationsApi* | [**waitForNthEmail**](docs/CommonOperationsApi.md#waitfornthemail) | **GET** /waitForNthEmail | Wait for or fetch the email with a given index in the inbox specified
 *ExtraOperationsApi* | [**bulkCreateInboxes**](docs/ExtraOperationsApi.md#bulkcreateinboxes) | **POST** /bulk/inboxes | Bulk create Inboxes (email addresses)
 *ExtraOperationsApi* | [**bulkDeleteInboxes**](docs/ExtraOperationsApi.md#bulkdeleteinboxes) | **DELETE** /bulk/inboxes | Bulk Delete Inboxes
 *ExtraOperationsApi* | [**bulkSendEmails**](docs/ExtraOperationsApi.md#bulksendemails) | **POST** /bulk/send | Bulk Send Emails
 *ExtraOperationsApi* | [**createInbox**](docs/ExtraOperationsApi.md#createinbox) | **POST** /inboxes | Create an Inbox (email address)
 *ExtraOperationsApi* | [**createWebhook**](docs/ExtraOperationsApi.md#createwebhook) | **POST** /inboxes/{inboxId}/webhooks | Attach a WebHook URL to an inbox
-*ExtraOperationsApi* | [**deleteEmail**](docs/ExtraOperationsApi.md#deleteemail) | **DELETE** /emails/{emailId} | Delete Email
+*ExtraOperationsApi* | [**deleteEmail1**](docs/ExtraOperationsApi.md#deleteemail1) | **DELETE** /emails/{emailId} | Delete Email
 *ExtraOperationsApi* | [**deleteInbox**](docs/ExtraOperationsApi.md#deleteinbox) | **DELETE** /inboxes/{inboxId} | Delete Inbox / Email Address
 *ExtraOperationsApi* | [**deleteWebhook**](docs/ExtraOperationsApi.md#deletewebhook) | **DELETE** /inboxes/{inboxId}/webhooks/{webhookId} | Delete and disable a WebHook for an Inbox
 *ExtraOperationsApi* | [**downloadAttachment**](docs/ExtraOperationsApi.md#downloadattachment) | **GET** /emails/{emailId}/attachments/{attachmentId} | Get email attachment
@@ -125,6 +130,8 @@ Class | Method | HTTP request | Description
  - [EmailAnalysis](docs/EmailAnalysis.md)
  - [EmailPreview](docs/EmailPreview.md)
  - [Inbox](docs/Inbox.md)
+ - [MatchOption](docs/MatchOption.md)
+ - [MatchOptions](docs/MatchOptions.md)
  - [SendEmailOptions](docs/SendEmailOptions.md)
  - [Webhook](docs/Webhook.md)
 
