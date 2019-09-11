@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+**array[string]**
 
 ### Authorization
 
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+**array[string]**
 
 ### Authorization
 
