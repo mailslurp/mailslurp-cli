@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**bulkSendEmails**](ExtraOperationsApi.md#bulkSendEmails) | **POST** /bulk/send | Bulk Send Emails
 [**createInbox**](ExtraOperationsApi.md#createInbox) | **POST** /inboxes | Create an Inbox (email address)
 [**createWebhook**](ExtraOperationsApi.md#createWebhook) | **POST** /inboxes/{inboxId}/webhooks | Attach a WebHook URL to an inbox
-[**deleteEmail**](ExtraOperationsApi.md#deleteEmail) | **DELETE** /emails/{emailId} | Delete Email
+[**deleteEmail1**](ExtraOperationsApi.md#deleteEmail1) | **DELETE** /emails/{emailId} | Delete Email
 [**deleteInbox**](ExtraOperationsApi.md#deleteInbox) | **DELETE** /inboxes/{inboxId} | Delete Inbox / Email Address
 [**deleteWebhook**](ExtraOperationsApi.md#deleteWebhook) | **DELETE** /inboxes/{inboxId}/webhooks/{webhookId} | Delete and disable a WebHook for an Inbox
 [**downloadAttachment**](ExtraOperationsApi.md#downloadAttachment) | **GET** /emails/{emailId}/attachments/{attachmentId} | Get email attachment
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**getRawEmailContents**](ExtraOperationsApi.md#getRawEmailContents) | **GET** /emails/{emailId}/raw | Get Raw Email Content
 [**getWebhooks**](ExtraOperationsApi.md#getWebhooks) | **GET** /inboxes/{inboxId}/webhooks | Get all WebHooks for an Inbox
 [**sendEmail**](ExtraOperationsApi.md#sendEmail) | **POST** /inboxes/{inboxId} | Send Email
+[**uploadAttachment**](ExtraOperationsApi.md#uploadAttachment) | **POST** /attachments | Upload an attachment for sending
+[**uploadMultipartForm**](ExtraOperationsApi.md#uploadMultipartForm) | **POST** /attachments/multipart | Upload an attachment for sending using Multipart Form
 
 
 ## **bulkCreateInboxes**
@@ -180,7 +182,7 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-## **deleteEmail**
+## **deleteEmail1**
 
 Delete Email
 
@@ -188,7 +190,7 @@ Deletes an email and removes it from the inbox
 
 ### Example
 ```bash
-mailslurp deleteEmail emailId=value
+mailslurp deleteEmail1 emailId=value
 ```
 
 ### Parameters
@@ -529,6 +531,72 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: Not Applicable
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## **uploadAttachment**
+
+Upload an attachment for sending
+
+When sending emails with attachments first upload each attachment with this endpoint. Record the returned attachment IDs. Then use these attachment IDs in the SendEmailOptions when sending an email. This means that attachments can easily be reused.
+
+### Example
+```bash
+mailslurp uploadAttachment
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uploadAttachmentOptions** | [**UploadAttachmentOptions**](UploadAttachmentOptions.md) | uploadOptions |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[API_KEY](../README.md#API_KEY)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+## **uploadMultipartForm**
+
+Upload an attachment for sending using Multipart Form
+
+When sending emails with attachments first upload each attachment with this endpoint. Record the returned attachment IDs. Then use these attachment IDs in the SendEmailOptions when sending an email. This means that attachments can easily be reused.
+
+### Example
+```bash
+mailslurp uploadMultipartForm  contentType=value  filename=value
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **binary** | file | [default to null]
+ **contentType** | **string** | contentType | [optional] [default to null]
+ **filename** | **string** | filename | [optional] [default to null]
+
+### Return type
+
+**string**
+
+### Authorization
+
+[API_KEY](../README.md#API_KEY)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -95,18 +95,28 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
+operation_parameters_minimum_occurrences["deleteEmail:::emailId"]=1
 operation_parameters_minimum_occurrences["deleteEmailAddress:::inboxId"]=1
+operation_parameters_minimum_occurrences["emptyInbox:::inboxId"]=1
 operation_parameters_minimum_occurrences["sendEmailSimple:::SendEmailOptions"]=1
-operation_parameters_minimum_occurrences["waitForLatestEmail:::inboxEmailAddress"]=0
+operation_parameters_minimum_occurrences["waitForEmailCount:::count"]=0
+operation_parameters_minimum_occurrences["waitForEmailCount:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForEmailCount:::timeout"]=0
 operation_parameters_minimum_occurrences["waitForLatestEmail:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForLatestEmail:::timeout"]=0
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::MatchOptions"]=1
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::count"]=0
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::timeout"]=0
 operation_parameters_minimum_occurrences["waitForNthEmail:::inboxId"]=0
 operation_parameters_minimum_occurrences["waitForNthEmail:::index"]=0
+operation_parameters_minimum_occurrences["waitForNthEmail:::timeout"]=0
 operation_parameters_minimum_occurrences["bulkCreateInboxes:::count"]=1
 operation_parameters_minimum_occurrences["bulkDeleteInboxes:::request_body"]=1
 operation_parameters_minimum_occurrences["bulkSendEmails:::BulkSendEmailOptions"]=1
 operation_parameters_minimum_occurrences["createWebhook:::inboxId"]=1
 operation_parameters_minimum_occurrences["createWebhook:::CreateWebhookOptions"]=1
-operation_parameters_minimum_occurrences["deleteEmail:::emailId"]=1
+operation_parameters_minimum_occurrences["deleteEmail1:::emailId"]=1
 operation_parameters_minimum_occurrences["deleteInbox:::inboxId"]=1
 operation_parameters_minimum_occurrences["deleteWebhook:::inboxId"]=1
 operation_parameters_minimum_occurrences["deleteWebhook:::webhookId"]=1
@@ -123,6 +133,10 @@ operation_parameters_minimum_occurrences["getRawEmailContents:::emailId"]=1
 operation_parameters_minimum_occurrences["getWebhooks:::inboxId"]=1
 operation_parameters_minimum_occurrences["sendEmail:::inboxId"]=1
 operation_parameters_minimum_occurrences["sendEmail:::SendEmailOptions"]=1
+operation_parameters_minimum_occurrences["uploadAttachment:::UploadAttachmentOptions"]=1
+operation_parameters_minimum_occurrences["uploadMultipartForm:::file"]=1
+operation_parameters_minimum_occurrences["uploadMultipartForm:::contentType"]=0
+operation_parameters_minimum_occurrences["uploadMultipartForm:::filename"]=0
 
 ##
 # This array stores the maximum number of allowed occurrences for parameter
@@ -131,18 +145,28 @@ operation_parameters_minimum_occurrences["sendEmail:::SendEmailOptions"]=1
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
+operation_parameters_maximum_occurrences["deleteEmail:::emailId"]=0
 operation_parameters_maximum_occurrences["deleteEmailAddress:::inboxId"]=0
+operation_parameters_maximum_occurrences["emptyInbox:::inboxId"]=0
 operation_parameters_maximum_occurrences["sendEmailSimple:::SendEmailOptions"]=0
-operation_parameters_maximum_occurrences["waitForLatestEmail:::inboxEmailAddress"]=0
+operation_parameters_maximum_occurrences["waitForEmailCount:::count"]=0
+operation_parameters_maximum_occurrences["waitForEmailCount:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForEmailCount:::timeout"]=0
 operation_parameters_maximum_occurrences["waitForLatestEmail:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForLatestEmail:::timeout"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::MatchOptions"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::count"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::timeout"]=0
 operation_parameters_maximum_occurrences["waitForNthEmail:::inboxId"]=0
 operation_parameters_maximum_occurrences["waitForNthEmail:::index"]=0
+operation_parameters_maximum_occurrences["waitForNthEmail:::timeout"]=0
 operation_parameters_maximum_occurrences["bulkCreateInboxes:::count"]=0
 operation_parameters_maximum_occurrences["bulkDeleteInboxes:::request_body"]=0
 operation_parameters_maximum_occurrences["bulkSendEmails:::BulkSendEmailOptions"]=0
 operation_parameters_maximum_occurrences["createWebhook:::inboxId"]=0
 operation_parameters_maximum_occurrences["createWebhook:::CreateWebhookOptions"]=0
-operation_parameters_maximum_occurrences["deleteEmail:::emailId"]=0
+operation_parameters_maximum_occurrences["deleteEmail1:::emailId"]=0
 operation_parameters_maximum_occurrences["deleteInbox:::inboxId"]=0
 operation_parameters_maximum_occurrences["deleteWebhook:::inboxId"]=0
 operation_parameters_maximum_occurrences["deleteWebhook:::webhookId"]=0
@@ -159,23 +183,37 @@ operation_parameters_maximum_occurrences["getRawEmailContents:::emailId"]=0
 operation_parameters_maximum_occurrences["getWebhooks:::inboxId"]=0
 operation_parameters_maximum_occurrences["sendEmail:::inboxId"]=0
 operation_parameters_maximum_occurrences["sendEmail:::SendEmailOptions"]=0
+operation_parameters_maximum_occurrences["uploadAttachment:::UploadAttachmentOptions"]=0
+operation_parameters_maximum_occurrences["uploadMultipartForm:::file"]=0
+operation_parameters_maximum_occurrences["uploadMultipartForm:::contentType"]=0
+operation_parameters_maximum_occurrences["uploadMultipartForm:::filename"]=0
 
 ##
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
+operation_parameters_collection_type["deleteEmail:::emailId"]=""
 operation_parameters_collection_type["deleteEmailAddress:::inboxId"]=""
+operation_parameters_collection_type["emptyInbox:::inboxId"]=""
 operation_parameters_collection_type["sendEmailSimple:::SendEmailOptions"]=""
-operation_parameters_collection_type["waitForLatestEmail:::inboxEmailAddress"]=""
+operation_parameters_collection_type["waitForEmailCount:::count"]=""
+operation_parameters_collection_type["waitForEmailCount:::inboxId"]=""
+operation_parameters_collection_type["waitForEmailCount:::timeout"]=""
 operation_parameters_collection_type["waitForLatestEmail:::inboxId"]=""
+operation_parameters_collection_type["waitForLatestEmail:::timeout"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::MatchOptions"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::count"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::inboxId"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::timeout"]=""
 operation_parameters_collection_type["waitForNthEmail:::inboxId"]=""
 operation_parameters_collection_type["waitForNthEmail:::index"]=""
+operation_parameters_collection_type["waitForNthEmail:::timeout"]=""
 operation_parameters_collection_type["bulkCreateInboxes:::count"]=""
 operation_parameters_collection_type["bulkDeleteInboxes:::request_body"]=
 operation_parameters_collection_type["bulkSendEmails:::BulkSendEmailOptions"]=""
 operation_parameters_collection_type["createWebhook:::inboxId"]=""
 operation_parameters_collection_type["createWebhook:::CreateWebhookOptions"]=""
-operation_parameters_collection_type["deleteEmail:::emailId"]=""
+operation_parameters_collection_type["deleteEmail1:::emailId"]=""
 operation_parameters_collection_type["deleteInbox:::inboxId"]=""
 operation_parameters_collection_type["deleteWebhook:::inboxId"]=""
 operation_parameters_collection_type["deleteWebhook:::webhookId"]=""
@@ -192,6 +230,10 @@ operation_parameters_collection_type["getRawEmailContents:::emailId"]=""
 operation_parameters_collection_type["getWebhooks:::inboxId"]=""
 operation_parameters_collection_type["sendEmail:::inboxId"]=""
 operation_parameters_collection_type["sendEmail:::SendEmailOptions"]=""
+operation_parameters_collection_type["uploadAttachment:::UploadAttachmentOptions"]=""
+operation_parameters_collection_type["uploadMultipartForm:::file"]=""
+operation_parameters_collection_type["uploadMultipartForm:::contentType"]=""
+operation_parameters_collection_type["uploadMultipartForm:::filename"]=""
 
 
 ##
@@ -574,9 +616,13 @@ EOF
     echo -e "${BOLD}${WHITE}[commonOperations]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}createNewEmailAddress${OFF};Create new email address (AUTH)
+  ${CYAN}deleteEmail${OFF};Delete an email (AUTH)
   ${CYAN}deleteEmailAddress${OFF};Delete email address and its emails (AUTH)
+  ${CYAN}emptyInbox${OFF};Delete all emails in an inbox (AUTH)
   ${CYAN}sendEmailSimple${OFF};Send an email from a random email address (AUTH)
+  ${CYAN}waitForEmailCount${OFF};Wait for and return count number of emails (AUTH)
   ${CYAN}waitForLatestEmail${OFF};Fetch inbox's latest email or if empty wait for email to arrive (AUTH)
+  ${CYAN}waitForMatchingEmail${OFF};Wait or return list of emails that match simple matching patterns (AUTH)
   ${CYAN}waitForNthEmail${OFF};Wait for or fetch the email with a given index in the inbox specified (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
@@ -588,7 +634,7 @@ read -r -d '' ops <<EOF
   ${CYAN}bulkSendEmails${OFF};Bulk Send Emails (AUTH)
   ${CYAN}createInbox${OFF};Create an Inbox (email address) (AUTH)
   ${CYAN}createWebhook${OFF};Attach a WebHook URL to an inbox (AUTH)
-  ${CYAN}deleteEmail${OFF};Delete Email (AUTH)
+  ${CYAN}deleteEmail1${OFF};Delete Email (AUTH)
   ${CYAN}deleteInbox${OFF};Delete Inbox / Email Address (AUTH)
   ${CYAN}deleteWebhook${OFF};Delete and disable a WebHook for an Inbox (AUTH)
   ${CYAN}downloadAttachment${OFF};Get email attachment (AUTH)
@@ -599,6 +645,8 @@ read -r -d '' ops <<EOF
   ${CYAN}getRawEmailContents${OFF};Get Raw Email Content (AUTH)
   ${CYAN}getWebhooks${OFF};Get all WebHooks for an Inbox (AUTH)
   ${CYAN}sendEmail${OFF};Send Email (AUTH)
+  ${CYAN}uploadAttachment${OFF};Upload an attachment for sending (AUTH)
+  ${CYAN}uploadMultipartForm${OFF};Upload an attachment for sending using Multipart Form (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -676,6 +724,31 @@ print_createNewEmailAddress_help() {
 }
 ##############################################################################
 #
+# Print help for deleteEmail operation
+#
+##############################################################################
+print_deleteEmail_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}deleteEmail - Delete an email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Deletes an email" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId${YELLOW} Specify as: emailId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=204
+    echo -e "${result_color_table[${code:0:1}]}  204;No Content${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=410
+    echo -e "${result_color_table[${code:0:1}]}  410;Gone${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
 # Print help for deleteEmailAddress operation
 #
 ##############################################################################
@@ -684,6 +757,31 @@ print_deleteEmailAddress_help() {
     echo -e "${BOLD}${WHITE}deleteEmailAddress - Delete email address and its emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Deletes an inbox" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - inboxId${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=204
+    echo -e "${result_color_table[${code:0:1}]}  204;No Content${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=410
+    echo -e "${result_color_table[${code:0:1}]}  410;Gone${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for emptyInbox operation
+#
+##############################################################################
+print_emptyInbox_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}emptyInbox - Delete all emails in an inbox${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Deletes all emails" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - inboxId${YELLOW} Specify as: inboxId=value${OFF}" \
@@ -726,6 +824,35 @@ print_sendEmailSimple_help() {
 }
 ##############################################################################
 #
+# Print help for waitForEmailCount operation
+#
+##############################################################################
+print_waitForEmailCount_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitForEmailCount - Wait for and return count number of emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Will only wait if count is greater that the found emails in given inbox.If you need to wait for an email for a non-empty inbox see the other receive methods." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}count${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of emails to wait for. Must be greater that 1${YELLOW} Specify as: count=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
 # Print help for waitForLatestEmail operation
 #
 ##############################################################################
@@ -736,14 +863,47 @@ print_waitForLatestEmail_help() {
     echo -e "Will return either the last received email or wait for an email to arrive and return that. If you need to wait for an email for a non-empty inbox see the other receive methods." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}inboxEmailAddress${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Email address of the inbox we are fetching emails from${YELLOW} Specify as: inboxEmailAddress=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
     echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for waitForMatchingEmail operation
+#
+##############################################################################
+print_waitForMatchingEmail_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitForMatchingEmail - Wait or return list of emails that match simple matching patterns${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Results must also meet provided count. Match options allow simple CONTAINS or EQUALS filtering on SUBJECT, TO, BCC, CC, and FROM." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}count${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of emails to wait for. Must be greater that 1${YELLOW} Specify as: count=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - matchOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=401
     echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=403
@@ -764,6 +924,8 @@ print_waitForNthEmail_help() {
     echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}index${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Zero based index of the email to wait for${YELLOW} Specify as: index=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -899,12 +1061,12 @@ print_createWebhook_help() {
 }
 ##############################################################################
 #
-# Print help for deleteEmail operation
+# Print help for deleteEmail1 operation
 #
 ##############################################################################
-print_deleteEmail_help() {
+print_deleteEmail1_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}deleteEmail - Delete Email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}deleteEmail1 - Delete Email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Deletes an email and removes it from the inbox" | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -1161,6 +1323,58 @@ print_sendEmail_help() {
     code=404
     echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
+##############################################################################
+#
+# Print help for uploadAttachment operation
+#
+##############################################################################
+print_uploadAttachment_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}uploadAttachment - Upload an attachment for sending${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "When sending emails with attachments first upload each attachment with this endpoint. Record the returned attachment IDs. Then use these attachment IDs in the SendEmailOptions when sending an email. This means that attachments can easily be reused." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - uploadOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for uploadMultipartForm operation
+#
+##############################################################################
+print_uploadMultipartForm_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}uploadMultipartForm - Upload an attachment for sending using Multipart Form${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "When sending emails with attachments first upload each attachment with this endpoint. Record the returned attachment IDs. Then use these attachment IDs in the SendEmailOptions when sending an email. This means that attachments can easily be reused." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}contentType${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - contentType${YELLOW} Specify as: contentType=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}filename${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - filename${YELLOW} Specify as: filename=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
 
 
 ##############################################################################
@@ -1201,6 +1415,42 @@ call_createNewEmailAddress() {
 
 ##############################################################################
 #
+# Call deleteEmail operation
+#
+##############################################################################
+call_deleteEmail() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(emailId  )
+    local path
+
+    if ! path=$(build_request_path "/deleteEmail" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="DELETE"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
 # Call deleteEmailAddress operation
 #
 ##############################################################################
@@ -1214,6 +1464,42 @@ call_deleteEmailAddress() {
     local path
 
     if ! path=$(build_request_path "/deleteEmailAddress" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="DELETE"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call emptyInbox operation
+#
+##############################################################################
+call_emptyInbox() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(inboxId  )
+    local path
+
+    if ! path=$(build_request_path "/emptyInbox" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1315,19 +1601,19 @@ call_sendEmailSimple() {
 
 ##############################################################################
 #
-# Call waitForLatestEmail operation
+# Call waitForEmailCount operation
 #
 ##############################################################################
-call_waitForLatestEmail() {
+call_waitForEmailCount() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(inboxEmailAddress inboxId  )
+    local query_parameter_names=(count inboxId timeout  )
     local path
 
-    if ! path=$(build_request_path "/fetchLatestEmail" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/waitForEmailCount" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1351,6 +1637,120 @@ call_waitForLatestEmail() {
 
 ##############################################################################
 #
+# Call waitForLatestEmail operation
+#
+##############################################################################
+call_waitForLatestEmail() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(inboxId timeout  )
+    local path
+
+    if ! path=$(build_request_path "/waitForLatestEmail" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call waitForMatchingEmail operation
+#
+##############################################################################
+call_waitForMatchingEmail() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(count inboxId timeout  )
+    local path
+
+    if ! path=$(build_request_path "/waitForMatchingEmails" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
 # Call waitForNthEmail operation
 #
 ##############################################################################
@@ -1360,7 +1760,7 @@ call_waitForNthEmail() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(inboxId index  )
+    local query_parameter_names=(inboxId index timeout  )
     local path
 
     if ! path=$(build_request_path "/waitForNthEmail" path_parameter_names query_parameter_names); then
@@ -1693,10 +2093,10 @@ call_createWebhook() {
 
 ##############################################################################
 #
-# Call deleteEmail operation
+# Call deleteEmail1 operation
 #
 ##############################################################################
-call_deleteEmail() {
+call_deleteEmail1() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(emailId)
@@ -2129,6 +2529,120 @@ call_sendEmail() {
     fi
 }
 
+##############################################################################
+#
+# Call uploadAttachment operation
+#
+##############################################################################
+call_uploadAttachment() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/attachments" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call uploadMultipartForm operation
+#
+##############################################################################
+call_uploadMultipartForm() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(contentType filename  )
+    local path
+
+    if ! path=$(build_request_path "/attachments/multipart" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
 
 
 ##############################################################################
@@ -2229,14 +2743,26 @@ case $key in
     createNewEmailAddress)
     operation="createNewEmailAddress"
     ;;
+    deleteEmail)
+    operation="deleteEmail"
+    ;;
     deleteEmailAddress)
     operation="deleteEmailAddress"
+    ;;
+    emptyInbox)
+    operation="emptyInbox"
     ;;
     sendEmailSimple)
     operation="sendEmailSimple"
     ;;
+    waitForEmailCount)
+    operation="waitForEmailCount"
+    ;;
     waitForLatestEmail)
     operation="waitForLatestEmail"
+    ;;
+    waitForMatchingEmail)
+    operation="waitForMatchingEmail"
     ;;
     waitForNthEmail)
     operation="waitForNthEmail"
@@ -2256,8 +2782,8 @@ case $key in
     createWebhook)
     operation="createWebhook"
     ;;
-    deleteEmail)
-    operation="deleteEmail"
+    deleteEmail1)
+    operation="deleteEmail1"
     ;;
     deleteInbox)
     operation="deleteInbox"
@@ -2288,6 +2814,12 @@ case $key in
     ;;
     sendEmail)
     operation="sendEmail"
+    ;;
+    uploadAttachment)
+    operation="uploadAttachment"
+    ;;
+    uploadMultipartForm)
+    operation="uploadMultipartForm"
     ;;
     *==*)
     # Parse body arguments and convert them into top level
@@ -2376,14 +2908,26 @@ case $operation in
     createNewEmailAddress)
     call_createNewEmailAddress
     ;;
+    deleteEmail)
+    call_deleteEmail
+    ;;
     deleteEmailAddress)
     call_deleteEmailAddress
+    ;;
+    emptyInbox)
+    call_emptyInbox
     ;;
     sendEmailSimple)
     call_sendEmailSimple
     ;;
+    waitForEmailCount)
+    call_waitForEmailCount
+    ;;
     waitForLatestEmail)
     call_waitForLatestEmail
+    ;;
+    waitForMatchingEmail)
+    call_waitForMatchingEmail
     ;;
     waitForNthEmail)
     call_waitForNthEmail
@@ -2403,8 +2947,8 @@ case $operation in
     createWebhook)
     call_createWebhook
     ;;
-    deleteEmail)
-    call_deleteEmail
+    deleteEmail1)
+    call_deleteEmail1
     ;;
     deleteInbox)
     call_deleteInbox
@@ -2435,6 +2979,12 @@ case $operation in
     ;;
     sendEmail)
     call_sendEmail
+    ;;
+    uploadAttachment)
+    call_uploadAttachment
+    ;;
+    uploadMultipartForm)
+    call_uploadMultipartForm
     ;;
     *)
     ERROR_MSG="ERROR: Unknown operation: $operation"

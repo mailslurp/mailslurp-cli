@@ -297,15 +297,19 @@ case $state in
     # Operations
     _values "Operations" \
             "createNewEmailAddress[Create new email address]" \
+            "deleteEmail[Delete an email]" \
             "deleteEmailAddress[Delete email address and its emails]" \
+            "emptyInbox[Delete all emails in an inbox]" \
             "sendEmailSimple[Send an email from a random email address]" \
+            "waitForEmailCount[Wait for and return count number of emails]" \
             "waitForLatestEmail[Fetch inbox's latest email or if empty wait for email to arrive]" \
+            "waitForMatchingEmail[Wait or return list of emails that match simple matching patterns]" \
             "waitForNthEmail[Wait for or fetch the email with a given index in the inbox specified]"             "bulkCreateInboxes[Bulk create Inboxes (email addresses)]" \
             "bulkDeleteInboxes[Bulk Delete Inboxes]" \
             "bulkSendEmails[Bulk Send Emails]" \
             "createInbox[Create an Inbox (email address)]" \
             "createWebhook[Attach a WebHook URL to an inbox]" \
-            "deleteEmail[Delete Email]" \
+            "deleteEmail1[Delete Email]" \
             "deleteInbox[Delete Inbox / Email Address]" \
             "deleteWebhook[Delete and disable a WebHook for an Inbox]" \
             "downloadAttachment[Get email attachment]" \
@@ -315,7 +319,9 @@ case $state in
             "getInboxes[List Inboxes / Email Addresses]" \
             "getRawEmailContents[Get Raw Email Content]" \
             "getWebhooks[Get all WebHooks for an Inbox]" \
-            "sendEmail[Send Email]" 
+            "sendEmail[Send Email]" \
+            "uploadAttachment[Upload an attachment for sending]" \
+            "uploadMultipartForm[Upload an attachment for sending using Multipart Form]" 
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
@@ -328,7 +334,21 @@ case $state in
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      deleteEmail)
+        local -a _op_arguments
+        _op_arguments=(
+                    "emailId=:[QUERY] emailId"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       deleteEmailAddress)
+        local -a _op_arguments
+        _op_arguments=(
+                    "inboxId=:[QUERY] inboxId"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      emptyInbox)
         local -a _op_arguments
         _op_arguments=(
                     "inboxId=:[QUERY] inboxId"
@@ -341,11 +361,29 @@ case $state in
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      waitForEmailCount)
+        local -a _op_arguments
+        _op_arguments=(
+                    "count=:[QUERY] Number of emails to wait for. Must be greater that 1"
+"inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"timeout=:[QUERY] Max milliseconds to wait"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       waitForLatestEmail)
         local -a _op_arguments
         _op_arguments=(
-                    "inboxEmailAddress=:[QUERY] Email address of the inbox we are fetching emails from"
+                    "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"timeout=:[QUERY] Max milliseconds to wait"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      waitForMatchingEmail)
+        local -a _op_arguments
+        _op_arguments=(
+                    "count=:[QUERY] Number of emails to wait for. Must be greater that 1"
 "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"timeout=:[QUERY] Max milliseconds to wait"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -354,6 +392,7 @@ case $state in
         _op_arguments=(
                     "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
 "index=:[QUERY] Zero based index of the email to wait for"
+"timeout=:[QUERY] Max milliseconds to wait"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -389,7 +428,7 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      deleteEmail)
+      deleteEmail1)
         local -a _op_arguments
         _op_arguments=(
           "emailId=:[PATH] emailId"
@@ -469,6 +508,20 @@ case $state in
         _op_arguments=(
           "inboxId=:[PATH] inboxId"
                     )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      uploadAttachment)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      uploadMultipartForm)
+        local -a _op_arguments
+        _op_arguments=(
+                    "contentType=:[QUERY] contentType"
+"filename=:[QUERY] filename"
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
     esac

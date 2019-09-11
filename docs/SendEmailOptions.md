@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**attachments** | **array[string]** |  | [optional] [default to null]
 **bcc** | **array[string]** |  | [optional] [default to null]
 **body** | **string** |  | [optional] [default to null]
 **cc** | **array[string]** |  | [optional] [default to null]
