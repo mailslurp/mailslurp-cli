@@ -86,6 +86,7 @@ _mailslurp()
     operations["deleteInbox"]=1
     operations["deleteWebhook"]=1
     operations["downloadAttachment"]=1
+    operations["forwardEmail"]=1
     operations["getEmail"]=1
     operations["getEmails"]=1
     operations["getInbox"]=1
@@ -117,6 +118,7 @@ _mailslurp()
     operation_parameters["deleteInbox"]="inboxId= "
     operation_parameters["deleteWebhook"]="inboxId= webhookId= "
     operation_parameters["downloadAttachment"]="attachmentId= emailId= "
+    operation_parameters["forwardEmail"]="emailId= "
     operation_parameters["getEmail"]="emailId= "
     operation_parameters["getEmails"]="inboxId= limit= minCount= retryTimeout= since= "
     operation_parameters["getInbox"]="inboxId= "

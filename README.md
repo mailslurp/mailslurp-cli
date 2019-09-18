@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *ExtraOperationsApi* | [**deleteInbox**](docs/ExtraOperationsApi.md#deleteinbox) | **DELETE** /inboxes/{inboxId} | Delete Inbox / Email Address
 *ExtraOperationsApi* | [**deleteWebhook**](docs/ExtraOperationsApi.md#deletewebhook) | **DELETE** /inboxes/{inboxId}/webhooks/{webhookId} | Delete and disable a WebHook for an Inbox
 *ExtraOperationsApi* | [**downloadAttachment**](docs/ExtraOperationsApi.md#downloadattachment) | **GET** /emails/{emailId}/attachments/{attachmentId} | Get email attachment
+*ExtraOperationsApi* | [**forwardEmail**](docs/ExtraOperationsApi.md#forwardemail) | **POST** /emails/{emailId}/forward | Forward Email
 *ExtraOperationsApi* | [**getEmail**](docs/ExtraOperationsApi.md#getemail) | **GET** /emails/{emailId} | Get Email Content
 *ExtraOperationsApi* | [**getEmails**](docs/ExtraOperationsApi.md#getemails) | **GET** /inboxes/{inboxId}/emails | List Emails in an Inbox / EmailAddress
 *ExtraOperationsApi* | [**getInbox**](docs/ExtraOperationsApi.md#getinbox) | **GET** /inboxes/{inboxId} | Get Inbox / EmailAddress
@@ -131,6 +132,7 @@ Class | Method | HTTP request | Description
  - [Email](docs/Email.md)
  - [EmailAnalysis](docs/EmailAnalysis.md)
  - [EmailPreview](docs/EmailPreview.md)
+ - [ForwardEmailOptions](docs/ForwardEmailOptions.md)
  - [Inbox](docs/Inbox.md)
  - [MatchOption](docs/MatchOption.md)
  - [MatchOptions](docs/MatchOptions.md)

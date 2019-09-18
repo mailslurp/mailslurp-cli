@@ -313,6 +313,7 @@ case $state in
             "deleteInbox[Delete Inbox / Email Address]" \
             "deleteWebhook[Delete and disable a WebHook for an Inbox]" \
             "downloadAttachment[Get email attachment]" \
+            "forwardEmail[Forward Email]" \
             "getEmail[Get Email Content]" \
             "getEmails[List Emails in an Inbox / EmailAddress]" \
             "getInbox[Get Inbox / EmailAddress]" \
@@ -455,6 +456,13 @@ case $state in
         _op_arguments=(
           "attachmentId=:[PATH] attachmentId"
 "emailId=:[PATH] emailId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      forwardEmail)
+        local -a _op_arguments
+        _op_arguments=(
+          "emailId=:[PATH] emailId"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
