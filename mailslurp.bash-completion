@@ -80,13 +80,17 @@ _mailslurp()
     operations["bulkCreateInboxes"]=1
     operations["bulkDeleteInboxes"]=1
     operations["bulkSendEmails"]=1
+    operations["createDomain"]=1
     operations["createInbox"]=1
     operations["createWebhook"]=1
+    operations["deleteDomain"]=1
     operations["deleteEmail1"]=1
     operations["deleteInbox"]=1
     operations["deleteWebhook"]=1
     operations["downloadAttachment"]=1
     operations["forwardEmail"]=1
+    operations["getDomain"]=1
+    operations["getDomains"]=1
     operations["getEmail"]=1
     operations["getEmails"]=1
     operations["getInbox"]=1
@@ -112,13 +116,17 @@ _mailslurp()
     operation_parameters["bulkCreateInboxes"]="count= "
     operation_parameters["bulkDeleteInboxes"]=""
     operation_parameters["bulkSendEmails"]=""
-    operation_parameters["createInbox"]=""
+    operation_parameters["createDomain"]=""
+    operation_parameters["createInbox"]="emailAddress= "
     operation_parameters["createWebhook"]="inboxId= "
+    operation_parameters["deleteDomain"]="id= "
     operation_parameters["deleteEmail1"]="emailId= "
     operation_parameters["deleteInbox"]="inboxId= "
     operation_parameters["deleteWebhook"]="inboxId= webhookId= "
     operation_parameters["downloadAttachment"]="attachmentId= emailId= "
     operation_parameters["forwardEmail"]="emailId= "
+    operation_parameters["getDomain"]="id= "
+    operation_parameters["getDomains"]=""
     operation_parameters["getEmail"]="emailId= "
     operation_parameters["getEmails"]="inboxId= limit= minCount= retryTimeout= since= "
     operation_parameters["getInbox"]="inboxId= "

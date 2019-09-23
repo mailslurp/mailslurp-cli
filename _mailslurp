@@ -307,13 +307,17 @@ case $state in
             "waitForNthEmail[Wait for or fetch the email with a given index in the inbox specified]"             "bulkCreateInboxes[Bulk create Inboxes (email addresses)]" \
             "bulkDeleteInboxes[Bulk Delete Inboxes]" \
             "bulkSendEmails[Bulk Send Emails]" \
+            "createDomain[Create Domain]" \
             "createInbox[Create an Inbox (email address)]" \
             "createWebhook[Attach a WebHook URL to an inbox]" \
+            "deleteDomain[Delete a domain]" \
             "deleteEmail1[Delete Email]" \
             "deleteInbox[Delete Inbox / Email Address]" \
             "deleteWebhook[Delete and disable a WebHook for an Inbox]" \
             "downloadAttachment[Get email attachment]" \
             "forwardEmail[Forward Email]" \
+            "getDomain[Get a domain]" \
+            "getDomains[Get domains]" \
             "getEmail[Get Email Content]" \
             "getEmails[List Emails in an Inbox / EmailAddress]" \
             "getInbox[Get Inbox / EmailAddress]" \
@@ -416,16 +420,30 @@ case $state in
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      createInbox)
+      createDomain)
         local -a _op_arguments
         _op_arguments=(
                               )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createInbox)
+        local -a _op_arguments
+        _op_arguments=(
+                    "emailAddress=:[QUERY] Optional email address including domain you wish inbox to use (eg: test123@mydomain.com). Only supports domains that you have registered and verified with MailSlurp using dashboard or &#39;createDomain&#39; method."
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       createWebhook)
         local -a _op_arguments
         _op_arguments=(
           "inboxId=:[PATH] inboxId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteDomain)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] id"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -464,6 +482,19 @@ case $state in
         _op_arguments=(
           "emailId=:[PATH] emailId"
                     )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getDomain)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getDomains)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getEmail)

@@ -106,13 +106,17 @@ Class | Method | HTTP request | Description
 *ExtraOperationsApi* | [**bulkCreateInboxes**](docs/ExtraOperationsApi.md#bulkcreateinboxes) | **POST** /bulk/inboxes | Bulk create Inboxes (email addresses)
 *ExtraOperationsApi* | [**bulkDeleteInboxes**](docs/ExtraOperationsApi.md#bulkdeleteinboxes) | **DELETE** /bulk/inboxes | Bulk Delete Inboxes
 *ExtraOperationsApi* | [**bulkSendEmails**](docs/ExtraOperationsApi.md#bulksendemails) | **POST** /bulk/send | Bulk Send Emails
+*ExtraOperationsApi* | [**createDomain**](docs/ExtraOperationsApi.md#createdomain) | **POST** /domains | Create Domain
 *ExtraOperationsApi* | [**createInbox**](docs/ExtraOperationsApi.md#createinbox) | **POST** /inboxes | Create an Inbox (email address)
 *ExtraOperationsApi* | [**createWebhook**](docs/ExtraOperationsApi.md#createwebhook) | **POST** /inboxes/{inboxId}/webhooks | Attach a WebHook URL to an inbox
+*ExtraOperationsApi* | [**deleteDomain**](docs/ExtraOperationsApi.md#deletedomain) | **DELETE** /domains/{id} | Delete a domain
 *ExtraOperationsApi* | [**deleteEmail1**](docs/ExtraOperationsApi.md#deleteemail1) | **DELETE** /emails/{emailId} | Delete Email
 *ExtraOperationsApi* | [**deleteInbox**](docs/ExtraOperationsApi.md#deleteinbox) | **DELETE** /inboxes/{inboxId} | Delete Inbox / Email Address
 *ExtraOperationsApi* | [**deleteWebhook**](docs/ExtraOperationsApi.md#deletewebhook) | **DELETE** /inboxes/{inboxId}/webhooks/{webhookId} | Delete and disable a WebHook for an Inbox
 *ExtraOperationsApi* | [**downloadAttachment**](docs/ExtraOperationsApi.md#downloadattachment) | **GET** /emails/{emailId}/attachments/{attachmentId} | Get email attachment
 *ExtraOperationsApi* | [**forwardEmail**](docs/ExtraOperationsApi.md#forwardemail) | **POST** /emails/{emailId}/forward | Forward Email
+*ExtraOperationsApi* | [**getDomain**](docs/ExtraOperationsApi.md#getdomain) | **GET** /domains/{id} | Get a domain
+*ExtraOperationsApi* | [**getDomains**](docs/ExtraOperationsApi.md#getdomains) | **GET** /domains | Get domains
 *ExtraOperationsApi* | [**getEmail**](docs/ExtraOperationsApi.md#getemail) | **GET** /emails/{emailId} | Get Email Content
 *ExtraOperationsApi* | [**getEmails**](docs/ExtraOperationsApi.md#getemails) | **GET** /inboxes/{inboxId}/emails | List Emails in an Inbox / EmailAddress
 *ExtraOperationsApi* | [**getInbox**](docs/ExtraOperationsApi.md#getinbox) | **GET** /inboxes/{inboxId} | Get Inbox / EmailAddress
@@ -128,7 +132,10 @@ Class | Method | HTTP request | Description
 
  - [BasicAuthOptions](docs/BasicAuthOptions.md)
  - [BulkSendEmailOptions](docs/BulkSendEmailOptions.md)
+ - [CreateDomainOptions](docs/CreateDomainOptions.md)
  - [CreateWebhookOptions](docs/CreateWebhookOptions.md)
+ - [Domain plus verification records and status](docs/Domain plus verification records and status.md)
+ - [DomainPreview](docs/DomainPreview.md)
  - [Email](docs/Email.md)
  - [EmailAnalysis](docs/EmailAnalysis.md)
  - [EmailPreview](docs/EmailPreview.md)
