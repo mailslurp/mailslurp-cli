@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 *ExtraOperationsApi* | [**getDomains**](docs/ExtraOperationsApi.md#getdomains) | **GET** /domains | Get domains
 *ExtraOperationsApi* | [**getEmail**](docs/ExtraOperationsApi.md#getemail) | **GET** /emails/{emailId} | Get Email Content
 *ExtraOperationsApi* | [**getEmails**](docs/ExtraOperationsApi.md#getemails) | **GET** /inboxes/{inboxId}/emails | List Emails in an Inbox / EmailAddress
+*ExtraOperationsApi* | [**getEmailsPaginated**](docs/ExtraOperationsApi.md#getemailspaginated) | **GET** /emails | Get all emails
 *ExtraOperationsApi* | [**getInbox**](docs/ExtraOperationsApi.md#getinbox) | **GET** /inboxes/{inboxId} | Get Inbox / EmailAddress
 *ExtraOperationsApi* | [**getInboxes**](docs/ExtraOperationsApi.md#getinboxes) | **GET** /inboxes | List Inboxes / Email Addresses
 *ExtraOperationsApi* | [**getRawEmailContents**](docs/ExtraOperationsApi.md#getrawemailcontents) | **GET** /emails/{emailId}/raw | Get Raw Email Content
@@ -139,11 +140,15 @@ Class | Method | HTTP request | Description
  - [Email](docs/Email.md)
  - [EmailAnalysis](docs/EmailAnalysis.md)
  - [EmailPreview](docs/EmailPreview.md)
+ - [EmailProjection](docs/EmailProjection.md)
  - [ForwardEmailOptions](docs/ForwardEmailOptions.md)
  - [Inbox](docs/Inbox.md)
  - [MatchOption](docs/MatchOption.md)
  - [MatchOptions](docs/MatchOptions.md)
+ - [Pageable](docs/Pageable.md)
+ - [Page«EmailProjection»](docs/Page«EmailProjection».md)
  - [SendEmailOptions](docs/SendEmailOptions.md)
+ - [Sort](docs/Sort.md)
  - [UploadAttachmentOptions](docs/UploadAttachmentOptions.md)
  - [Webhook](docs/Webhook.md)
 

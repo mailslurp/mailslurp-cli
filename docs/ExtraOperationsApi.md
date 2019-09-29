@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**getDomains**](ExtraOperationsApi.md#getDomains) | **GET** /domains | Get domains
 [**getEmail**](ExtraOperationsApi.md#getEmail) | **GET** /emails/{emailId} | Get Email Content
 [**getEmails**](ExtraOperationsApi.md#getEmails) | **GET** /inboxes/{inboxId}/emails | List Emails in an Inbox / EmailAddress
+[**getEmailsPaginated**](ExtraOperationsApi.md#getEmailsPaginated) | **GET** /emails | Get all emails
 [**getInbox**](ExtraOperationsApi.md#getInbox) | **GET** /inboxes/{inboxId} | Get Inbox / EmailAddress
 [**getInboxes**](ExtraOperationsApi.md#getInboxes) | **GET** /inboxes | List Inboxes / Email Addresses
 [**getRawEmailContents**](ExtraOperationsApi.md#getRawEmailContents) | **GET** /emails/{emailId}/raw | Get Raw Email Content
@@ -355,7 +356,7 @@ Returns the specified attachment for a given email as a byte stream (file downlo
 
 ### Example
 ```bash
-mailslurp downloadAttachment attachmentId=value emailId=value
+mailslurp downloadAttachment attachmentId=value emailId=value  apiKey=value
 ```
 
 ### Parameters
@@ -364,6 +365,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attachmentId** | **string** | attachmentId | [default to null]
  **emailId** | [**string**](.md) | emailId | [default to null]
+ **apiKey** | **string** | Can pass apiKey in url for this request if you wish to download the file in a browser | [optional] [default to null]
 
 ### Return type
 
@@ -540,6 +542,39 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+## **getEmailsPaginated**
+
+Get all emails
+
+Responses are paginated
+
+### Example
+```bash
+mailslurp getEmailsPaginated  page=value  size=value
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **integer** | Optional page index in email list pagination | [optional] [default to 0]
+ **size** | **integer** | Optional page size in email list pagination | [optional] [default to 20]
+
+### Return type
+
+[**Page«EmailProjection»**](Page«EmailProjection».md)
+
+### Authorization
+
+[API_KEY](../README.md#API_KEY)
+
+### HTTP request headers
+
+ - **Content-Type**: Not Applicable
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 ## **getInbox**
 
 Get Inbox / EmailAddress
@@ -629,7 +664,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not Applicable
- - **Accept**: application/json
+ - **Accept**: text/plain
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

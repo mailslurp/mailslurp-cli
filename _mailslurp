@@ -320,6 +320,7 @@ case $state in
             "getDomains[Get domains]" \
             "getEmail[Get Email Content]" \
             "getEmails[List Emails in an Inbox / EmailAddress]" \
+            "getEmailsPaginated[Get all emails]" \
             "getInbox[Get Inbox / EmailAddress]" \
             "getInboxes[List Inboxes / Email Addresses]" \
             "getRawEmailContents[Get Raw Email Content]" \
@@ -474,7 +475,8 @@ case $state in
         _op_arguments=(
           "attachmentId=:[PATH] attachmentId"
 "emailId=:[PATH] emailId"
-                    )
+          "apiKey=:[QUERY] Can pass apiKey in url for this request if you wish to download the file in a browser"
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       forwardEmail)
@@ -512,6 +514,14 @@ case $state in
 "minCount=:[QUERY] Minimum acceptable email count. Will cause request to hang (and retry) until minCount is satisfied or retryTimeout is reached."
 "retryTimeout=:[QUERY] Maximum milliseconds to spend retrying inbox database until minCount emails are returned"
 "since=:[QUERY] Exclude emails received before this ISO 8601 date time"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getEmailsPaginated)
+        local -a _op_arguments
+        _op_arguments=(
+                    "page=:[QUERY] Optional page index in email list pagination"
+"size=:[QUERY] Optional page size in email list pagination"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

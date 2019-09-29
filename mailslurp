@@ -125,6 +125,7 @@ operation_parameters_minimum_occurrences["deleteWebhook:::inboxId"]=1
 operation_parameters_minimum_occurrences["deleteWebhook:::webhookId"]=1
 operation_parameters_minimum_occurrences["downloadAttachment:::attachmentId"]=1
 operation_parameters_minimum_occurrences["downloadAttachment:::emailId"]=1
+operation_parameters_minimum_occurrences["downloadAttachment:::apiKey"]=0
 operation_parameters_minimum_occurrences["forwardEmail:::emailId"]=1
 operation_parameters_minimum_occurrences["forwardEmail:::ForwardEmailOptions"]=1
 operation_parameters_minimum_occurrences["getDomain:::id"]=1
@@ -134,6 +135,8 @@ operation_parameters_minimum_occurrences["getEmails:::limit"]=0
 operation_parameters_minimum_occurrences["getEmails:::minCount"]=0
 operation_parameters_minimum_occurrences["getEmails:::retryTimeout"]=0
 operation_parameters_minimum_occurrences["getEmails:::since"]=0
+operation_parameters_minimum_occurrences["getEmailsPaginated:::page"]=0
+operation_parameters_minimum_occurrences["getEmailsPaginated:::size"]=0
 operation_parameters_minimum_occurrences["getInbox:::inboxId"]=1
 operation_parameters_minimum_occurrences["getRawEmailContents:::emailId"]=1
 operation_parameters_minimum_occurrences["getWebhooks:::inboxId"]=1
@@ -181,6 +184,7 @@ operation_parameters_maximum_occurrences["deleteWebhook:::inboxId"]=0
 operation_parameters_maximum_occurrences["deleteWebhook:::webhookId"]=0
 operation_parameters_maximum_occurrences["downloadAttachment:::attachmentId"]=0
 operation_parameters_maximum_occurrences["downloadAttachment:::emailId"]=0
+operation_parameters_maximum_occurrences["downloadAttachment:::apiKey"]=0
 operation_parameters_maximum_occurrences["forwardEmail:::emailId"]=0
 operation_parameters_maximum_occurrences["forwardEmail:::ForwardEmailOptions"]=0
 operation_parameters_maximum_occurrences["getDomain:::id"]=0
@@ -190,6 +194,8 @@ operation_parameters_maximum_occurrences["getEmails:::limit"]=0
 operation_parameters_maximum_occurrences["getEmails:::minCount"]=0
 operation_parameters_maximum_occurrences["getEmails:::retryTimeout"]=0
 operation_parameters_maximum_occurrences["getEmails:::since"]=0
+operation_parameters_maximum_occurrences["getEmailsPaginated:::page"]=0
+operation_parameters_maximum_occurrences["getEmailsPaginated:::size"]=0
 operation_parameters_maximum_occurrences["getInbox:::inboxId"]=0
 operation_parameters_maximum_occurrences["getRawEmailContents:::emailId"]=0
 operation_parameters_maximum_occurrences["getWebhooks:::inboxId"]=0
@@ -234,6 +240,7 @@ operation_parameters_collection_type["deleteWebhook:::inboxId"]=""
 operation_parameters_collection_type["deleteWebhook:::webhookId"]=""
 operation_parameters_collection_type["downloadAttachment:::attachmentId"]=""
 operation_parameters_collection_type["downloadAttachment:::emailId"]=""
+operation_parameters_collection_type["downloadAttachment:::apiKey"]=""
 operation_parameters_collection_type["forwardEmail:::emailId"]=""
 operation_parameters_collection_type["forwardEmail:::ForwardEmailOptions"]=""
 operation_parameters_collection_type["getDomain:::id"]=""
@@ -243,6 +250,8 @@ operation_parameters_collection_type["getEmails:::limit"]=""
 operation_parameters_collection_type["getEmails:::minCount"]=""
 operation_parameters_collection_type["getEmails:::retryTimeout"]=""
 operation_parameters_collection_type["getEmails:::since"]=""
+operation_parameters_collection_type["getEmailsPaginated:::page"]=""
+operation_parameters_collection_type["getEmailsPaginated:::size"]=""
 operation_parameters_collection_type["getInbox:::inboxId"]=""
 operation_parameters_collection_type["getRawEmailContents:::emailId"]=""
 operation_parameters_collection_type["getWebhooks:::inboxId"]=""
@@ -663,6 +672,7 @@ read -r -d '' ops <<EOF
   ${CYAN}getDomains${OFF};Get domains (AUTH)
   ${CYAN}getEmail${OFF};Get Email Content (AUTH)
   ${CYAN}getEmails${OFF};List Emails in an Inbox / EmailAddress (AUTH)
+  ${CYAN}getEmailsPaginated${OFF};Get all emails (AUTH)
   ${CYAN}getInbox${OFF};Get Inbox / EmailAddress (AUTH)
   ${CYAN}getInboxes${OFF};List Inboxes / Email Addresses (AUTH)
   ${CYAN}getRawEmailContents${OFF};Get Raw Email Content (AUTH)
@@ -1211,6 +1221,8 @@ print_downloadAttachment_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}attachmentId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - attachmentId ${YELLOW}Specify as: attachmentId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}apiKey${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Can pass apiKey in url for this request if you wish to download the file in a browser${YELLOW} Specify as: apiKey=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1336,6 +1348,33 @@ print_getEmails_help() {
     echo -e "  * ${GREEN}retryTimeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Maximum milliseconds to spend retrying inbox database until minCount emails are returned${YELLOW} Specify as: retryTimeout=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}since${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Exclude emails received before this ISO 8601 date time${YELLOW} Specify as: since=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getEmailsPaginated operation
+#
+##############################################################################
+print_getEmailsPaginated_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getEmailsPaginated - Get all emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Responses are paginated" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Optional page index in email list pagination${YELLOW} Specify as: page=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}size${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 20)${OFF} - Optional page size in email list pagination${YELLOW} Specify as: size=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2467,7 +2506,7 @@ call_downloadAttachment() {
     local path_parameter_names=(attachmentId emailId)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(  )
+    local query_parameter_names=(apiKey  )
     local path
 
     if ! path=$(build_request_path "/emails/{emailId}/attachments/{attachmentId}" path_parameter_names query_parameter_names); then
@@ -2693,6 +2732,42 @@ call_getEmails() {
     local path
 
     if ! path=$(build_request_path "/inboxes/{inboxId}/emails" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getEmailsPaginated operation
+#
+##############################################################################
+call_getEmailsPaginated() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(page size  )
+    local path
+
+    if ! path=$(build_request_path "/emails" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3222,6 +3297,9 @@ case $key in
     getEmails)
     operation="getEmails"
     ;;
+    getEmailsPaginated)
+    operation="getEmailsPaginated"
+    ;;
     getInbox)
     operation="getInbox"
     ;;
@@ -3401,6 +3479,9 @@ case $operation in
     ;;
     getEmails)
     call_getEmails
+    ;;
+    getEmailsPaginated)
+    call_getEmailsPaginated
     ;;
     getInbox)
     call_getInbox

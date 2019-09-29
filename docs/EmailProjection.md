@@ -1,13 +1,12 @@
-# EmailPreview
+# EmailProjection
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bcc** | **array[string]** |  | [optional] [default to null]
 **cc** | **array[string]** |  | [optional] [default to null]
-**created** | **string** |  | [default to null]
 **createdAt** | **string** |  | [default to null]
-**id** | **string** |  | [optional] [default to null]
+**id** | **string** |  | [default to null]
 **subject** | **string** |  | [optional] [default to null]
 **to** | **array[string]** |  | [default to null]
 
