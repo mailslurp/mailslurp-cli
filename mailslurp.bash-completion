@@ -68,63 +68,165 @@ _mailslurp()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
+    operations["uploadAttachment"]=1
+    operations["uploadMultipartForm"]=1
+    operations["bulkCreateInboxes"]=1
+    operations["bulkDeleteInboxes"]=1
+    operations["bulkSendEmails"]=1
     operations["createNewEmailAddress"]=1
-    operations["deleteEmail"]=1
-    operations["deleteEmailAddress"]=1
     operations["emptyInbox"]=1
     operations["sendEmailSimple"]=1
     operations["waitForEmailCount"]=1
     operations["waitForLatestEmail"]=1
     operations["waitForMatchingEmail"]=1
     operations["waitForNthEmail"]=1
-    operations["bulkCreateInboxes"]=1
-    operations["bulkDeleteInboxes"]=1
-    operations["bulkSendEmails"]=1
-    operations["createInbox"]=1
-    operations["createWebhook"]=1
-    operations["deleteEmail1"]=1
-    operations["deleteInbox"]=1
-    operations["deleteWebhook"]=1
+    operations["createContact"]=1
+    operations["deleteContact"]=1
+    operations["getAllContacts"]=1
+    operations["getContact"]=1
+    operations["getContacts"]=1
+    operations["createDomain"]=1
+    operations["deleteDomain"]=1
+    operations["getDomain"]=1
+    operations["getDomains"]=1
+    operations["deleteAllEmails"]=1
+    operations["deleteEmail"]=1
     operations["downloadAttachment"]=1
+    operations["forwardEmail"]=1
+    operations["getAttachmentMetaData"]=1
+    operations["getAttachments"]=1
     operations["getEmail"]=1
+    operations["getEmailsPaginated"]=1
+    operations["getRawEmailContents"]=1
+    operations["validateEmail"]=1
+    operations["addContactsToGroup"]=1
+    operations["createGroup"]=1
+    operations["deleteGroup"]=1
+    operations["getAllGroups"]=1
+    operations["getGroup"]=1
+    operations["getGroupWithContacts"]=1
+    operations["getGroups"]=1
+    operations["removeContactsFromGroup"]=1
+    operations["createInbox"]=1
+    operations["deleteAllInboxes"]=1
+    operations["deleteInbox"]=1
+    operations["getAllInboxes"]=1
     operations["getEmails"]=1
     operations["getInbox"]=1
+    operations["getInboxEmailsPaginated"]=1
     operations["getInboxes"]=1
-    operations["getRawEmailContents"]=1
-    operations["getWebhooks"]=1
     operations["sendEmail"]=1
+    operations["setInboxFavourited"]=1
+    operations["createTemplate"]=1
+    operations["deleteTemplate"]=1
+    operations["getAllTemplates"]=1
+    operations["getTemplate"]=1
+    operations["getTemplates"]=1
+    operations["createWebhook"]=1
+    operations["deleteWebhook"]=1
+    operations["getAllWebhooks"]=1
+    operations["getWebhook"]=1
+    operations["getWebhooks"]=1
+    operations["sendTestData"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["createNewEmailAddress"]=""
-    operation_parameters["deleteEmail"]="emailId= "
-    operation_parameters["deleteEmailAddress"]="inboxId= "
-    operation_parameters["emptyInbox"]="inboxId= "
-    operation_parameters["sendEmailSimple"]=""
-    operation_parameters["waitForEmailCount"]="count= inboxId= timeout= "
-    operation_parameters["waitForLatestEmail"]="inboxId= timeout= "
-    operation_parameters["waitForMatchingEmail"]="count= inboxId= timeout= "
-    operation_parameters["waitForNthEmail"]="inboxId= index= timeout= "
+    operation_parameters["uploadAttachment"]=""
+    operation_parameters["uploadMultipartForm"]="contentType= filename= "
     operation_parameters["bulkCreateInboxes"]="count= "
     operation_parameters["bulkDeleteInboxes"]=""
     operation_parameters["bulkSendEmails"]=""
-    operation_parameters["createInbox"]=""
-    operation_parameters["createWebhook"]="inboxId= "
-    operation_parameters["deleteEmail1"]="emailId= "
-    operation_parameters["deleteInbox"]="inboxId= "
-    operation_parameters["deleteWebhook"]="inboxId= webhookId= "
-    operation_parameters["downloadAttachment"]="attachmentId= emailId= "
+    operation_parameters["createNewEmailAddress"]=""
+    operation_parameters["emptyInbox"]="inboxId= "
+    operation_parameters["sendEmailSimple"]=""
+    operation_parameters["waitForEmailCount"]="count= inboxId= timeout= unreadOnly= "
+    operation_parameters["waitForLatestEmail"]="inboxId= timeout= unreadOnly= "
+    operation_parameters["waitForMatchingEmail"]="count= inboxId= timeout= unreadOnly= "
+    operation_parameters["waitForNthEmail"]="inboxId= index= timeout= unreadOnly= "
+    operation_parameters["createContact"]=""
+    operation_parameters["deleteContact"]="contactId= "
+    operation_parameters["getAllContacts"]="page= size= sort= "
+    operation_parameters["getContact"]="contactId= "
+    operation_parameters["getContacts"]=""
+    operation_parameters["createDomain"]=""
+    operation_parameters["deleteDomain"]="id= "
+    operation_parameters["getDomain"]="id= "
+    operation_parameters["getDomains"]=""
+    operation_parameters["deleteAllEmails"]=""
+    operation_parameters["deleteEmail"]="emailId= "
+    operation_parameters["downloadAttachment"]="attachmentId= emailId= apiKey= "
+    operation_parameters["forwardEmail"]="emailId= "
+    operation_parameters["getAttachmentMetaData"]="attachmentId= emailId= "
+    operation_parameters["getAttachments"]="emailId= "
     operation_parameters["getEmail"]="emailId= "
-    operation_parameters["getEmails"]="inboxId= limit= minCount= retryTimeout= since= "
-    operation_parameters["getInbox"]="inboxId= "
-    operation_parameters["getInboxes"]=""
+    operation_parameters["getEmailsPaginated"]="inboxId= page= size= sort= unreadOnly= "
     operation_parameters["getRawEmailContents"]="emailId= "
-    operation_parameters["getWebhooks"]="inboxId= "
+    operation_parameters["validateEmail"]="emailId= "
+    operation_parameters["addContactsToGroup"]="groupId= "
+    operation_parameters["createGroup"]=""
+    operation_parameters["deleteGroup"]="groupId= "
+    operation_parameters["getAllGroups"]="page= size= sort= "
+    operation_parameters["getGroup"]="groupId= "
+    operation_parameters["getGroupWithContacts"]="groupId= "
+    operation_parameters["getGroups"]=""
+    operation_parameters["removeContactsFromGroup"]="groupId= "
+    operation_parameters["createInbox"]="description= emailAddress= expiresAt= favourite= name= tags= "
+    operation_parameters["deleteAllInboxes"]=""
+    operation_parameters["deleteInbox"]="inboxId= "
+    operation_parameters["getAllInboxes"]="favourite= page= search= size= sort= "
+    operation_parameters["getEmails"]="inboxId= limit= minCount= retryTimeout= since= sort= "
+    operation_parameters["getInbox"]="inboxId= "
+    operation_parameters["getInboxEmailsPaginated"]="inboxId= page= size= sort= "
+    operation_parameters["getInboxes"]=""
     operation_parameters["sendEmail"]="inboxId= "
+    operation_parameters["setInboxFavourited"]="inboxId= "
+    operation_parameters["createTemplate"]=""
+    operation_parameters["deleteTemplate"]="TemplateId= "
+    operation_parameters["getAllTemplates"]="page= size= sort= "
+    operation_parameters["getTemplate"]="TemplateId= "
+    operation_parameters["getTemplates"]=""
+    operation_parameters["createWebhook"]="inboxId= "
+    operation_parameters["deleteWebhook"]="inboxId= webhookId= "
+    operation_parameters["getAllWebhooks"]="page= size= sort= "
+    operation_parameters["getWebhook"]="webhookId= "
+    operation_parameters["getWebhooks"]="inboxId= "
+    operation_parameters["sendTestData"]="webhookId= "
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values
+    operation_parameters_enum_values["waitForEmailCount::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForEmailCount::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForEmailCount::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForEmailCount::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForLatestEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForLatestEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForLatestEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForMatchingEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForMatchingEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForMatchingEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForMatchingEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForMatchingEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForNthEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForNthEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForNthEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["waitForNthEmail::unreadOnly"]="true false"
+    operation_parameters_enum_values["getEmailsPaginated::unreadOnly"]="true false"
+    operation_parameters_enum_values["getEmailsPaginated::unreadOnly"]="true false"
+    operation_parameters_enum_values["getEmailsPaginated::unreadOnly"]="true false"
+    operation_parameters_enum_values["getEmailsPaginated::unreadOnly"]="true false"
+    operation_parameters_enum_values["getEmailsPaginated::unreadOnly"]="true false"
+    operation_parameters_enum_values["createInbox::favourite"]="true false"
+    operation_parameters_enum_values["createInbox::favourite"]="true false"
+    operation_parameters_enum_values["createInbox::favourite"]="true false"
+    operation_parameters_enum_values["createInbox::favourite"]="true false"
+    operation_parameters_enum_values["createInbox::favourite"]="true false"
+    operation_parameters_enum_values["createInbox::favourite"]="true false"
+    operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
+    operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
+    operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
+    operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
+    operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
 
     #
     # Check if this is OSX and use special __osx_init_completion function

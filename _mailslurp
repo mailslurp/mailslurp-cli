@@ -296,101 +296,74 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "createNewEmailAddress[Create new email address]" \
-            "deleteEmail[Delete an email]" \
-            "deleteEmailAddress[Delete email address and its emails]" \
+            "uploadAttachment[Upload an attachment for sending]" \
+            "uploadMultipartForm[Upload an attachment for sending using Multipart Form]"             "bulkCreateInboxes[Bulk create Inboxes (email addresses)]" \
+            "bulkDeleteInboxes[Bulk Delete Inboxes]" \
+            "bulkSendEmails[Bulk Send Emails]"             "createNewEmailAddress[Create new random inbox]" \
             "emptyInbox[Delete all emails in an inbox]" \
             "sendEmailSimple[Send an email from a random email address]" \
             "waitForEmailCount[Wait for and return count number of emails]" \
             "waitForLatestEmail[Fetch inbox's latest email or if empty wait for email to arrive]" \
             "waitForMatchingEmail[Wait or return list of emails that match simple matching patterns]" \
-            "waitForNthEmail[Wait for or fetch the email with a given index in the inbox specified]"             "bulkCreateInboxes[Bulk create Inboxes (email addresses)]" \
-            "bulkDeleteInboxes[Bulk Delete Inboxes]" \
-            "bulkSendEmails[Bulk Send Emails]" \
-            "createInbox[Create an Inbox (email address)]" \
-            "createWebhook[Attach a WebHook URL to an inbox]" \
-            "deleteEmail1[Delete Email]" \
-            "deleteInbox[Delete Inbox / Email Address]" \
-            "deleteWebhook[Delete and disable a WebHook for an Inbox]" \
+            "waitForNthEmail[Wait for or fetch the email with a given index in the inbox specified]"             "createContact[Create a contact]" \
+            "deleteContact[Delete contact]" \
+            "getAllContacts[Get all contacts]" \
+            "getContact[Get contact]" \
+            "getContacts[Get all contacts]"             "createDomain[Create Domain]" \
+            "deleteDomain[Delete a domain]" \
+            "getDomain[Get a domain]" \
+            "getDomains[Get domains]"             "deleteAllEmails[Delete all emails]" \
+            "deleteEmail[Delete Email]" \
             "downloadAttachment[Get email attachment]" \
+            "forwardEmail[Forward Email]" \
+            "getAttachmentMetaData[Get email attachment metadata]" \
+            "getAttachments[Get all email attachment metadata]" \
             "getEmail[Get Email Content]" \
-            "getEmails[List Emails in an Inbox / EmailAddress]" \
-            "getInbox[Get Inbox / EmailAddress]" \
-            "getInboxes[List Inboxes / Email Addresses]" \
+            "getEmailsPaginated[Get all emails]" \
             "getRawEmailContents[Get Raw Email Content]" \
-            "getWebhooks[Get all WebHooks for an Inbox]" \
-            "sendEmail[Send Email]" 
+            "validateEmail[Validate email]"             "addContactsToGroup[Add contacts to a group]" \
+            "createGroup[Create a group]" \
+            "deleteGroup[Delete group]" \
+            "getAllGroups[Get all Contact Groups in paginated format]" \
+            "getGroup[Get group]" \
+            "getGroupWithContacts[Get group and contacts belonging to it]" \
+            "getGroups[Get all groups]" \
+            "removeContactsFromGroup[Remove contacts from a group]"             "createInbox[Create an Inbox (email address)]" \
+            "deleteAllInboxes[Delete all inboxes]" \
+            "deleteInbox[Delete Inbox / Email Address]" \
+            "getAllInboxes[List Inboxes Paginated]" \
+            "getEmails[Get emails in an Inbox]" \
+            "getInbox[Get Inbox / EmailAddress]" \
+            "getInboxEmailsPaginated[Get inbox emails paginated]" \
+            "getInboxes[List Inboxes / Email Addresses]" \
+            "sendEmail[Send Email]" \
+            "setInboxFavourited[Set inbox favourited state]"             "createTemplate[Create a Template]" \
+            "deleteTemplate[Delete Template]" \
+            "getAllTemplates[Get all Templates in paginated format]" \
+            "getTemplate[Get Template]" \
+            "getTemplates[Get all Templates]"             "createWebhook[Attach a WebHook URL to an inbox]" \
+            "deleteWebhook[Delete and disable a Webhook for an Inbox]" \
+            "getAllWebhooks[List Webhooks Paginated]" \
+            "getWebhook[Get a webhook for an Inbox]" \
+            "getWebhooks[Get all Webhooks for an Inbox]" \
+            "sendTestData[Send webhook test data]" 
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
     ;;
   args)
     case $line[1] in
-      createNewEmailAddress)
+      uploadAttachment)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      deleteEmail)
+      uploadMultipartForm)
         local -a _op_arguments
         _op_arguments=(
-                    "emailId=:[QUERY] emailId"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      deleteEmailAddress)
-        local -a _op_arguments
-        _op_arguments=(
-                    "inboxId=:[QUERY] inboxId"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      emptyInbox)
-        local -a _op_arguments
-        _op_arguments=(
-                    "inboxId=:[QUERY] inboxId"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      sendEmailSimple)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      waitForEmailCount)
-        local -a _op_arguments
-        _op_arguments=(
-                    "count=:[QUERY] Number of emails to wait for. Must be greater that 1"
-"inboxId=:[QUERY] Id of the inbox we are fetching emails from"
-"timeout=:[QUERY] Max milliseconds to wait"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      waitForLatestEmail)
-        local -a _op_arguments
-        _op_arguments=(
-                    "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
-"timeout=:[QUERY] Max milliseconds to wait"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      waitForMatchingEmail)
-        local -a _op_arguments
-        _op_arguments=(
-                    "count=:[QUERY] Number of emails to wait for. Must be greater that 1"
-"inboxId=:[QUERY] Id of the inbox we are fetching emails from"
-"timeout=:[QUERY] Max milliseconds to wait"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      waitForNthEmail)
-        local -a _op_arguments
-        _op_arguments=(
-                    "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
-"index=:[QUERY] Zero based index of the email to wait for"
-"timeout=:[QUERY] Max milliseconds to wait"
+                    "contentType=:[QUERY] contentType"
+"filename=:[QUERY] filename"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -413,27 +386,385 @@ case $state in
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      createInbox)
+      createNewEmailAddress)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      createWebhook)
+      emptyInbox)
         local -a _op_arguments
         _op_arguments=(
-          "inboxId=:[PATH] inboxId"
+                    "inboxId=:[QUERY] inboxId"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      sendEmailSimple)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      waitForEmailCount)
+        local -a _op_arguments
+        _op_arguments=(
+                    "count=:[QUERY] Number of emails to wait for. Must be greater that 1"
+"inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"timeout=:[QUERY] Max milliseconds to wait"
+"unreadOnly=true:[QUERY] Optional filter for unread only"
+          "unreadOnly=false:[QUERY] Optional filter for unread only"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      waitForLatestEmail)
+        local -a _op_arguments
+        _op_arguments=(
+                    "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"timeout=:[QUERY] Max milliseconds to wait"
+"unreadOnly=true:[QUERY] Optional filter for unread only"
+          "unreadOnly=false:[QUERY] Optional filter for unread only"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      waitForMatchingEmail)
+        local -a _op_arguments
+        _op_arguments=(
+                    "count=:[QUERY] Number of emails to wait for. Must be greater that 1"
+"inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"timeout=:[QUERY] Max milliseconds to wait"
+"unreadOnly=true:[QUERY] Optional filter for unread only"
+          "unreadOnly=false:[QUERY] Optional filter for unread only"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      waitForNthEmail)
+        local -a _op_arguments
+        _op_arguments=(
+                    "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+"index=:[QUERY] Zero based index of the email to wait for"
+"timeout=:[QUERY] Max milliseconds to wait"
+"unreadOnly=true:[QUERY] Optional filter for unread only"
+          "unreadOnly=false:[QUERY] Optional filter for unread only"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createContact)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteContact)
+        local -a _op_arguments
+        _op_arguments=(
+          "contactId=:[PATH] contactId"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      deleteEmail1)
+      getAllContacts)
+        local -a _op_arguments
+        _op_arguments=(
+                    "page=:[QUERY] Optional page index in inbox list pagination"
+"size=:[QUERY] Optional page size in inbox list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getContact)
+        local -a _op_arguments
+        _op_arguments=(
+          "contactId=:[PATH] contactId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getContacts)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createDomain)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteDomain)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getDomain)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] id"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getDomains)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteAllEmails)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteEmail)
         local -a _op_arguments
         _op_arguments=(
           "emailId=:[PATH] emailId"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      downloadAttachment)
+        local -a _op_arguments
+        _op_arguments=(
+          "attachmentId=:[PATH] attachmentId"
+"emailId=:[PATH] emailId"
+          "apiKey=:[QUERY] Can pass apiKey in url for this request if you wish to download the file in a browser"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      forwardEmail)
+        local -a _op_arguments
+        _op_arguments=(
+          "emailId=:[PATH] emailId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAttachmentMetaData)
+        local -a _op_arguments
+        _op_arguments=(
+          "attachmentId=:[PATH] attachmentId"
+"emailId=:[PATH] emailId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAttachments)
+        local -a _op_arguments
+        _op_arguments=(
+          "emailId=:[PATH] emailId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getEmail)
+        local -a _op_arguments
+        _op_arguments=(
+          "emailId=:[PATH] emailId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getEmailsPaginated)
+        local -a _op_arguments
+        _op_arguments=(
+                    "inboxId=:[QUERY] Optional inbox ids to filter by. Can be repeated"
+"page=:[QUERY] Optional page index in email list pagination"
+"size=:[QUERY] Optional page size in email list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+"unreadOnly=true:[QUERY] Optional filter for unread emails only"
+          "unreadOnly=false:[QUERY] Optional filter for unread emails only"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getRawEmailContents)
+        local -a _op_arguments
+        _op_arguments=(
+          "emailId=:[PATH] emailId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      validateEmail)
+        local -a _op_arguments
+        _op_arguments=(
+          "emailId=:[PATH] emailId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      addContactsToGroup)
+        local -a _op_arguments
+        _op_arguments=(
+          "groupId=:[PATH] groupId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createGroup)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteGroup)
+        local -a _op_arguments
+        _op_arguments=(
+          "groupId=:[PATH] groupId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAllGroups)
+        local -a _op_arguments
+        _op_arguments=(
+                    "page=:[QUERY] Optional page index in inbox list pagination"
+"size=:[QUERY] Optional page size in inbox list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getGroup)
+        local -a _op_arguments
+        _op_arguments=(
+          "groupId=:[PATH] groupId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getGroupWithContacts)
+        local -a _op_arguments
+        _op_arguments=(
+          "groupId=:[PATH] groupId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getGroups)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      removeContactsFromGroup)
+        local -a _op_arguments
+        _op_arguments=(
+          "groupId=:[PATH] groupId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createInbox)
+        local -a _op_arguments
+        _op_arguments=(
+                    "description=:[QUERY] Optional description for an inbox."
+"emailAddress=:[QUERY] Optional email address including domain you wish inbox to use (eg: test123@mydomain.com). Only supports domains that you have registered and verified with MailSlurp using dashboard or &#39;createDomain&#39; method."
+"expiresAt=:[QUERY] Optional expires at timestamp. If your plan supports this feature you can specify when an inbox should expire. If left empty inbox will exist permanently or expire when your plan dictates"
+"favourite=true:[QUERY] Is inbox favourited."
+          "favourite=false:[QUERY] Is inbox favourited."
+"name=:[QUERY] Optional name for an inbox."
+"tags=:[QUERY] Optional tags for an inbox. Can be used for searching and filtering inboxes."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteAllInboxes)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       deleteInbox)
+        local -a _op_arguments
+        _op_arguments=(
+          "inboxId=:[PATH] inboxId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAllInboxes)
+        local -a _op_arguments
+        _op_arguments=(
+                    "favourite=true:[QUERY] Optionally filter results for favourites only"
+          "favourite=false:[QUERY] Optionally filter results for favourites only"
+"page=:[QUERY] Optional page index in inbox list pagination"
+"search=:[QUERY] Optionally filter by search words partial matching ID, tags, name, and email address"
+"size=:[QUERY] Optional page size in inbox list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getEmails)
+        local -a _op_arguments
+        _op_arguments=(
+          "inboxId=:[PATH] Id of inbox that emails belongs to"
+          "limit=:[QUERY] Limit the result set, ordered by received date time sort direction"
+"minCount=:[QUERY] Minimum acceptable email count. Will cause request to hang (and retry) until minCount is satisfied or retryTimeout is reached."
+"retryTimeout=:[QUERY] Maximum milliseconds to spend retrying inbox database until minCount emails are returned"
+"since=:[QUERY] Exclude emails received before this ISO 8601 date time"
+"sort=:[QUERY] Sort the results by received date and direction ASC or DESC"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getInbox)
+        local -a _op_arguments
+        _op_arguments=(
+          "inboxId=:[PATH] inboxId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getInboxEmailsPaginated)
+        local -a _op_arguments
+        _op_arguments=(
+          "inboxId=:[PATH] Id of inbox that emails belongs to"
+          "page=:[QUERY] Optional page index in inbox emails list pagination"
+"size=:[QUERY] Optional page size in inbox emails list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getInboxes)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      sendEmail)
+        local -a _op_arguments
+        _op_arguments=(
+          "inboxId=:[PATH] inboxId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      setInboxFavourited)
+        local -a _op_arguments
+        _op_arguments=(
+          "inboxId=:[PATH] inboxId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createTemplate)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteTemplate)
+        local -a _op_arguments
+        _op_arguments=(
+          "TemplateId=:[PATH] TemplateId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAllTemplates)
+        local -a _op_arguments
+        _op_arguments=(
+                    "page=:[QUERY] Optional page index in inbox list pagination"
+"size=:[QUERY] Optional page size in inbox list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getTemplate)
+        local -a _op_arguments
+        _op_arguments=(
+          "TemplateId=:[PATH] TemplateId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getTemplates)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createWebhook)
         local -a _op_arguments
         _op_arguments=(
           "inboxId=:[PATH] inboxId"
@@ -448,49 +779,19 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      downloadAttachment)
+      getAllWebhooks)
         local -a _op_arguments
         _op_arguments=(
-          "attachmentId=:[PATH] attachmentId"
-"emailId=:[PATH] emailId"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      getEmail)
-        local -a _op_arguments
-        _op_arguments=(
-          "emailId=:[PATH] emailId"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      getEmails)
-        local -a _op_arguments
-        _op_arguments=(
-          "inboxId=:[PATH] Id of inbox that emails belongs to"
-          "limit=:[QUERY] Limit the result set, ordered by descending received date time"
-"minCount=:[QUERY] Minimum acceptable email count. Will cause request to hang (and retry) until minCount is satisfied or retryTimeout is reached."
-"retryTimeout=:[QUERY] Maximum milliseconds to spend retrying inbox database until minCount emails are returned"
-"since=:[QUERY] Exclude emails received before this ISO 8601 date time"
+                    "page=:[QUERY] Optional page index in inbox list pagination"
+"size=:[QUERY] Optional page size in inbox list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      getInbox)
+      getWebhook)
         local -a _op_arguments
         _op_arguments=(
-          "inboxId=:[PATH] inboxId"
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      getInboxes)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      getRawEmailContents)
-        local -a _op_arguments
-        _op_arguments=(
-          "emailId=:[PATH] emailId"
+          "webhookId=:[PATH] webhookId"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -501,10 +802,10 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      sendEmail)
+      sendTestData)
         local -a _op_arguments
         _op_arguments=(
-          "inboxId=:[PATH] inboxId"
+          "webhookId=:[PATH] webhookId"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
