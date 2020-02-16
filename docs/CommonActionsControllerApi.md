@@ -245,7 +245,7 @@ mailslurp waitForNthEmail  inboxId=value  index=value  timeout=value  unreadOnly
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inboxId** | [**string**](.md) | Id of the inbox we are fetching emails from | [optional] [default to null]
+ **inboxId** | [**string**](.md) | Id of the inbox you are fetching emails from | [optional] [default to null]
  **index** | **integer** | Zero based index of the email to wait for | [optional] [default to null]
  **timeout** | **integer** | Max milliseconds to wait | [optional] [default to null]
  **unreadOnly** | **boolean** | Optional filter for unread only | [optional] [default to false]

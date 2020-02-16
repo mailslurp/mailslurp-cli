@@ -32,7 +32,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Domain plus verification records and status**](Domain plus verification records and status.md)
+[**DomainDto**](DomainDto.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Domain plus verification records and status**](Domain plus verification records and status.md)
+[**DomainDto**](DomainDto.md)
 
 ### Authorization
 

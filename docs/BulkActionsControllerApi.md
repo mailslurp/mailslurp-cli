@@ -14,8 +14,6 @@ Method | HTTP request | Description
 
 Bulk create Inboxes (email addresses)
 
-Enterprise Plan Required
-
 ### Example
 
 ```bash
@@ -49,8 +47,6 @@ Name | Type | Description  | Notes
 
 Bulk Delete Inboxes
 
-Enterprise Plan Required
-
 ### Example
 
 ```bash
@@ -83,8 +79,6 @@ Name | Type | Description  | Notes
 ## bulkSendEmails
 
 Bulk Send Emails
-
-Enterprise Plan Required
 
 ### Example
 

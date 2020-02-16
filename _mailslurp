@@ -440,7 +440,7 @@ case $state in
       waitForNthEmail)
         local -a _op_arguments
         _op_arguments=(
-                    "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
+                    "inboxId=:[QUERY] Id of the inbox you are fetching emails from"
 "index=:[QUERY] Zero based index of the email to wait for"
 "timeout=:[QUERY] Max milliseconds to wait"
 "unreadOnly=true:[QUERY] Optional filter for unread only"
@@ -718,7 +718,7 @@ case $state in
       sendEmail)
         local -a _op_arguments
         _op_arguments=(
-          "inboxId=:[PATH] inboxId"
+          "inboxId=:[PATH] ID of the inbox you want to send the email from"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

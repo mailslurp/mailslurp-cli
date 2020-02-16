@@ -325,8 +325,8 @@ mailslurp sendEmail inboxId=value
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inboxId** | [**string**](.md) | inboxId | [default to null]
- **sendEmailOptions** | [**SendEmailOptions**](SendEmailOptions.md) | sendEmailOptions |
+ **inboxId** | [**string**](.md) | ID of the inbox you want to send the email from | [default to null]
+ **sendEmailOptions** | [**SendEmailOptions**](SendEmailOptions.md) | Options for the email | [optional]
 
 ### Return type
 

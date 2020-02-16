@@ -174,7 +174,7 @@ Class | Method | HTTP request | Description
  - [CreateGroupOptions](docs/CreateGroupOptions.md)
  - [CreateTemplateOptions](docs/CreateTemplateOptions.md)
  - [CreateWebhookOptions](docs/CreateWebhookOptions.md)
- - [Domain plus verification records and status](docs/Domain plus verification records and status.md)
+ - [DomainDto](docs/DomainDto.md)
  - [DomainPreview](docs/DomainPreview.md)
  - [Email](docs/Email.md)
  - [EmailAnalysis](docs/EmailAnalysis.md)

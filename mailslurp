@@ -181,7 +181,7 @@ operation_parameters_minimum_occurrences["getInboxEmailsPaginated:::page"]=0
 operation_parameters_minimum_occurrences["getInboxEmailsPaginated:::size"]=0
 operation_parameters_minimum_occurrences["getInboxEmailsPaginated:::sort"]=0
 operation_parameters_minimum_occurrences["sendEmail:::inboxId"]=1
-operation_parameters_minimum_occurrences["sendEmail:::sendEmailOptions"]=1
+operation_parameters_minimum_occurrences["sendEmail:::sendEmailOptions"]=0
 operation_parameters_minimum_occurrences["setInboxFavourited:::inboxId"]=1
 operation_parameters_minimum_occurrences["setInboxFavourited:::setInboxFavouritedOptions"]=1
 operation_parameters_minimum_occurrences["createTemplate:::createTemplateOptions"]=1
@@ -946,23 +946,33 @@ print_about() {
     echo ""
 read -r -d '' appdescription <<EOF
 
-## Introduction 
-[MailSlurp](https://www.mailslurp.com) is an Email API for developers and QA testers. It let's users:
-- create emails addresses on demand
-- receive emails and attachments in code
-- send templated HTML emails
+MailSlurp is an API for sending and receiving emails from dynamically allocated email addresses. It's designed for developers and QA teams to test applications, process inbound emails, send templated notifications, attachments, and more. 
 
-## About 
-This page contains the REST API documentation for MailSlurp. All requests require API Key authentication passed as an 'x-api-key' header.
+## Overview
 
-Create an account to [get your free API Key](https://app.mailslurp.com/sign-up/).
+#### Inboxes 
+Inboxes have real email addresses that can send and receive emails. You can create inboxes with specific email addresses (using custom domains). You can also use randomly assigned MailSlurp addresses as unique, disposable test addresses. 
 
-## Resources
-- 🔑 [Get API Key](https://app.mailslurp.com/sign-up/)                   
-- 🎓 [Developer Portal](https://www.mailslurp.com/docs/)          
-- 📦 [Library SDKs](https://www.mailslurp.com/docs/)
-- ✍️ [Code Examples](https://www.mailslurp.com/examples)
-- ⚠️ [Report an issue](https://drift.me/mailslurp)
+See the InboxController or [inbox and email address guide](https://www.mailslurp.com/guides/) for more information.
+
+#### Receive Emails
+You can receive emails in a number of ways. You can fetch emails and attachments directly from an inbox. Or you can use 'waitFor' endpoints to hold a connection open until an email is received that matches given criteria (such as subject or body content). You can also use webhooks to have emails from multiple inboxes forwarded to your server via HTTP POST.
+
+InboxController methods with 'waitFor' in the name have a long timeout period and instruct MailSlurp to wait until an expected email is received. You can set conditions on email counts, subject or body matches, and more.
+
+Most receive methods only return an email ID and not the full email (to keep response sizes low). To fetch the full body or attachments for an email use the email's ID with EmailController endpoints.
+
+See the InboxController or [receiving emails guide](https://www.mailslurp.com/guides/) for more information.
+
+#### Send Emails
+You can send templated HTML emails in several ways. You must first create an inbox to send an email. An inbox can have a specific address or a randomly assigned one. You can send emails from an inbox using 'to', 'cc', and 'bcc' recipient lists or with contacts and contact groups. 
+
+Emails can contain plain-text or HTML bodies. You can also use email templates that support [moustache](https://mustache.github.io/) template variables. You can send attachments by first posting files to the AttachmentController and then using the returned IDs in the 'attachments' field of the send options.
+
+See the InboxController or [sending emails guide](https://www.mailslurp.com/guides/) for more information.
+
+## Templates
+MailSlurp emails support templates. You can create templates in the dashboard or API that contain [moustache](https://mustache.github.io/) style variables: for instance 'Hello {{name}}'. Then when sending emails you can pass a map of variables names and values to be used. Additionally, when sending emails with contact groups you can use properties of the contact in your templates like '{{firstName}}' and '{{lastName}}''.
 
 ## Explore
 EOF
@@ -1042,8 +1052,6 @@ print_bulkCreateInboxes_help() {
     echo ""
     echo -e "${BOLD}${WHITE}bulkCreateInboxes - Bulk create Inboxes (email addresses)${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Enterprise Plan Required" | paste -sd' ' | fold -sw 80
-    echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}count${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Number of inboxes to be created in bulk${YELLOW} Specify as: count=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1067,8 +1075,6 @@ print_bulkDeleteInboxes_help() {
     echo ""
     echo -e "${BOLD}${WHITE}bulkDeleteInboxes - Bulk Delete Inboxes${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Enterprise Plan Required" | paste -sd' ' | fold -sw 80
-    echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - ids" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
@@ -1089,8 +1095,6 @@ print_bulkDeleteInboxes_help() {
 print_bulkSendEmails_help() {
     echo ""
     echo -e "${BOLD}${WHITE}bulkSendEmails - Bulk Send Emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "Enterprise Plan Required" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - bulkSendEmailOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1281,7 +1285,7 @@ print_waitForNthEmail_help() {
     echo -e "${BOLD}${WHITE}waitForNthEmail - Wait for or fetch the email with a given index in the inbox specified${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox you are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}index${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Zero based index of the email to wait for${YELLOW} Specify as: index=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -2172,8 +2176,8 @@ print_sendEmail_help() {
     echo -e "Send an email from the inbox's email address. Specify the email recipients and contents in the request body. See the 'SendEmailOptions' for more information. Note the 'inboxId' refers to the inbox's id NOT its email address" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - inboxId ${YELLOW}Specify as: inboxId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - sendEmailOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ID of the inbox you want to send the email from ${YELLOW}Specify as: inboxId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Options for the email" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"

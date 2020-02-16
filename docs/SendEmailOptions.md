@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **from** | **string** |  | [optional] [default to null]
 **isHTML** | **boolean** |  | [optional] [default to null]
 **replyTo** | **string** |  | [optional] [default to null]
+**sendStrategy** | **string** |  | [optional] [default to null]
 **subject** | **string** |  | [optional] [default to null]
 **template** | **string** |  | [optional] [default to null]
 **templateVariables** | [**map**](.md) |  | [optional] [default to null]
