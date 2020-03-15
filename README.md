@@ -108,10 +108,6 @@ Class | Method | HTTP request | Description
 *CommonActionsControllerApi* | [**createNewEmailAddress**](docs/CommonActionsControllerApi.md#createnewemailaddress) | **POST** /newEmailAddress | Create new random inbox
 *CommonActionsControllerApi* | [**emptyInbox**](docs/CommonActionsControllerApi.md#emptyinbox) | **DELETE** /emptyInbox | Delete all emails in an inbox
 *CommonActionsControllerApi* | [**sendEmailSimple**](docs/CommonActionsControllerApi.md#sendemailsimple) | **POST** /sendEmail | Send an email from a random email address
-*CommonActionsControllerApi* | [**waitForEmailCount**](docs/CommonActionsControllerApi.md#waitforemailcount) | **GET** /waitForEmailCount | Wait for and return count number of emails
-*CommonActionsControllerApi* | [**waitForLatestEmail**](docs/CommonActionsControllerApi.md#waitforlatestemail) | **GET** /waitForLatestEmail | Fetch inbox&#39;s latest email or if empty wait for email to arrive
-*CommonActionsControllerApi* | [**waitForMatchingEmail**](docs/CommonActionsControllerApi.md#waitformatchingemail) | **POST** /waitForMatchingEmails | Wait or return list of emails that match simple matching patterns
-*CommonActionsControllerApi* | [**waitForNthEmail**](docs/CommonActionsControllerApi.md#waitfornthemail) | **GET** /waitForNthEmail | Wait for or fetch the email with a given index in the inbox specified
 *ContactControllerApi* | [**createContact**](docs/ContactControllerApi.md#createcontact) | **POST** /contacts | Create a contact
 *ContactControllerApi* | [**deleteContact**](docs/ContactControllerApi.md#deletecontact) | **DELETE** /contacts/{contactId} | Delete contact
 *ContactControllerApi* | [**getAllContacts**](docs/ContactControllerApi.md#getallcontacts) | **GET** /contacts/paginated | Get all contacts
@@ -122,14 +118,17 @@ Class | Method | HTTP request | Description
 *DomainControllerApi* | [**getDomain**](docs/DomainControllerApi.md#getdomain) | **GET** /domains/{id} | Get a domain
 *DomainControllerApi* | [**getDomains**](docs/DomainControllerApi.md#getdomains) | **GET** /domains | Get domains
 *EmailControllerApi* | [**deleteAllEmails**](docs/EmailControllerApi.md#deleteallemails) | **DELETE** /emails | Delete all emails
-*EmailControllerApi* | [**deleteEmail**](docs/EmailControllerApi.md#deleteemail) | **DELETE** /emails/{emailId} | Delete Email
-*EmailControllerApi* | [**downloadAttachment**](docs/EmailControllerApi.md#downloadattachment) | **GET** /emails/{emailId}/attachments/{attachmentId} | Get email attachment
-*EmailControllerApi* | [**forwardEmail**](docs/EmailControllerApi.md#forwardemail) | **POST** /emails/{emailId}/forward | Forward Email
+*EmailControllerApi* | [**deleteEmail**](docs/EmailControllerApi.md#deleteemail) | **DELETE** /emails/{emailId} | Delete an email
+*EmailControllerApi* | [**downloadAttachment**](docs/EmailControllerApi.md#downloadattachment) | **GET** /emails/{emailId}/attachments/{attachmentId} | Get email attachment bytes
+*EmailControllerApi* | [**forwardEmail**](docs/EmailControllerApi.md#forwardemail) | **POST** /emails/{emailId}/forward | Forward email
 *EmailControllerApi* | [**getAttachmentMetaData**](docs/EmailControllerApi.md#getattachmentmetadata) | **GET** /emails/{emailId}/attachments/{attachmentId}/metadata | Get email attachment metadata
 *EmailControllerApi* | [**getAttachments**](docs/EmailControllerApi.md#getattachments) | **GET** /emails/{emailId}/attachments | Get all email attachment metadata
-*EmailControllerApi* | [**getEmail**](docs/EmailControllerApi.md#getemail) | **GET** /emails/{emailId} | Get Email Content
+*EmailControllerApi* | [**getEmail**](docs/EmailControllerApi.md#getemail) | **GET** /emails/{emailId} | Get email content
+*EmailControllerApi* | [**getEmailHTML**](docs/EmailControllerApi.md#getemailhtml) | **GET** /emails/{emailId}/html | Get email content as HTML
 *EmailControllerApi* | [**getEmailsPaginated**](docs/EmailControllerApi.md#getemailspaginated) | **GET** /emails | Get all emails
-*EmailControllerApi* | [**getRawEmailContents**](docs/EmailControllerApi.md#getrawemailcontents) | **GET** /emails/{emailId}/raw | Get Raw Email Content
+*EmailControllerApi* | [**getRawEmailContents**](docs/EmailControllerApi.md#getrawemailcontents) | **GET** /emails/{emailId}/raw | Get raw email string
+*EmailControllerApi* | [**getRawEmailJson**](docs/EmailControllerApi.md#getrawemailjson) | **GET** /emails/{emailId}/raw/json | Get raw email in JSON
+*EmailControllerApi* | [**getUnreadEmailCount**](docs/EmailControllerApi.md#getunreademailcount) | **GET** /emails/unreadCount | Get unread email count
 *EmailControllerApi* | [**validateEmail**](docs/EmailControllerApi.md#validateemail) | **POST** /emails/{emailId}/validate | Validate email
 *GroupControllerApi* | [**addContactsToGroup**](docs/GroupControllerApi.md#addcontactstogroup) | **PUT** /groups/{groupId}/contacts | Add contacts to a group
 *GroupControllerApi* | [**createGroup**](docs/GroupControllerApi.md#creategroup) | **POST** /groups | Create a group
@@ -141,19 +140,25 @@ Class | Method | HTTP request | Description
 *GroupControllerApi* | [**removeContactsFromGroup**](docs/GroupControllerApi.md#removecontactsfromgroup) | **DELETE** /groups/{groupId}/contacts | Remove contacts from a group
 *InboxControllerApi* | [**createInbox**](docs/InboxControllerApi.md#createinbox) | **POST** /inboxes | Create an Inbox (email address)
 *InboxControllerApi* | [**deleteAllInboxes**](docs/InboxControllerApi.md#deleteallinboxes) | **DELETE** /inboxes | Delete all inboxes
-*InboxControllerApi* | [**deleteInbox**](docs/InboxControllerApi.md#deleteinbox) | **DELETE** /inboxes/{inboxId} | Delete Inbox / Email Address
+*InboxControllerApi* | [**deleteInbox**](docs/InboxControllerApi.md#deleteinbox) | **DELETE** /inboxes/{inboxId} | Delete inbox
 *InboxControllerApi* | [**getAllInboxes**](docs/InboxControllerApi.md#getallinboxes) | **GET** /inboxes/paginated | List Inboxes Paginated
 *InboxControllerApi* | [**getEmails**](docs/InboxControllerApi.md#getemails) | **GET** /inboxes/{inboxId}/emails | Get emails in an Inbox
-*InboxControllerApi* | [**getInbox**](docs/InboxControllerApi.md#getinbox) | **GET** /inboxes/{inboxId} | Get Inbox / EmailAddress
+*InboxControllerApi* | [**getInbox**](docs/InboxControllerApi.md#getinbox) | **GET** /inboxes/{inboxId} | Get Inbox
 *InboxControllerApi* | [**getInboxEmailsPaginated**](docs/InboxControllerApi.md#getinboxemailspaginated) | **GET** /inboxes/{inboxId}/emails/paginated | Get inbox emails paginated
 *InboxControllerApi* | [**getInboxes**](docs/InboxControllerApi.md#getinboxes) | **GET** /inboxes | List Inboxes / Email Addresses
 *InboxControllerApi* | [**sendEmail**](docs/InboxControllerApi.md#sendemail) | **POST** /inboxes/{inboxId} | Send Email
 *InboxControllerApi* | [**setInboxFavourited**](docs/InboxControllerApi.md#setinboxfavourited) | **PUT** /inboxes/{inboxId}/favourite | Set inbox favourited state
+*InboxControllerApi* | [**updateInbox**](docs/InboxControllerApi.md#updateinbox) | **PATCH** /inboxes/{inboxId} | Update Inbox
 *TemplateControllerApi* | [**createTemplate**](docs/TemplateControllerApi.md#createtemplate) | **POST** /templates | Create a Template
 *TemplateControllerApi* | [**deleteTemplate**](docs/TemplateControllerApi.md#deletetemplate) | **DELETE** /templates/{TemplateId} | Delete Template
 *TemplateControllerApi* | [**getAllTemplates**](docs/TemplateControllerApi.md#getalltemplates) | **GET** /templates/paginated | Get all Templates in paginated format
 *TemplateControllerApi* | [**getTemplate**](docs/TemplateControllerApi.md#gettemplate) | **GET** /templates/{TemplateId} | Get Template
 *TemplateControllerApi* | [**getTemplates**](docs/TemplateControllerApi.md#gettemplates) | **GET** /templates | Get all Templates
+*WaitForControllerApi* | [**waitFor**](docs/WaitForControllerApi.md#waitfor) | **POST** /waitFor | Wait for conditions to be met
+*WaitForControllerApi* | [**waitForEmailCount**](docs/WaitForControllerApi.md#waitforemailcount) | **GET** /waitForEmailCount | Wait for and return count number of emails
+*WaitForControllerApi* | [**waitForLatestEmail**](docs/WaitForControllerApi.md#waitforlatestemail) | **GET** /waitForLatestEmail | Fetch inbox&#39;s latest email or if empty wait for an email to arrive
+*WaitForControllerApi* | [**waitForMatchingEmail**](docs/WaitForControllerApi.md#waitformatchingemail) | **POST** /waitForMatchingEmails | Wait or return list of emails that match simple matching patterns
+*WaitForControllerApi* | [**waitForNthEmail**](docs/WaitForControllerApi.md#waitfornthemail) | **GET** /waitForNthEmail | Wait for or fetch the email with a given index in the inbox specified
 *WebhookControllerApi* | [**createWebhook**](docs/WebhookControllerApi.md#createwebhook) | **POST** /inboxes/{inboxId}/webhooks | Attach a WebHook URL to an inbox
 *WebhookControllerApi* | [**deleteWebhook**](docs/WebhookControllerApi.md#deletewebhook) | **DELETE** /inboxes/{inboxId}/webhooks/{webhookId} | Delete and disable a Webhook for an Inbox
 *WebhookControllerApi* | [**getAllWebhooks**](docs/WebhookControllerApi.md#getallwebhooks) | **GET** /webhooks/paginated | List Webhooks Paginated
@@ -198,16 +203,20 @@ Class | Method | HTTP request | Description
  - [Page«InboxProjection»](docs/Page«InboxProjection».md)
  - [Page«TemplateProjection»](docs/Page«TemplateProjection».md)
  - [Page«WebhookProjection»](docs/Page«WebhookProjection».md)
+ - [RawEmailJson](docs/RawEmailJson.md)
  - [SendEmailOptions](docs/SendEmailOptions.md)
  - [SetInboxFavouritedOptions](docs/SetInboxFavouritedOptions.md)
  - [Sort](docs/Sort.md)
  - [TemplateDto](docs/TemplateDto.md)
  - [TemplateProjection](docs/TemplateProjection.md)
  - [TemplateVariable](docs/TemplateVariable.md)
+ - [UnreadCount](docs/UnreadCount.md)
  - [UpdateGroupContacts](docs/UpdateGroupContacts.md)
+ - [UpdateInboxOptions](docs/UpdateInboxOptions.md)
  - [UploadAttachmentOptions](docs/UploadAttachmentOptions.md)
  - [ValidationDto](docs/ValidationDto.md)
  - [ValidationMessage](docs/ValidationMessage.md)
+ - [WaitForConditions](docs/WaitForConditions.md)
  - [WebhookDto](docs/WebhookDto.md)
  - [WebhookProjection](docs/WebhookProjection.md)
  - [WebhookTestRequest](docs/WebhookTestRequest.md)

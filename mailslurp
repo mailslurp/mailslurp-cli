@@ -104,22 +104,6 @@ operation_parameters_minimum_occurrences["bulkDeleteInboxes:::ids"]=1
 operation_parameters_minimum_occurrences["bulkSendEmails:::bulkSendEmailOptions"]=1
 operation_parameters_minimum_occurrences["emptyInbox:::inboxId"]=1
 operation_parameters_minimum_occurrences["sendEmailSimple:::sendEmailOptions"]=1
-operation_parameters_minimum_occurrences["waitForEmailCount:::count"]=0
-operation_parameters_minimum_occurrences["waitForEmailCount:::inboxId"]=0
-operation_parameters_minimum_occurrences["waitForEmailCount:::timeout"]=0
-operation_parameters_minimum_occurrences["waitForEmailCount:::unreadOnly"]=0
-operation_parameters_minimum_occurrences["waitForLatestEmail:::inboxId"]=0
-operation_parameters_minimum_occurrences["waitForLatestEmail:::timeout"]=0
-operation_parameters_minimum_occurrences["waitForLatestEmail:::unreadOnly"]=0
-operation_parameters_minimum_occurrences["waitForMatchingEmail:::matchOptions"]=1
-operation_parameters_minimum_occurrences["waitForMatchingEmail:::count"]=0
-operation_parameters_minimum_occurrences["waitForMatchingEmail:::inboxId"]=0
-operation_parameters_minimum_occurrences["waitForMatchingEmail:::timeout"]=0
-operation_parameters_minimum_occurrences["waitForMatchingEmail:::unreadOnly"]=0
-operation_parameters_minimum_occurrences["waitForNthEmail:::inboxId"]=0
-operation_parameters_minimum_occurrences["waitForNthEmail:::index"]=0
-operation_parameters_minimum_occurrences["waitForNthEmail:::timeout"]=0
-operation_parameters_minimum_occurrences["waitForNthEmail:::unreadOnly"]=0
 operation_parameters_minimum_occurrences["createContact:::createContactOptions"]=1
 operation_parameters_minimum_occurrences["deleteContact:::contactId"]=1
 operation_parameters_minimum_occurrences["getAllContacts:::page"]=0
@@ -139,12 +123,16 @@ operation_parameters_minimum_occurrences["getAttachmentMetaData:::attachmentId"]
 operation_parameters_minimum_occurrences["getAttachmentMetaData:::emailId"]=1
 operation_parameters_minimum_occurrences["getAttachments:::emailId"]=1
 operation_parameters_minimum_occurrences["getEmail:::emailId"]=1
+operation_parameters_minimum_occurrences["getEmail:::decode"]=0
+operation_parameters_minimum_occurrences["getEmailHTML:::emailId"]=1
+operation_parameters_minimum_occurrences["getEmailHTML:::decode"]=0
 operation_parameters_minimum_occurrences["getEmailsPaginated:::inboxId"]=0
 operation_parameters_minimum_occurrences["getEmailsPaginated:::page"]=0
 operation_parameters_minimum_occurrences["getEmailsPaginated:::size"]=0
 operation_parameters_minimum_occurrences["getEmailsPaginated:::sort"]=0
 operation_parameters_minimum_occurrences["getEmailsPaginated:::unreadOnly"]=0
 operation_parameters_minimum_occurrences["getRawEmailContents:::emailId"]=1
+operation_parameters_minimum_occurrences["getRawEmailJson:::emailId"]=1
 operation_parameters_minimum_occurrences["validateEmail:::emailId"]=1
 operation_parameters_minimum_occurrences["addContactsToGroup:::groupId"]=1
 operation_parameters_minimum_occurrences["addContactsToGroup:::updateGroupContactsOption"]=1
@@ -184,12 +172,31 @@ operation_parameters_minimum_occurrences["sendEmail:::inboxId"]=1
 operation_parameters_minimum_occurrences["sendEmail:::sendEmailOptions"]=0
 operation_parameters_minimum_occurrences["setInboxFavourited:::inboxId"]=1
 operation_parameters_minimum_occurrences["setInboxFavourited:::setInboxFavouritedOptions"]=1
+operation_parameters_minimum_occurrences["updateInbox:::inboxId"]=1
+operation_parameters_minimum_occurrences["updateInbox:::updateInboxOptions"]=1
 operation_parameters_minimum_occurrences["createTemplate:::createTemplateOptions"]=1
 operation_parameters_minimum_occurrences["deleteTemplate:::TemplateId"]=1
 operation_parameters_minimum_occurrences["getAllTemplates:::page"]=0
 operation_parameters_minimum_occurrences["getAllTemplates:::size"]=0
 operation_parameters_minimum_occurrences["getAllTemplates:::sort"]=0
 operation_parameters_minimum_occurrences["getTemplate:::TemplateId"]=1
+operation_parameters_minimum_occurrences["waitFor:::waitForConditions"]=0
+operation_parameters_minimum_occurrences["waitForEmailCount:::count"]=0
+operation_parameters_minimum_occurrences["waitForEmailCount:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForEmailCount:::timeout"]=0
+operation_parameters_minimum_occurrences["waitForEmailCount:::unreadOnly"]=0
+operation_parameters_minimum_occurrences["waitForLatestEmail:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForLatestEmail:::timeout"]=0
+operation_parameters_minimum_occurrences["waitForLatestEmail:::unreadOnly"]=0
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::matchOptions"]=1
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::count"]=0
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::timeout"]=0
+operation_parameters_minimum_occurrences["waitForMatchingEmail:::unreadOnly"]=0
+operation_parameters_minimum_occurrences["waitForNthEmail:::inboxId"]=0
+operation_parameters_minimum_occurrences["waitForNthEmail:::index"]=0
+operation_parameters_minimum_occurrences["waitForNthEmail:::timeout"]=0
+operation_parameters_minimum_occurrences["waitForNthEmail:::unreadOnly"]=0
 operation_parameters_minimum_occurrences["createWebhook:::inboxId"]=1
 operation_parameters_minimum_occurrences["createWebhook:::webhookOptions"]=1
 operation_parameters_minimum_occurrences["deleteWebhook:::inboxId"]=1
@@ -217,22 +224,6 @@ operation_parameters_maximum_occurrences["bulkDeleteInboxes:::ids"]=0
 operation_parameters_maximum_occurrences["bulkSendEmails:::bulkSendEmailOptions"]=0
 operation_parameters_maximum_occurrences["emptyInbox:::inboxId"]=0
 operation_parameters_maximum_occurrences["sendEmailSimple:::sendEmailOptions"]=0
-operation_parameters_maximum_occurrences["waitForEmailCount:::count"]=0
-operation_parameters_maximum_occurrences["waitForEmailCount:::inboxId"]=0
-operation_parameters_maximum_occurrences["waitForEmailCount:::timeout"]=0
-operation_parameters_maximum_occurrences["waitForEmailCount:::unreadOnly"]=0
-operation_parameters_maximum_occurrences["waitForLatestEmail:::inboxId"]=0
-operation_parameters_maximum_occurrences["waitForLatestEmail:::timeout"]=0
-operation_parameters_maximum_occurrences["waitForLatestEmail:::unreadOnly"]=0
-operation_parameters_maximum_occurrences["waitForMatchingEmail:::matchOptions"]=0
-operation_parameters_maximum_occurrences["waitForMatchingEmail:::count"]=0
-operation_parameters_maximum_occurrences["waitForMatchingEmail:::inboxId"]=0
-operation_parameters_maximum_occurrences["waitForMatchingEmail:::timeout"]=0
-operation_parameters_maximum_occurrences["waitForMatchingEmail:::unreadOnly"]=0
-operation_parameters_maximum_occurrences["waitForNthEmail:::inboxId"]=0
-operation_parameters_maximum_occurrences["waitForNthEmail:::index"]=0
-operation_parameters_maximum_occurrences["waitForNthEmail:::timeout"]=0
-operation_parameters_maximum_occurrences["waitForNthEmail:::unreadOnly"]=0
 operation_parameters_maximum_occurrences["createContact:::createContactOptions"]=0
 operation_parameters_maximum_occurrences["deleteContact:::contactId"]=0
 operation_parameters_maximum_occurrences["getAllContacts:::page"]=0
@@ -252,12 +243,16 @@ operation_parameters_maximum_occurrences["getAttachmentMetaData:::attachmentId"]
 operation_parameters_maximum_occurrences["getAttachmentMetaData:::emailId"]=0
 operation_parameters_maximum_occurrences["getAttachments:::emailId"]=0
 operation_parameters_maximum_occurrences["getEmail:::emailId"]=0
+operation_parameters_maximum_occurrences["getEmail:::decode"]=0
+operation_parameters_maximum_occurrences["getEmailHTML:::emailId"]=0
+operation_parameters_maximum_occurrences["getEmailHTML:::decode"]=0
 operation_parameters_maximum_occurrences["getEmailsPaginated:::inboxId"]=0
 operation_parameters_maximum_occurrences["getEmailsPaginated:::page"]=0
 operation_parameters_maximum_occurrences["getEmailsPaginated:::size"]=0
 operation_parameters_maximum_occurrences["getEmailsPaginated:::sort"]=0
 operation_parameters_maximum_occurrences["getEmailsPaginated:::unreadOnly"]=0
 operation_parameters_maximum_occurrences["getRawEmailContents:::emailId"]=0
+operation_parameters_maximum_occurrences["getRawEmailJson:::emailId"]=0
 operation_parameters_maximum_occurrences["validateEmail:::emailId"]=0
 operation_parameters_maximum_occurrences["addContactsToGroup:::groupId"]=0
 operation_parameters_maximum_occurrences["addContactsToGroup:::updateGroupContactsOption"]=0
@@ -297,12 +292,31 @@ operation_parameters_maximum_occurrences["sendEmail:::inboxId"]=0
 operation_parameters_maximum_occurrences["sendEmail:::sendEmailOptions"]=0
 operation_parameters_maximum_occurrences["setInboxFavourited:::inboxId"]=0
 operation_parameters_maximum_occurrences["setInboxFavourited:::setInboxFavouritedOptions"]=0
+operation_parameters_maximum_occurrences["updateInbox:::inboxId"]=0
+operation_parameters_maximum_occurrences["updateInbox:::updateInboxOptions"]=0
 operation_parameters_maximum_occurrences["createTemplate:::createTemplateOptions"]=0
 operation_parameters_maximum_occurrences["deleteTemplate:::TemplateId"]=0
 operation_parameters_maximum_occurrences["getAllTemplates:::page"]=0
 operation_parameters_maximum_occurrences["getAllTemplates:::size"]=0
 operation_parameters_maximum_occurrences["getAllTemplates:::sort"]=0
 operation_parameters_maximum_occurrences["getTemplate:::TemplateId"]=0
+operation_parameters_maximum_occurrences["waitFor:::waitForConditions"]=0
+operation_parameters_maximum_occurrences["waitForEmailCount:::count"]=0
+operation_parameters_maximum_occurrences["waitForEmailCount:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForEmailCount:::timeout"]=0
+operation_parameters_maximum_occurrences["waitForEmailCount:::unreadOnly"]=0
+operation_parameters_maximum_occurrences["waitForLatestEmail:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForLatestEmail:::timeout"]=0
+operation_parameters_maximum_occurrences["waitForLatestEmail:::unreadOnly"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::matchOptions"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::count"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::timeout"]=0
+operation_parameters_maximum_occurrences["waitForMatchingEmail:::unreadOnly"]=0
+operation_parameters_maximum_occurrences["waitForNthEmail:::inboxId"]=0
+operation_parameters_maximum_occurrences["waitForNthEmail:::index"]=0
+operation_parameters_maximum_occurrences["waitForNthEmail:::timeout"]=0
+operation_parameters_maximum_occurrences["waitForNthEmail:::unreadOnly"]=0
 operation_parameters_maximum_occurrences["createWebhook:::inboxId"]=0
 operation_parameters_maximum_occurrences["createWebhook:::webhookOptions"]=0
 operation_parameters_maximum_occurrences["deleteWebhook:::inboxId"]=0
@@ -327,22 +341,6 @@ operation_parameters_collection_type["bulkDeleteInboxes:::ids"]=
 operation_parameters_collection_type["bulkSendEmails:::bulkSendEmailOptions"]=""
 operation_parameters_collection_type["emptyInbox:::inboxId"]=""
 operation_parameters_collection_type["sendEmailSimple:::sendEmailOptions"]=""
-operation_parameters_collection_type["waitForEmailCount:::count"]=""
-operation_parameters_collection_type["waitForEmailCount:::inboxId"]=""
-operation_parameters_collection_type["waitForEmailCount:::timeout"]=""
-operation_parameters_collection_type["waitForEmailCount:::unreadOnly"]=""
-operation_parameters_collection_type["waitForLatestEmail:::inboxId"]=""
-operation_parameters_collection_type["waitForLatestEmail:::timeout"]=""
-operation_parameters_collection_type["waitForLatestEmail:::unreadOnly"]=""
-operation_parameters_collection_type["waitForMatchingEmail:::matchOptions"]=""
-operation_parameters_collection_type["waitForMatchingEmail:::count"]=""
-operation_parameters_collection_type["waitForMatchingEmail:::inboxId"]=""
-operation_parameters_collection_type["waitForMatchingEmail:::timeout"]=""
-operation_parameters_collection_type["waitForMatchingEmail:::unreadOnly"]=""
-operation_parameters_collection_type["waitForNthEmail:::inboxId"]=""
-operation_parameters_collection_type["waitForNthEmail:::index"]=""
-operation_parameters_collection_type["waitForNthEmail:::timeout"]=""
-operation_parameters_collection_type["waitForNthEmail:::unreadOnly"]=""
 operation_parameters_collection_type["createContact:::createContactOptions"]=""
 operation_parameters_collection_type["deleteContact:::contactId"]=""
 operation_parameters_collection_type["getAllContacts:::page"]=""
@@ -362,12 +360,16 @@ operation_parameters_collection_type["getAttachmentMetaData:::attachmentId"]=""
 operation_parameters_collection_type["getAttachmentMetaData:::emailId"]=""
 operation_parameters_collection_type["getAttachments:::emailId"]=""
 operation_parameters_collection_type["getEmail:::emailId"]=""
+operation_parameters_collection_type["getEmail:::decode"]=""
+operation_parameters_collection_type["getEmailHTML:::emailId"]=""
+operation_parameters_collection_type["getEmailHTML:::decode"]=""
 operation_parameters_collection_type["getEmailsPaginated:::inboxId"]="multi"
 operation_parameters_collection_type["getEmailsPaginated:::page"]=""
 operation_parameters_collection_type["getEmailsPaginated:::size"]=""
 operation_parameters_collection_type["getEmailsPaginated:::sort"]=""
 operation_parameters_collection_type["getEmailsPaginated:::unreadOnly"]=""
 operation_parameters_collection_type["getRawEmailContents:::emailId"]=""
+operation_parameters_collection_type["getRawEmailJson:::emailId"]=""
 operation_parameters_collection_type["validateEmail:::emailId"]=""
 operation_parameters_collection_type["addContactsToGroup:::groupId"]=""
 operation_parameters_collection_type["addContactsToGroup:::updateGroupContactsOption"]=""
@@ -407,12 +409,31 @@ operation_parameters_collection_type["sendEmail:::inboxId"]=""
 operation_parameters_collection_type["sendEmail:::sendEmailOptions"]=""
 operation_parameters_collection_type["setInboxFavourited:::inboxId"]=""
 operation_parameters_collection_type["setInboxFavourited:::setInboxFavouritedOptions"]=""
+operation_parameters_collection_type["updateInbox:::inboxId"]=""
+operation_parameters_collection_type["updateInbox:::updateInboxOptions"]=""
 operation_parameters_collection_type["createTemplate:::createTemplateOptions"]=""
 operation_parameters_collection_type["deleteTemplate:::TemplateId"]=""
 operation_parameters_collection_type["getAllTemplates:::page"]=""
 operation_parameters_collection_type["getAllTemplates:::size"]=""
 operation_parameters_collection_type["getAllTemplates:::sort"]=""
 operation_parameters_collection_type["getTemplate:::TemplateId"]=""
+operation_parameters_collection_type["waitFor:::waitForConditions"]=""
+operation_parameters_collection_type["waitForEmailCount:::count"]=""
+operation_parameters_collection_type["waitForEmailCount:::inboxId"]=""
+operation_parameters_collection_type["waitForEmailCount:::timeout"]=""
+operation_parameters_collection_type["waitForEmailCount:::unreadOnly"]=""
+operation_parameters_collection_type["waitForLatestEmail:::inboxId"]=""
+operation_parameters_collection_type["waitForLatestEmail:::timeout"]=""
+operation_parameters_collection_type["waitForLatestEmail:::unreadOnly"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::matchOptions"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::count"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::inboxId"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::timeout"]=""
+operation_parameters_collection_type["waitForMatchingEmail:::unreadOnly"]=""
+operation_parameters_collection_type["waitForNthEmail:::inboxId"]=""
+operation_parameters_collection_type["waitForNthEmail:::index"]=""
+operation_parameters_collection_type["waitForNthEmail:::timeout"]=""
+operation_parameters_collection_type["waitForNthEmail:::unreadOnly"]=""
 operation_parameters_collection_type["createWebhook:::inboxId"]=""
 operation_parameters_collection_type["createWebhook:::webhookOptions"]=""
 operation_parameters_collection_type["deleteWebhook:::inboxId"]=""
@@ -769,7 +790,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}MailSlurp API command line client (API version 6.5.2)${OFF}
+${BOLD}${WHITE}MailSlurp API command line client (API version 67c9a1eda264be4cfe0bb2c76151f0aadf0862bc)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -823,10 +844,6 @@ read -r -d '' ops <<EOF
   ${CYAN}createNewEmailAddress${OFF};Create new random inbox (AUTH)
   ${CYAN}emptyInbox${OFF};Delete all emails in an inbox (AUTH)
   ${CYAN}sendEmailSimple${OFF};Send an email from a random email address (AUTH)
-  ${CYAN}waitForEmailCount${OFF};Wait for and return count number of emails (AUTH)
-  ${CYAN}waitForLatestEmail${OFF};Fetch inbox's latest email or if empty wait for email to arrive (AUTH)
-  ${CYAN}waitForMatchingEmail${OFF};Wait or return list of emails that match simple matching patterns (AUTH)
-  ${CYAN}waitForNthEmail${OFF};Wait for or fetch the email with a given index in the inbox specified (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -852,14 +869,17 @@ echo "  $ops" | column -t -s ';'
     echo -e "${BOLD}${WHITE}[emailController]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}deleteAllEmails${OFF};Delete all emails (AUTH)
-  ${CYAN}deleteEmail${OFF};Delete Email (AUTH)
-  ${CYAN}downloadAttachment${OFF};Get email attachment (AUTH)
-  ${CYAN}forwardEmail${OFF};Forward Email (AUTH)
+  ${CYAN}deleteEmail${OFF};Delete an email (AUTH)
+  ${CYAN}downloadAttachment${OFF};Get email attachment bytes (AUTH)
+  ${CYAN}forwardEmail${OFF};Forward email (AUTH)
   ${CYAN}getAttachmentMetaData${OFF};Get email attachment metadata (AUTH)
   ${CYAN}getAttachments${OFF};Get all email attachment metadata (AUTH)
-  ${CYAN}getEmail${OFF};Get Email Content (AUTH)
+  ${CYAN}getEmail${OFF};Get email content (AUTH)
+  ${CYAN}getEmailHTML${OFF};Get email content as HTML (AUTH)
   ${CYAN}getEmailsPaginated${OFF};Get all emails (AUTH)
-  ${CYAN}getRawEmailContents${OFF};Get Raw Email Content (AUTH)
+  ${CYAN}getRawEmailContents${OFF};Get raw email string (AUTH)
+  ${CYAN}getRawEmailJson${OFF};Get raw email in JSON (AUTH)
+  ${CYAN}getUnreadEmailCount${OFF};Get unread email count (AUTH)
   ${CYAN}validateEmail${OFF};Validate email (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
@@ -881,14 +901,15 @@ echo "  $ops" | column -t -s ';'
 read -r -d '' ops <<EOF
   ${CYAN}createInbox${OFF};Create an Inbox (email address) (AUTH)
   ${CYAN}deleteAllInboxes${OFF};Delete all inboxes (AUTH)
-  ${CYAN}deleteInbox${OFF};Delete Inbox / Email Address (AUTH)
+  ${CYAN}deleteInbox${OFF};Delete inbox (AUTH)
   ${CYAN}getAllInboxes${OFF};List Inboxes Paginated (AUTH)
   ${CYAN}getEmails${OFF};Get emails in an Inbox (AUTH)
-  ${CYAN}getInbox${OFF};Get Inbox / EmailAddress (AUTH)
+  ${CYAN}getInbox${OFF};Get Inbox (AUTH)
   ${CYAN}getInboxEmailsPaginated${OFF};Get inbox emails paginated (AUTH)
   ${CYAN}getInboxes${OFF};List Inboxes / Email Addresses (AUTH)
   ${CYAN}sendEmail${OFF};Send Email (AUTH)
   ${CYAN}setInboxFavourited${OFF};Set inbox favourited state (AUTH)
+  ${CYAN}updateInbox${OFF};Update Inbox (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -899,6 +920,16 @@ read -r -d '' ops <<EOF
   ${CYAN}getAllTemplates${OFF};Get all Templates in paginated format (AUTH)
   ${CYAN}getTemplate${OFF};Get Template (AUTH)
   ${CYAN}getTemplates${OFF};Get all Templates (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "${BOLD}${WHITE}[waitForController]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}waitFor${OFF};Wait for conditions to be met (AUTH)
+  ${CYAN}waitForEmailCount${OFF};Wait for and return count number of emails (AUTH)
+  ${CYAN}waitForLatestEmail${OFF};Fetch inbox's latest email or if empty wait for an email to arrive (AUTH)
+  ${CYAN}waitForMatchingEmail${OFF};Wait or return list of emails that match simple matching patterns (AUTH)
+  ${CYAN}waitForNthEmail${OFF};Wait for or fetch the email with a given index in the inbox specified (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -939,7 +970,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://api.mailslurp.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}MailSlurp API command line client (API version 6.5.2)${OFF}"
+    echo -e "${BOLD}${WHITE}MailSlurp API command line client (API version 67c9a1eda264be4cfe0bb2c76151f0aadf0862bc)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: "
@@ -953,34 +984,6 @@ MailSlurp is an API for sending and receiving emails from dynamically allocated 
 - Get an [API KEY](https://app.mailslurp.com/sign-up/)
 - Generated [SDK Clients](https://www.mailslurp.com/docs/)
 - [Examples](https://github.com/mailslurp/examples) repository
-
-## Basic Concepts
-
-### Inboxes 
-Inboxes have real email addresses that can send and receive emails. You can create inboxes with specific email addresses (using custom domains). You can also use randomly assigned MailSlurp addresses as unique, disposable test addresses. 
-
-See the InboxController or [inbox and email address guide](https://www.mailslurp.com/guides/) for more information.
-
-### Receive Emails
-You can receive emails in a number of ways. You can fetch emails and attachments directly from an inbox. Or you can use 'waitFor' endpoints to hold a connection open until an email is received that matches given criteria (such as subject or body content). You can also use webhooks to have emails from multiple inboxes forwarded to your server via HTTP POST.
-
-InboxController methods with 'waitFor' in the name have a long timeout period and instruct MailSlurp to wait until an expected email is received. You can set conditions on email counts, subject or body matches, and more.
-
-Most receive methods only return an email ID and not the full email (to keep response sizes low). To fetch the full body or attachments for an email use the email's ID with EmailController endpoints.
-
-See the InboxController or [receiving emails guide](https://www.mailslurp.com/guides/) for more information.
-
-### Send Emails
-You can send templated HTML emails in several ways. You must first create an inbox to send an email. An inbox can have a specific address or a randomly assigned one. You can send emails from an inbox using 'to', 'cc', and 'bcc' recipient lists or with contacts and contact groups. 
-
-Emails can contain plain-text or HTML bodies. You can also use email templates that support [moustache](https://mustache.github.io/) template variables. You can send attachments by first posting files to the AttachmentController and then using the returned IDs in the 'attachments' field of the send options.
-
-See the InboxController or [sending emails guide](https://www.mailslurp.com/guides/) for more information.
-
-### Templates
-MailSlurp emails support templates. You can create templates in the dashboard or API that contain [moustache](https://mustache.github.io/) style variables: for instance 'Hello {{name}}'. Then when sending emails you can pass a map of variables names and values to be used. Additionally, when sending emails with contact groups you can use properties of the contact in your templates like '{{firstName}}' and '{{lastName}}'.
-
-> You can do a lot more with MailSlurp so see the included documentation for more information.
 EOF
 echo "$appdescription" | paste -sd' ' | fold -sw 80
 }
@@ -993,7 +996,7 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}MailSlurp API command line client (API version 6.5.2)${OFF}"
+    echo -e "${BOLD}MailSlurp API command line client (API version 67c9a1eda264be4cfe0bb2c76151f0aadf0862bc)${OFF}"
     echo ""
 }
 
@@ -1179,130 +1182,6 @@ print_sendEmailSimple_help() {
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=201
     echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=401
-    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=403
-    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=404
-    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for waitForEmailCount operation
-#
-##############################################################################
-print_waitForEmailCount_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}waitForEmailCount - Wait for and return count number of emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "Will only wait if count is greater that the found emails in given inbox.If you need to wait for an email for a non-empty inbox see the other receive methods." | paste -sd' ' | fold -sw 80
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}count${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of emails to wait for. Must be greater that 1${YELLOW} Specify as: count=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=401
-    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=403
-    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=404
-    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for waitForLatestEmail operation
-#
-##############################################################################
-print_waitForLatestEmail_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}waitForLatestEmail - Fetch inbox's latest email or if empty wait for email to arrive${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "Will return either the last received email or wait for an email to arrive and return that. If you need to wait for an email for a non-empty inbox see the other receive methods." | paste -sd' ' | fold -sw 80
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=401
-    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=403
-    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=404
-    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for waitForMatchingEmail operation
-#
-##############################################################################
-print_waitForMatchingEmail_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}waitForMatchingEmail - Wait or return list of emails that match simple matching patterns${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "Results must also meet provided count. Match options allow simple CONTAINS or EQUALS filtering on SUBJECT, TO, BCC, CC, and FROM." | paste -sd' ' | fold -sw 80
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}count${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of emails to wait for. Must be greater that 1${YELLOW} Specify as: count=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - matchOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=201
-    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=401
-    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=403
-    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-    code=404
-    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for waitForNthEmail operation
-#
-##############################################################################
-print_waitForNthEmail_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}waitForNthEmail - Wait for or fetch the email with a given index in the inbox specified${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox you are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}index${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Zero based index of the email to wait for${YELLOW} Specify as: index=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=401
     echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=403
@@ -1526,7 +1405,7 @@ print_deleteAllEmails_help() {
     echo ""
     echo -e "${BOLD}${WHITE}deleteAllEmails - Delete all emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Deletes all emails" | paste -sd' ' | fold -sw 80
+    echo -e "Deletes all emails in your account. Be careful as emails cannot be recovered" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1544,9 +1423,9 @@ print_deleteAllEmails_help() {
 ##############################################################################
 print_deleteEmail_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}deleteEmail - Delete Email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}deleteEmail - Delete an email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Deletes an email and removes it from the inbox" | paste -sd' ' | fold -sw 80
+    echo -e "Deletes an email and removes it from the inbox. Deleted emails cannot be recovered." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1566,9 +1445,9 @@ print_deleteEmail_help() {
 ##############################################################################
 print_downloadAttachment_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}downloadAttachment - Get email attachment${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}downloadAttachment - Get email attachment bytes${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Returns the specified attachment for a given email as a byte stream (file download). Get the attachmentId from the email response." | paste -sd' ' | fold -sw 80
+    echo -e "Returns the specified attachment for a given email as a byte stream (file download). You can find attachment ids in email responses endpoint responses. The response type is application/octet-stream." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}attachmentId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - attachmentId ${YELLOW}Specify as: attachmentId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1593,9 +1472,9 @@ print_downloadAttachment_help() {
 ##############################################################################
 print_forwardEmail_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}forwardEmail - Forward Email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}forwardEmail - Forward email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Forward email content to given recipients" | paste -sd' ' | fold -sw 80
+    echo -e "Forward an existing email to new recipients." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1668,12 +1547,40 @@ print_getAttachments_help() {
 ##############################################################################
 print_getEmail_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getEmail - Get Email Content${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getEmail - Get email content${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Returns a email summary object with headers and content. To retrieve the raw unparsed email use the getRawMessage endpoint" | paste -sd' ' | fold -sw 80
+    echo -e "Returns a email summary object with headers and content. To retrieve the raw unparsed email use the getRawEmail endpoints" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}decode${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Decode email body quoted-printable encoding to plain text. SMTP servers often encode text using quoted-printable format (for instance '=D7'). This can be a pain for testing${YELLOW} Specify as: decode=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getEmailHTML operation
+#
+##############################################################################
+print_getEmailHTML_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getEmailHTML - Get email content as HTML${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Retrieve email content as HTML response for viewing in browsers. Decodes quoted-printable entities and converts charset to UTF-8. Pass your API KEY as a request parameter when viewing in a browser: '?apiKey=xxx'" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}decode${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - decode${YELLOW} Specify as: decode=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1694,10 +1601,10 @@ print_getEmailsPaginated_help() {
     echo ""
     echo -e "${BOLD}${WHITE}getEmailsPaginated - Get all emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Responses are paginated" | paste -sd' ' | fold -sw 80
+    echo -e "By default returns all emails across all inboxes sorted by ascending created at date. Responses are paginated. You can restrict results to a list of inbox IDs. You can also filter out read messages" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[array[string]]${OFF} ${CYAN}(default: null)${OFF} - Optional inbox ids to filter by. Can be repeated${YELLOW} Specify as: inboxId=value1 inboxId=value2 inboxId=...${OFF}" \
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[array[string]]${OFF} ${CYAN}(default: null)${OFF} - Optional inbox ids to filter by. Can be repeated. By default will use all inboxes belonging to your account.${YELLOW} Specify as: inboxId=value1 inboxId=value2 inboxId=...${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Optional page index in email list pagination${YELLOW} Specify as: page=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1705,7 +1612,7 @@ print_getEmailsPaginated_help() {
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}sort${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: ASC)${OFF} - Optional createdAt sort direction ASC or DESC${YELLOW} Specify as: sort=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread emails only${YELLOW} Specify as: unreadOnly=value${OFF}" \
+    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread emails only. All emails are considered unread until they are viewed in the dashboard or requested directly${YELLOW} Specify as: unreadOnly=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1725,12 +1632,58 @@ print_getEmailsPaginated_help() {
 ##############################################################################
 print_getRawEmailContents_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getRawEmailContents - Get Raw Email Content${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getRawEmailContents - Get raw email string${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Returns a raw, unparsed and unprocessed email" | paste -sd' ' | fold -sw 80
+    echo -e "Returns a raw, unparsed, and unprocessed email. If your client has issues processing the response it is likely due to the response content-type which is text/plain. If you need a JSON response content-type use the getRawEmailJson endpoint" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;text/plain raw email${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getRawEmailJson operation
+#
+##############################################################################
+print_getRawEmailJson_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getRawEmailJson - Get raw email in JSON${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Returns a raw, unparsed, and unprocessed email wrapped in a JSON response object for easier handling when compared with the getRawEmail text/plain response" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getUnreadEmailCount operation
+#
+##############################################################################
+print_getUnreadEmailCount_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getUnreadEmailCount - Get unread email count${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Get number of emails unread" | paste -sd' ' | fold -sw 80
+    echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -1751,7 +1704,7 @@ print_validateEmail_help() {
     echo ""
     echo -e "${BOLD}${WHITE}validateEmail - Validate email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Validate HTML content of email" | paste -sd' ' | fold -sw 80
+    echo -e "Validate the HTML content of email if HTML is found. Considered valid if no HTML." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}emailId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - emailId ${YELLOW}Specify as: emailId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1959,7 +1912,7 @@ print_createInbox_help() {
     echo ""
     echo -e "${BOLD}${WHITE}createInbox - Create an Inbox (email address)${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Create a new inbox and with a ranmdomized email address to send and receive from. Pass emailAddress parameter if you wish to use a specific email address. Creating an inbox is required before sending or receiving emails. If writing tests it is recommended that you create a new inbox during each test method so that it is unique and empty." | paste -sd' ' | fold -sw 80
+    echo -e "Create a new inbox and with a randomized email address to send and receive from. Pass emailAddress parameter if you wish to use a specific email address. Creating an inbox is required before sending or receiving emails. If writing tests it is recommended that you create a new inbox during each test method so that it is unique and empty." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}description${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Optional description for an inbox.${YELLOW} Specify as: description=value${OFF}" \
@@ -1994,7 +1947,7 @@ print_deleteAllInboxes_help() {
     echo ""
     echo -e "${BOLD}${WHITE}deleteAllInboxes - Delete all inboxes${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Permanently delete all inboxes and associated email addresses and all emails within the given inboxes" | paste -sd' ' | fold -sw 80
+    echo -e "Permanently delete all inboxes and associated email addresses. This will also delete all emails within the inboxes. Be careful as inboxes cannot be recovered once deleted. Note: deleting inboxes will not impact your usage limits. Monthly inbox creation limits are based on how many inboxes were created in the last 30 days, not how many inboxes you currently have." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2012,9 +1965,9 @@ print_deleteAllInboxes_help() {
 ##############################################################################
 print_deleteInbox_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}deleteInbox - Delete Inbox / Email Address${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}deleteInbox - Delete inbox${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Permanently delete an inbox and associated email address and all emails within the given inboxes" | paste -sd' ' | fold -sw 80
+    echo -e "Permanently delete an inbox and associated email address aswell as all emails within the given inbox. This action cannot be undone. Note: deleting an inbox will not affect your account usage. Monthly inbox usage is based on how many inboxes you create within 30 days, not how many exist at time of request." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - inboxId ${YELLOW}Specify as: inboxId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -2101,7 +2054,7 @@ print_getEmails_help() {
 ##############################################################################
 print_getInbox_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}getInbox - Get Inbox / EmailAddress${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getInbox - Get Inbox${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Returns an inbox's properties, including its email address and ID." | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -2179,7 +2132,8 @@ print_sendEmail_help() {
     echo ""
     echo -e "${BOLD}${WHITE}sendEmail - Send Email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Send an email from the inbox's email address. Specify the email recipients and contents in the request body. See the 'SendEmailOptions' for more information. Note the 'inboxId' refers to the inbox's id NOT its email address" | paste -sd' ' | fold -sw 80
+    echo -e "Send an email from an inbox's email address. 
+The request body should contain the 'SendEmailOptions' that include recipients, attachments, body etc. See 'SendEmailOptions' for all available properties. Note the 'inboxId' refers to the inbox's id not the inbox's email address. See https://www.mailslurp.com/guides/ for more information on how to send emails." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ID of the inbox you want to send the email from ${YELLOW}Specify as: inboxId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -2223,6 +2177,32 @@ print_setInboxFavourited_help() {
     echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=404
     echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for updateInbox operation
+#
+##############################################################################
+print_updateInbox_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}updateInbox - Update Inbox${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Update editable fields on an inbox" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - inboxId ${YELLOW}Specify as: inboxId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - updateInboxOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=204
+    echo -e "${result_color_table[${code:0:1}]}  204;No Content${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -2325,6 +2305,159 @@ print_getTemplates_help() {
     echo ""
     echo -e "${BOLD}${WHITE}getTemplates - Get all Templates${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for waitFor operation
+#
+##############################################################################
+print_waitFor_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitFor - Wait for conditions to be met${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Generic waitFor method that will wait until an inbox meets given conditions or return immediately if already met" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - Conditions to wait for" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for waitForEmailCount operation
+#
+##############################################################################
+print_waitForEmailCount_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitForEmailCount - Wait for and return count number of emails${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "If inbox contains count or more emails at time of request then return count worth of emails. If not wait until the count is reached and return those or return an error if timeout is exceeded." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}count${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of emails to wait for. Must be greater that 1${YELLOW} Specify as: count=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for waitForLatestEmail operation
+#
+##############################################################################
+print_waitForLatestEmail_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitForLatestEmail - Fetch inbox's latest email or if empty wait for an email to arrive${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Will return either the last received email or wait for an email to arrive and return that. If you need to wait for an email for a non-empty inbox see the other receive methods such as waitForNthEmail or waitForEmailCount." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for waitForMatchingEmail operation
+#
+##############################################################################
+print_waitForMatchingEmail_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitForMatchingEmail - Wait or return list of emails that match simple matching patterns${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Perform a search of emails in an inbox with the given patterns. If results match expected count then return or else retry the search until results are found or timeout is reached. Match options allow simple CONTAINS or EQUALS filtering on SUBJECT, TO, BCC, CC, and FROM. See the 'MatchOptions' object for options." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}count${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of emails to wait for. Must be greater that 1${YELLOW} Specify as: count=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - matchOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for waitForNthEmail operation
+#
+##############################################################################
+print_waitForNthEmail_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}waitForNthEmail - Wait for or fetch the email with a given index in the inbox specified${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "If nth email is already present in inbox then return it. If not hold the connection open until timeout expires or the nth email is received and returned." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox you are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}index${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Zero based index of the email to wait for. If an inbox has 1 email already and you want to wait for the 2nd email pass index=1${YELLOW} Specify as: index=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait for the nth email if not already present${YELLOW} Specify as: timeout=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2933,192 +3066,6 @@ call_sendEmailSimple() {
         else
             eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
         fi
-    fi
-}
-
-##############################################################################
-#
-# Call waitForEmailCount operation
-#
-##############################################################################
-call_waitForEmailCount() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(count inboxId timeout unreadOnly  )
-    local path
-
-    if ! path=$(build_request_path "/waitForEmailCount" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call waitForLatestEmail operation
-#
-##############################################################################
-call_waitForLatestEmail() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(inboxId timeout unreadOnly  )
-    local path
-
-    if ! path=$(build_request_path "/waitForLatestEmail" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call waitForMatchingEmail operation
-#
-##############################################################################
-call_waitForMatchingEmail() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(count inboxId timeout unreadOnly  )
-    local path
-
-    if ! path=$(build_request_path "/waitForMatchingEmails" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="POST"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the OpenAPI specification
-    # if values produces and consumes are defined unambigously
-    #
-    if [[ -z $header_content_type ]]; then
-        header_content_type="application/json"
-    fi
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
-        echo "ERROR: Request's content-type not specified!!!"
-        echo "This operation expects content-type in one of the following formats:"
-        echo -e "\\t- application/json"
-        echo ""
-        echo "Use '--content-type' to set proper content type"
-        exit 1
-    else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
-    fi
-}
-
-##############################################################################
-#
-# Call waitForNthEmail operation
-#
-##############################################################################
-call_waitForNthEmail() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(inboxId index timeout unreadOnly  )
-    local path
-
-    if ! path=$(build_request_path "/waitForNthEmail" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
     fi
 }
 
@@ -3799,10 +3746,46 @@ call_getEmail() {
     local path_parameter_names=(emailId)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(  )
+    local query_parameter_names=(decode  )
     local path
 
     if ! path=$(build_request_path "/emails/{emailId}" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getEmailHTML operation
+#
+##############################################################################
+call_getEmailHTML() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(emailId)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(decode  )
+    local path
+
+    if ! path=$(build_request_path "/emails/{emailId}/html" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3875,6 +3858,78 @@ call_getRawEmailContents() {
     local path
 
     if ! path=$(build_request_path "/emails/{emailId}/raw" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getRawEmailJson operation
+#
+##############################################################################
+call_getRawEmailJson() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(emailId)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/emails/{emailId}/raw/json" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getUnreadEmailCount operation
+#
+##############################################################################
+call_getUnreadEmailCount() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/emails/unreadCount" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4792,6 +4847,84 @@ call_setInboxFavourited() {
 
 ##############################################################################
 #
+# Call updateInbox operation
+#
+##############################################################################
+call_updateInbox() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(inboxId)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/inboxes/{inboxId}" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="PATCH"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
 # Call createTemplate operation
 #
 ##############################################################################
@@ -4991,6 +5124,270 @@ call_getTemplates() {
     local path
 
     if ! path=$(build_request_path "/templates" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call waitFor operation
+#
+##############################################################################
+call_waitFor() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/waitFor" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call waitForEmailCount operation
+#
+##############################################################################
+call_waitForEmailCount() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(count inboxId timeout unreadOnly  )
+    local path
+
+    if ! path=$(build_request_path "/waitForEmailCount" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call waitForLatestEmail operation
+#
+##############################################################################
+call_waitForLatestEmail() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(inboxId timeout unreadOnly  )
+    local path
+
+    if ! path=$(build_request_path "/waitForLatestEmail" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call waitForMatchingEmail operation
+#
+##############################################################################
+call_waitForMatchingEmail() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(count inboxId timeout unreadOnly  )
+    local path
+
+    if ! path=$(build_request_path "/waitForMatchingEmails" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call waitForNthEmail operation
+#
+##############################################################################
+call_waitForNthEmail() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(inboxId index timeout unreadOnly  )
+    local path
+
+    if ! path=$(build_request_path "/waitForNthEmail" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5391,18 +5788,6 @@ case $key in
     sendEmailSimple)
     operation="sendEmailSimple"
     ;;
-    waitForEmailCount)
-    operation="waitForEmailCount"
-    ;;
-    waitForLatestEmail)
-    operation="waitForLatestEmail"
-    ;;
-    waitForMatchingEmail)
-    operation="waitForMatchingEmail"
-    ;;
-    waitForNthEmail)
-    operation="waitForNthEmail"
-    ;;
     createContact)
     operation="createContact"
     ;;
@@ -5451,11 +5836,20 @@ case $key in
     getEmail)
     operation="getEmail"
     ;;
+    getEmailHTML)
+    operation="getEmailHTML"
+    ;;
     getEmailsPaginated)
     operation="getEmailsPaginated"
     ;;
     getRawEmailContents)
     operation="getRawEmailContents"
+    ;;
+    getRawEmailJson)
+    operation="getRawEmailJson"
+    ;;
+    getUnreadEmailCount)
+    operation="getUnreadEmailCount"
     ;;
     validateEmail)
     operation="validateEmail"
@@ -5514,6 +5908,9 @@ case $key in
     setInboxFavourited)
     operation="setInboxFavourited"
     ;;
+    updateInbox)
+    operation="updateInbox"
+    ;;
     createTemplate)
     operation="createTemplate"
     ;;
@@ -5528,6 +5925,21 @@ case $key in
     ;;
     getTemplates)
     operation="getTemplates"
+    ;;
+    waitFor)
+    operation="waitFor"
+    ;;
+    waitForEmailCount)
+    operation="waitForEmailCount"
+    ;;
+    waitForLatestEmail)
+    operation="waitForLatestEmail"
+    ;;
+    waitForMatchingEmail)
+    operation="waitForMatchingEmail"
+    ;;
+    waitForNthEmail)
+    operation="waitForNthEmail"
     ;;
     createWebhook)
     operation="createWebhook"
@@ -5655,18 +6067,6 @@ case $operation in
     sendEmailSimple)
     call_sendEmailSimple
     ;;
-    waitForEmailCount)
-    call_waitForEmailCount
-    ;;
-    waitForLatestEmail)
-    call_waitForLatestEmail
-    ;;
-    waitForMatchingEmail)
-    call_waitForMatchingEmail
-    ;;
-    waitForNthEmail)
-    call_waitForNthEmail
-    ;;
     createContact)
     call_createContact
     ;;
@@ -5715,11 +6115,20 @@ case $operation in
     getEmail)
     call_getEmail
     ;;
+    getEmailHTML)
+    call_getEmailHTML
+    ;;
     getEmailsPaginated)
     call_getEmailsPaginated
     ;;
     getRawEmailContents)
     call_getRawEmailContents
+    ;;
+    getRawEmailJson)
+    call_getRawEmailJson
+    ;;
+    getUnreadEmailCount)
+    call_getUnreadEmailCount
     ;;
     validateEmail)
     call_validateEmail
@@ -5778,6 +6187,9 @@ case $operation in
     setInboxFavourited)
     call_setInboxFavourited
     ;;
+    updateInbox)
+    call_updateInbox
+    ;;
     createTemplate)
     call_createTemplate
     ;;
@@ -5792,6 +6204,21 @@ case $operation in
     ;;
     getTemplates)
     call_getTemplates
+    ;;
+    waitFor)
+    call_waitFor
+    ;;
+    waitForEmailCount)
+    call_waitForEmailCount
+    ;;
+    waitForLatestEmail)
+    call_waitForLatestEmail
+    ;;
+    waitForMatchingEmail)
+    call_waitForMatchingEmail
+    ;;
+    waitForNthEmail)
+    call_waitForNthEmail
     ;;
     createWebhook)
     call_createWebhook
