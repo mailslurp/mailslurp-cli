@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 Fetch inbox's latest email or if empty wait for an email to arrive
 
-Will return either the last received email or wait for an email to arrive and return that. If you need to wait for an email for a non-empty inbox see the other receive methods such as waitForNthEmail or waitForEmailCount.
+Will return either the last received email or wait for an email to arrive and return that. If you need to wait for an email for a non-empty inbox set 'unreadOnly=true' or see the other receive methods such as 'waitForNthEmail' or 'waitForEmailCount'.
 
 ### Example
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inboxId** | [**string**](.md) | Id of the inbox we are fetching emails from | [optional] [default to null]
  **timeout** | **integer** | Max milliseconds to wait | [optional] [default to null]
- **unreadOnly** | **boolean** | Optional filter for unread only | [optional] [default to false]
+ **unreadOnly** | **boolean** | Optional filter for unread only. | [optional] [default to false]
 
 ### Return type
 

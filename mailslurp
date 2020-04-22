@@ -95,15 +95,25 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
+operation_parameters_minimum_occurrences["createAlias:::createOwnedAliasOptions"]=1
+operation_parameters_minimum_occurrences["createAnonymousAlias:::createAnonymousAliasOptions"]=1
+operation_parameters_minimum_occurrences["deleteAlias:::aliasId"]=1
+operation_parameters_minimum_occurrences["getAlias:::aliasId"]=1
+operation_parameters_minimum_occurrences["getAliases:::page"]=0
+operation_parameters_minimum_occurrences["getAliases:::size"]=0
+operation_parameters_minimum_occurrences["getAliases:::sort"]=0
+operation_parameters_minimum_occurrences["updateAlias:::aliasId"]=1
+operation_parameters_minimum_occurrences["updateAlias:::createOwnedAliasOptions"]=1
 operation_parameters_minimum_occurrences["uploadAttachment:::uploadOptions"]=1
 operation_parameters_minimum_occurrences["uploadMultipartForm:::file"]=1
 operation_parameters_minimum_occurrences["uploadMultipartForm:::contentType"]=0
 operation_parameters_minimum_occurrences["uploadMultipartForm:::filename"]=0
+operation_parameters_minimum_occurrences["uploadMultipartForm:::x-filename"]=0
 operation_parameters_minimum_occurrences["bulkCreateInboxes:::count"]=1
 operation_parameters_minimum_occurrences["bulkDeleteInboxes:::ids"]=1
 operation_parameters_minimum_occurrences["bulkSendEmails:::bulkSendEmailOptions"]=1
 operation_parameters_minimum_occurrences["emptyInbox:::inboxId"]=1
-operation_parameters_minimum_occurrences["sendEmailSimple:::sendEmailOptions"]=1
+operation_parameters_minimum_occurrences["sendEmailSimple:::emailOptions"]=1
 operation_parameters_minimum_occurrences["createContact:::createContactOptions"]=1
 operation_parameters_minimum_occurrences["deleteContact:::contactId"]=1
 operation_parameters_minimum_occurrences["getAllContacts:::page"]=0
@@ -134,6 +144,14 @@ operation_parameters_minimum_occurrences["getEmailsPaginated:::unreadOnly"]=0
 operation_parameters_minimum_occurrences["getRawEmailContents:::emailId"]=1
 operation_parameters_minimum_occurrences["getRawEmailJson:::emailId"]=1
 operation_parameters_minimum_occurrences["validateEmail:::emailId"]=1
+operation_parameters_minimum_occurrences["submitForm:::_emailAddress"]=0
+operation_parameters_minimum_occurrences["submitForm:::_redirectTo"]=0
+operation_parameters_minimum_occurrences["submitForm:::_spamCheck"]=0
+operation_parameters_minimum_occurrences["submitForm:::_subject"]=0
+operation_parameters_minimum_occurrences["submitForm:::_successMessage"]=0
+operation_parameters_minimum_occurrences["submitForm:::_to"]=0
+operation_parameters_minimum_occurrences["submitForm:::_toAlias"]=0
+operation_parameters_minimum_occurrences["submitForm:::otherParameters"]=0
 operation_parameters_minimum_occurrences["addContactsToGroup:::groupId"]=1
 operation_parameters_minimum_occurrences["addContactsToGroup:::updateGroupContactsOption"]=1
 operation_parameters_minimum_occurrences["createGroup:::createGroupOptions"]=1
@@ -157,6 +175,7 @@ operation_parameters_minimum_occurrences["getAllInboxes:::page"]=0
 operation_parameters_minimum_occurrences["getAllInboxes:::search"]=0
 operation_parameters_minimum_occurrences["getAllInboxes:::size"]=0
 operation_parameters_minimum_occurrences["getAllInboxes:::sort"]=0
+operation_parameters_minimum_occurrences["getAllInboxes:::tag"]=0
 operation_parameters_minimum_occurrences["getEmails:::inboxId"]=1
 operation_parameters_minimum_occurrences["getEmails:::limit"]=0
 operation_parameters_minimum_occurrences["getEmails:::minCount"]=0
@@ -215,15 +234,25 @@ operation_parameters_minimum_occurrences["sendTestData:::webhookId"]=1
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
+operation_parameters_maximum_occurrences["createAlias:::createOwnedAliasOptions"]=0
+operation_parameters_maximum_occurrences["createAnonymousAlias:::createAnonymousAliasOptions"]=0
+operation_parameters_maximum_occurrences["deleteAlias:::aliasId"]=0
+operation_parameters_maximum_occurrences["getAlias:::aliasId"]=0
+operation_parameters_maximum_occurrences["getAliases:::page"]=0
+operation_parameters_maximum_occurrences["getAliases:::size"]=0
+operation_parameters_maximum_occurrences["getAliases:::sort"]=0
+operation_parameters_maximum_occurrences["updateAlias:::aliasId"]=0
+operation_parameters_maximum_occurrences["updateAlias:::createOwnedAliasOptions"]=0
 operation_parameters_maximum_occurrences["uploadAttachment:::uploadOptions"]=0
 operation_parameters_maximum_occurrences["uploadMultipartForm:::file"]=0
 operation_parameters_maximum_occurrences["uploadMultipartForm:::contentType"]=0
 operation_parameters_maximum_occurrences["uploadMultipartForm:::filename"]=0
+operation_parameters_maximum_occurrences["uploadMultipartForm:::x-filename"]=0
 operation_parameters_maximum_occurrences["bulkCreateInboxes:::count"]=0
 operation_parameters_maximum_occurrences["bulkDeleteInboxes:::ids"]=0
 operation_parameters_maximum_occurrences["bulkSendEmails:::bulkSendEmailOptions"]=0
 operation_parameters_maximum_occurrences["emptyInbox:::inboxId"]=0
-operation_parameters_maximum_occurrences["sendEmailSimple:::sendEmailOptions"]=0
+operation_parameters_maximum_occurrences["sendEmailSimple:::emailOptions"]=0
 operation_parameters_maximum_occurrences["createContact:::createContactOptions"]=0
 operation_parameters_maximum_occurrences["deleteContact:::contactId"]=0
 operation_parameters_maximum_occurrences["getAllContacts:::page"]=0
@@ -254,6 +283,14 @@ operation_parameters_maximum_occurrences["getEmailsPaginated:::unreadOnly"]=0
 operation_parameters_maximum_occurrences["getRawEmailContents:::emailId"]=0
 operation_parameters_maximum_occurrences["getRawEmailJson:::emailId"]=0
 operation_parameters_maximum_occurrences["validateEmail:::emailId"]=0
+operation_parameters_maximum_occurrences["submitForm:::_emailAddress"]=0
+operation_parameters_maximum_occurrences["submitForm:::_redirectTo"]=0
+operation_parameters_maximum_occurrences["submitForm:::_spamCheck"]=0
+operation_parameters_maximum_occurrences["submitForm:::_subject"]=0
+operation_parameters_maximum_occurrences["submitForm:::_successMessage"]=0
+operation_parameters_maximum_occurrences["submitForm:::_to"]=0
+operation_parameters_maximum_occurrences["submitForm:::_toAlias"]=0
+operation_parameters_maximum_occurrences["submitForm:::otherParameters"]=0
 operation_parameters_maximum_occurrences["addContactsToGroup:::groupId"]=0
 operation_parameters_maximum_occurrences["addContactsToGroup:::updateGroupContactsOption"]=0
 operation_parameters_maximum_occurrences["createGroup:::createGroupOptions"]=0
@@ -277,6 +314,7 @@ operation_parameters_maximum_occurrences["getAllInboxes:::page"]=0
 operation_parameters_maximum_occurrences["getAllInboxes:::search"]=0
 operation_parameters_maximum_occurrences["getAllInboxes:::size"]=0
 operation_parameters_maximum_occurrences["getAllInboxes:::sort"]=0
+operation_parameters_maximum_occurrences["getAllInboxes:::tag"]=0
 operation_parameters_maximum_occurrences["getEmails:::inboxId"]=0
 operation_parameters_maximum_occurrences["getEmails:::limit"]=0
 operation_parameters_maximum_occurrences["getEmails:::minCount"]=0
@@ -332,15 +370,25 @@ operation_parameters_maximum_occurrences["sendTestData:::webhookId"]=0
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
+operation_parameters_collection_type["createAlias:::createOwnedAliasOptions"]=""
+operation_parameters_collection_type["createAnonymousAlias:::createAnonymousAliasOptions"]=""
+operation_parameters_collection_type["deleteAlias:::aliasId"]=""
+operation_parameters_collection_type["getAlias:::aliasId"]=""
+operation_parameters_collection_type["getAliases:::page"]=""
+operation_parameters_collection_type["getAliases:::size"]=""
+operation_parameters_collection_type["getAliases:::sort"]=""
+operation_parameters_collection_type["updateAlias:::aliasId"]=""
+operation_parameters_collection_type["updateAlias:::createOwnedAliasOptions"]=""
 operation_parameters_collection_type["uploadAttachment:::uploadOptions"]=""
 operation_parameters_collection_type["uploadMultipartForm:::file"]=""
 operation_parameters_collection_type["uploadMultipartForm:::contentType"]=""
 operation_parameters_collection_type["uploadMultipartForm:::filename"]=""
+operation_parameters_collection_type["uploadMultipartForm:::x-filename"]=""
 operation_parameters_collection_type["bulkCreateInboxes:::count"]=""
 operation_parameters_collection_type["bulkDeleteInboxes:::ids"]=
 operation_parameters_collection_type["bulkSendEmails:::bulkSendEmailOptions"]=""
 operation_parameters_collection_type["emptyInbox:::inboxId"]=""
-operation_parameters_collection_type["sendEmailSimple:::sendEmailOptions"]=""
+operation_parameters_collection_type["sendEmailSimple:::emailOptions"]=""
 operation_parameters_collection_type["createContact:::createContactOptions"]=""
 operation_parameters_collection_type["deleteContact:::contactId"]=""
 operation_parameters_collection_type["getAllContacts:::page"]=""
@@ -371,6 +419,14 @@ operation_parameters_collection_type["getEmailsPaginated:::unreadOnly"]=""
 operation_parameters_collection_type["getRawEmailContents:::emailId"]=""
 operation_parameters_collection_type["getRawEmailJson:::emailId"]=""
 operation_parameters_collection_type["validateEmail:::emailId"]=""
+operation_parameters_collection_type["submitForm:::_emailAddress"]=""
+operation_parameters_collection_type["submitForm:::_redirectTo"]=""
+operation_parameters_collection_type["submitForm:::_spamCheck"]=""
+operation_parameters_collection_type["submitForm:::_subject"]=""
+operation_parameters_collection_type["submitForm:::_successMessage"]=""
+operation_parameters_collection_type["submitForm:::_to"]=""
+operation_parameters_collection_type["submitForm:::_toAlias"]=""
+operation_parameters_collection_type["submitForm:::otherParameters"]=""
 operation_parameters_collection_type["addContactsToGroup:::groupId"]=""
 operation_parameters_collection_type["addContactsToGroup:::updateGroupContactsOption"]=""
 operation_parameters_collection_type["createGroup:::createGroupOptions"]=""
@@ -394,6 +450,7 @@ operation_parameters_collection_type["getAllInboxes:::page"]=""
 operation_parameters_collection_type["getAllInboxes:::search"]=""
 operation_parameters_collection_type["getAllInboxes:::size"]=""
 operation_parameters_collection_type["getAllInboxes:::sort"]=""
+operation_parameters_collection_type["getAllInboxes:::tag"]=""
 operation_parameters_collection_type["getEmails:::inboxId"]=""
 operation_parameters_collection_type["getEmails:::limit"]=""
 operation_parameters_collection_type["getEmails:::minCount"]=""
@@ -790,7 +847,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}MailSlurp API command line client (API version 67c9a1eda264be4cfe0bb2c76151f0aadf0862bc)${OFF}
+${BOLD}${WHITE}MailSlurp API command line client (API version d1659dc1567a5b62f65d0612107a50aace03e085)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -824,6 +881,17 @@ EOF
     echo ""
     echo -e "${BOLD}${WHITE}Operations (grouped by tags)${OFF}"
     echo ""
+    echo -e "${BOLD}${WHITE}[aliasController]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}createAlias${OFF};Create an email alias (AUTH)
+  ${CYAN}createAnonymousAlias${OFF};Create an anonymous email alias (AUTH)
+  ${CYAN}deleteAlias${OFF};Delete an owned alias (AUTH)
+  ${CYAN}getAlias${OFF};Get an email alias (AUTH)
+  ${CYAN}getAliases${OFF};Get all email aliases (AUTH)
+  ${CYAN}updateAlias${OFF};Update an owned alias (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
     echo -e "${BOLD}${WHITE}[attachmentController]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}uploadAttachment${OFF};Upload an attachment for sending (AUTH)
@@ -842,8 +910,9 @@ echo "  $ops" | column -t -s ';'
     echo -e "${BOLD}${WHITE}[commonActionsController]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}createNewEmailAddress${OFF};Create new random inbox (AUTH)
+  ${CYAN}createNewEmailAddress1${OFF};Create new random inbox (AUTH)
   ${CYAN}emptyInbox${OFF};Delete all emails in an inbox (AUTH)
-  ${CYAN}sendEmailSimple${OFF};Send an email from a random email address (AUTH)
+  ${CYAN}sendEmailSimple${OFF};Send an email (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -884,6 +953,12 @@ read -r -d '' ops <<EOF
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
+    echo -e "${BOLD}${WHITE}[formController]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}submitForm${OFF};Submit a form to be parsed and sent as an email to an address determined by the form fields (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
     echo -e "${BOLD}${WHITE}[groupController]${OFF}"
 read -r -d '' ops <<EOF
   ${CYAN}addContactsToGroup${OFF};Add contacts to a group (AUTH)
@@ -906,6 +981,7 @@ read -r -d '' ops <<EOF
   ${CYAN}getEmails${OFF};Get emails in an Inbox (AUTH)
   ${CYAN}getInbox${OFF};Get Inbox (AUTH)
   ${CYAN}getInboxEmailsPaginated${OFF};Get inbox emails paginated (AUTH)
+  ${CYAN}getInboxTags${OFF};Get inbox tags (AUTH)
   ${CYAN}getInboxes${OFF};List Inboxes / Email Addresses (AUTH)
   ${CYAN}sendEmail${OFF};Send Email (AUTH)
   ${CYAN}setInboxFavourited${OFF};Set inbox favourited state (AUTH)
@@ -970,7 +1046,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://api.mailslurp.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}MailSlurp API command line client (API version 67c9a1eda264be4cfe0bb2c76151f0aadf0862bc)${OFF}"
+    echo -e "${BOLD}${WHITE}MailSlurp API command line client (API version d1659dc1567a5b62f65d0612107a50aace03e085)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: "
@@ -996,10 +1072,159 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}MailSlurp API command line client (API version 67c9a1eda264be4cfe0bb2c76151f0aadf0862bc)${OFF}"
+    echo -e "${BOLD}MailSlurp API command line client (API version d1659dc1567a5b62f65d0612107a50aace03e085)${OFF}"
     echo ""
 }
 
+##############################################################################
+#
+# Print help for createAlias operation
+#
+##############################################################################
+print_createAlias_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}createAlias - Create an email alias${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Create an email alias belonging to a user ID. To create anonymous aliases use the 'createAnonymousAlias' method." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - createOwnedAliasOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=202
+    echo -e "${result_color_table[${code:0:1}]}  202;Accepted${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for createAnonymousAlias operation
+#
+##############################################################################
+print_createAnonymousAlias_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}createAnonymousAlias - Create an anonymous email alias${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - createAnonymousAliasOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for deleteAlias operation
+#
+##############################################################################
+print_deleteAlias_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}deleteAlias - Delete an owned alias${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}aliasId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - aliasId ${YELLOW}Specify as: aliasId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=204
+    echo -e "${result_color_table[${code:0:1}]}  204;No Content${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getAlias operation
+#
+##############################################################################
+print_getAlias_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getAlias - Get an email alias${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Get an email alias by ID" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}aliasId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - aliasId ${YELLOW}Specify as: aliasId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getAliases operation
+#
+##############################################################################
+print_getAliases_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getAliases - Get all email aliases${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Get all email aliases in paginated form" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}page${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Optional page index in alias list pagination${YELLOW} Specify as: page=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}size${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 20)${OFF} - Optional page size in alias list pagination${YELLOW} Specify as: size=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}sort${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: ASC)${OFF} - Optional createdAt sort direction ASC or DESC${YELLOW} Specify as: sort=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for updateAlias operation
+#
+##############################################################################
+print_updateAlias_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}updateAlias - Update an owned alias${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}aliasId${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - aliasId ${YELLOW}Specify as: aliasId=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - createOwnedAliasOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=202
+    echo -e "${result_color_table[${code:0:1}]}  202;Accepted${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
 ##############################################################################
 #
 # Print help for uploadAttachment operation
@@ -1040,6 +1265,8 @@ print_uploadMultipartForm_help() {
     echo -e "  * ${GREEN}contentType${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - contentType${YELLOW} Specify as: contentType=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}filename${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - filename${YELLOW} Specify as: filename=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}x-filename${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - x-filename${YELLOW} Specify as: x-filename=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1143,6 +1370,28 @@ print_createNewEmailAddress_help() {
 }
 ##############################################################################
 #
+# Print help for createNewEmailAddress1 operation
+#
+##############################################################################
+print_createNewEmailAddress1_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}createNewEmailAddress1 - Create new random inbox${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Returns an Inbox with an 'id' and an 'emailAddress'" | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
 # Print help for emptyInbox operation
 #
 ##############################################################################
@@ -1171,12 +1420,12 @@ print_emptyInbox_help() {
 ##############################################################################
 print_sendEmailSimple_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}sendEmailSimple - Send an email from a random email address${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}sendEmailSimple - Send an email${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "To specify an email address first create an inbox and use that with the other send email methods" | paste -sd' ' | fold -sw 80
+    echo -e "If no senderId or inboxId provided a random email address will be used to send from." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - sendEmailOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - emailOptions" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1721,6 +1970,70 @@ print_validateEmail_help() {
 }
 ##############################################################################
 #
+# Print help for submitForm operation
+#
+##############################################################################
+print_submitForm_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}submitForm - Submit a form to be parsed and sent as an email to an address determined by the form fields${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "This endpoint allows you to submit HTML forms and receive the field values and files via email. 
+
+#### Parameters
+The endpoint looks for special meta parameters in the form fields OR in the URL request parameters. The meta parameters can be used to specify the behaviour of the email. 
+
+You must provide at-least a '_to' email address or a '_toAlias' email alias ID to tell the endpoint where the form should be emailed. These can be submitted as hidden HTML input fields with the corresponding 'name' attributes or as URL query parameters such as '?_to=test@example.com'
+
+The endpoint takes all other form fields that are named and includes them in the message body of the email. Files are sent as attachments.
+
+#### Submitting
+This endpoint accepts form submission via POST method. It accepts 'application/x-www-form-urlencoded', and 'multipart/form-data' content-types.
+
+#### HTML Example
+'''html
+<form 
+  action=\"https://api.mailslurp.com/forms\"
+  method=\"post\"
+>
+  <input name=\"_to\" type=\"hidden\" value=\"test@example.com\"/>
+  <textarea name=\"feedback\"></textarea>
+  <button type=\"submit\">Submit</button>
+</form>
+'''
+
+#### URL Example
+'''html
+<form 
+  action=\"https://api.mailslurp.com/forms?_toAlias=test@example.com\"
+  method=\"post\"
+>
+  <textarea name=\"feedback\"></textarea>
+  <button type=\"submit\">Submit</button>
+</form>
+'''
+
+
+
+The email address is specified by a '_to' field OR is extracted from an email alias specified by a '_toAlias' field (see the alias controller for more information). 
+Endpoint accepts . 
+You can specify a content type in HTML forms using the 'enctype' attribute, for instance: '<form enctype=\"multipart/form-data\">'." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
 # Print help for addContactsToGroup operation
 #
 ##############################################################################
@@ -2002,6 +2315,8 @@ print_getAllInboxes_help() {
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}sort${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: ASC)${OFF} - Optional createdAt sort direction ASC or DESC${YELLOW} Specify as: sort=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}tag${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Optionally filter by tags${YELLOW} Specify as: tag=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2090,6 +2405,28 @@ print_getInboxEmailsPaginated_help() {
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}sort${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: ASC)${OFF} - Optional createdAt sort direction ASC or DESC${YELLOW} Specify as: sort=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;OK${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Forbidden${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getInboxTags operation
+#
+##############################################################################
+print_getInboxTags_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getInboxTags - Get inbox tags${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Get all inbox tags" | paste -sd' ' | fold -sw 80
+    echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -2383,14 +2720,14 @@ print_waitForLatestEmail_help() {
     echo ""
     echo -e "${BOLD}${WHITE}waitForLatestEmail - Fetch inbox's latest email or if empty wait for an email to arrive${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Will return either the last received email or wait for an email to arrive and return that. If you need to wait for an email for a non-empty inbox see the other receive methods such as waitForNthEmail or waitForEmailCount." | paste -sd' ' | fold -sw 80
+    echo -e "Will return either the last received email or wait for an email to arrive and return that. If you need to wait for an email for a non-empty inbox set 'unreadOnly=true' or see the other receive methods such as 'waitForNthEmail' or 'waitForEmailCount'." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}inboxId${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Id of the inbox we are fetching emails from${YELLOW} Specify as: inboxId=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}timeout${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Max milliseconds to wait${YELLOW} Specify as: timeout=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only${YELLOW} Specify as: unreadOnly=value${OFF}" \
+    echo -e "  * ${GREEN}unreadOnly${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: false)${OFF} - Optional filter for unread only.${YELLOW} Specify as: unreadOnly=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2615,6 +2952,348 @@ print_sendTestData_help() {
 
 ##############################################################################
 #
+# Call createAlias operation
+#
+##############################################################################
+call_createAlias() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/aliases" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call createAnonymousAlias operation
+#
+##############################################################################
+call_createAnonymousAlias() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/aliases/anonymous" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call deleteAlias operation
+#
+##############################################################################
+call_deleteAlias() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(aliasId)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/aliases/{aliasId}" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="DELETE"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getAlias operation
+#
+##############################################################################
+call_getAlias() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(aliasId)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/aliases/{aliasId}" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getAliases operation
+#
+##############################################################################
+call_getAliases() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(page size sort  )
+    local path
+
+    if ! path=$(build_request_path "/aliases" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call updateAlias operation
+#
+##############################################################################
+call_updateAlias() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(aliasId)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/aliases/{aliasId}" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="PUT"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
 # Call uploadAttachment operation
 #
 ##############################################################################
@@ -2702,7 +3381,7 @@ call_uploadMultipartForm() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(contentType filename  )
+    local query_parameter_names=(contentType filename x-filename  )
     local path
 
     if ! path=$(build_request_path "/attachments/multipart" path_parameter_names query_parameter_names); then
@@ -2925,6 +3604,42 @@ call_bulkSendEmails() {
 #
 ##############################################################################
 call_createNewEmailAddress() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/createInbox" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createNewEmailAddress1 operation
+#
+##############################################################################
+call_createNewEmailAddress1() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
@@ -3989,6 +4704,42 @@ call_validateEmail() {
 
 ##############################################################################
 #
+# Call submitForm operation
+#
+##############################################################################
+call_submitForm() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/forms" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
 # Call addContactsToGroup operation
 #
 ##############################################################################
@@ -4520,7 +5271,7 @@ call_getAllInboxes() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(favourite page search size sort  )
+    local query_parameter_names=(favourite page search size sort tag  )
     local path
 
     if ! path=$(build_request_path "/inboxes/paginated" path_parameter_names query_parameter_names); then
@@ -4632,6 +5383,42 @@ call_getInboxEmailsPaginated() {
     local path
 
     if ! path=$(build_request_path "/inboxes/{inboxId}/emails/paginated" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getInboxTags operation
+#
+##############################################################################
+call_getInboxTags() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/inboxes/tags" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5764,6 +6551,24 @@ case $key in
         OFF=""
         result_color_table=( "" "" "" "" "" "" "" )
     ;;
+    createAlias)
+    operation="createAlias"
+    ;;
+    createAnonymousAlias)
+    operation="createAnonymousAlias"
+    ;;
+    deleteAlias)
+    operation="deleteAlias"
+    ;;
+    getAlias)
+    operation="getAlias"
+    ;;
+    getAliases)
+    operation="getAliases"
+    ;;
+    updateAlias)
+    operation="updateAlias"
+    ;;
     uploadAttachment)
     operation="uploadAttachment"
     ;;
@@ -5781,6 +6586,9 @@ case $key in
     ;;
     createNewEmailAddress)
     operation="createNewEmailAddress"
+    ;;
+    createNewEmailAddress1)
+    operation="createNewEmailAddress1"
     ;;
     emptyInbox)
     operation="emptyInbox"
@@ -5854,6 +6662,9 @@ case $key in
     validateEmail)
     operation="validateEmail"
     ;;
+    submitForm)
+    operation="submitForm"
+    ;;
     addContactsToGroup)
     operation="addContactsToGroup"
     ;;
@@ -5898,6 +6709,9 @@ case $key in
     ;;
     getInboxEmailsPaginated)
     operation="getInboxEmailsPaginated"
+    ;;
+    getInboxTags)
+    operation="getInboxTags"
     ;;
     getInboxes)
     operation="getInboxes"
@@ -6043,6 +6857,24 @@ fi
 
 # Run cURL command based on the operation ID
 case $operation in
+    createAlias)
+    call_createAlias
+    ;;
+    createAnonymousAlias)
+    call_createAnonymousAlias
+    ;;
+    deleteAlias)
+    call_deleteAlias
+    ;;
+    getAlias)
+    call_getAlias
+    ;;
+    getAliases)
+    call_getAliases
+    ;;
+    updateAlias)
+    call_updateAlias
+    ;;
     uploadAttachment)
     call_uploadAttachment
     ;;
@@ -6060,6 +6892,9 @@ case $operation in
     ;;
     createNewEmailAddress)
     call_createNewEmailAddress
+    ;;
+    createNewEmailAddress1)
+    call_createNewEmailAddress1
     ;;
     emptyInbox)
     call_emptyInbox
@@ -6133,6 +6968,9 @@ case $operation in
     validateEmail)
     call_validateEmail
     ;;
+    submitForm)
+    call_submitForm
+    ;;
     addContactsToGroup)
     call_addContactsToGroup
     ;;
@@ -6177,6 +7015,9 @@ case $operation in
     ;;
     getInboxEmailsPaginated)
     call_getInboxEmailsPaginated
+    ;;
+    getInboxTags)
+    call_getInboxTags
     ;;
     getInboxes)
     call_getInboxes

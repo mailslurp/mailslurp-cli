@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getEmails**](InboxControllerApi.md#getEmails) | **GET** /inboxes/{inboxId}/emails | Get emails in an Inbox
 [**getInbox**](InboxControllerApi.md#getInbox) | **GET** /inboxes/{inboxId} | Get Inbox
 [**getInboxEmailsPaginated**](InboxControllerApi.md#getInboxEmailsPaginated) | **GET** /inboxes/{inboxId}/emails/paginated | Get inbox emails paginated
+[**getInboxTags**](InboxControllerApi.md#getInboxTags) | **GET** /inboxes/tags | Get inbox tags
 [**getInboxes**](InboxControllerApi.md#getInboxes) | **GET** /inboxes | List Inboxes / Email Addresses
 [**sendEmail**](InboxControllerApi.md#sendEmail) | **POST** /inboxes/{inboxId} | Send Email
 [**setInboxFavourited**](InboxControllerApi.md#setInboxFavourited) | **PUT** /inboxes/{inboxId}/favourite | Set inbox favourited state
@@ -134,7 +135,7 @@ List inboxes in paginated form. Allows for page index, page size, and sort direc
 ### Example
 
 ```bash
-mailslurp getAllInboxes  favourite=value  page=value  search=value  size=value  sort=value
+mailslurp getAllInboxes  favourite=value  page=value  search=value  size=value  sort=value  tag=value
 ```
 
 ### Parameters
@@ -147,6 +148,7 @@ Name | Type | Description  | Notes
  **search** | **string** | Optionally filter by search words partial matching ID, tags, name, and email address | [optional] [default to null]
  **size** | **integer** | Optional page size in inbox list pagination | [optional] [default to 20]
  **sort** | **string** | Optional createdAt sort direction ASC or DESC | [optional] [default to ASC]
+ **tag** | **string** | Optionally filter by tags | [optional] [default to null]
 
 ### Return type
 
@@ -264,6 +266,38 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Page«EmailPreview»**](Page«EmailPreview».md)
+
+### Authorization
+
+[API_KEY](../README.md#API_KEY)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## getInboxTags
+
+Get inbox tags
+
+Get all inbox tags
+
+### Example
+
+```bash
+mailslurp getInboxTags
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**array[string]**
 
 ### Authorization
 

@@ -296,12 +296,18 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "uploadAttachment[Upload an attachment for sending]" \
+            "createAlias[Create an email alias]" \
+            "createAnonymousAlias[Create an anonymous email alias]" \
+            "deleteAlias[Delete an owned alias]" \
+            "getAlias[Get an email alias]" \
+            "getAliases[Get all email aliases]" \
+            "updateAlias[Update an owned alias]"             "uploadAttachment[Upload an attachment for sending]" \
             "uploadMultipartForm[Upload an attachment for sending using Multipart Form]"             "bulkCreateInboxes[Bulk create Inboxes (email addresses)]" \
             "bulkDeleteInboxes[Bulk Delete Inboxes]" \
             "bulkSendEmails[Bulk Send Emails]"             "createNewEmailAddress[Create new random inbox]" \
+            "createNewEmailAddress1[Create new random inbox]" \
             "emptyInbox[Delete all emails in an inbox]" \
-            "sendEmailSimple[Send an email from a random email address]"             "createContact[Create a contact]" \
+            "sendEmailSimple[Send an email]"             "createContact[Create a contact]" \
             "deleteContact[Delete contact]" \
             "getAllContacts[Get all contacts]" \
             "getContact[Get contact]" \
@@ -320,7 +326,7 @@ case $state in
             "getRawEmailContents[Get raw email string]" \
             "getRawEmailJson[Get raw email in JSON]" \
             "getUnreadEmailCount[Get unread email count]" \
-            "validateEmail[Validate email]"             "addContactsToGroup[Add contacts to a group]" \
+            "validateEmail[Validate email]"             "submitForm[Submit a form to be parsed and sent as an email to an address determined by the form fields]"             "addContactsToGroup[Add contacts to a group]" \
             "createGroup[Create a group]" \
             "deleteGroup[Delete group]" \
             "getAllGroups[Get all Contact Groups in paginated format]" \
@@ -334,6 +340,7 @@ case $state in
             "getEmails[Get emails in an Inbox]" \
             "getInbox[Get Inbox]" \
             "getInboxEmailsPaginated[Get inbox emails paginated]" \
+            "getInboxTags[Get inbox tags]" \
             "getInboxes[List Inboxes / Email Addresses]" \
             "sendEmail[Send Email]" \
             "setInboxFavourited[Set inbox favourited state]" \
@@ -357,6 +364,48 @@ case $state in
     ;;
   args)
     case $line[1] in
+      createAlias)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createAnonymousAlias)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteAlias)
+        local -a _op_arguments
+        _op_arguments=(
+          "aliasId=:[PATH] aliasId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAlias)
+        local -a _op_arguments
+        _op_arguments=(
+          "aliasId=:[PATH] aliasId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAliases)
+        local -a _op_arguments
+        _op_arguments=(
+                    "page=:[QUERY] Optional page index in alias list pagination"
+"size=:[QUERY] Optional page size in alias list pagination"
+"sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateAlias)
+        local -a _op_arguments
+        _op_arguments=(
+          "aliasId=:[PATH] aliasId"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       uploadAttachment)
         local -a _op_arguments
         _op_arguments=(
@@ -368,6 +417,7 @@ case $state in
         _op_arguments=(
                     "contentType=:[QUERY] contentType"
 "filename=:[QUERY] filename"
+"x-filename=:[QUERY] x-filename"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -391,6 +441,12 @@ case $state in
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       createNewEmailAddress)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createNewEmailAddress1)
         local -a _op_arguments
         _op_arguments=(
                               )
@@ -571,6 +627,12 @@ case $state in
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      submitForm)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       addContactsToGroup)
         local -a _op_arguments
         _op_arguments=(
@@ -662,6 +724,7 @@ case $state in
 "search=:[QUERY] Optionally filter by search words partial matching ID, tags, name, and email address"
 "size=:[QUERY] Optional page size in inbox list pagination"
 "sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
+"tag=:[QUERY] Optionally filter by tags"
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -692,6 +755,12 @@ case $state in
 "size=:[QUERY] Optional page size in inbox emails list pagination"
 "sort=:[QUERY] Optional createdAt sort direction ASC or DESC"
           )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getInboxTags)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       getInboxes)
@@ -778,8 +847,8 @@ case $state in
         _op_arguments=(
                     "inboxId=:[QUERY] Id of the inbox we are fetching emails from"
 "timeout=:[QUERY] Max milliseconds to wait"
-"unreadOnly=true:[QUERY] Optional filter for unread only"
-          "unreadOnly=false:[QUERY] Optional filter for unread only"
+"unreadOnly=true:[QUERY] Optional filter for unread only."
+          "unreadOnly=false:[QUERY] Optional filter for unread only."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

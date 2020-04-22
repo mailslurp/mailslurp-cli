@@ -53,7 +53,7 @@ When sending emails with attachments first upload each attachment with this endp
 ### Example
 
 ```bash
-mailslurp uploadMultipartForm  contentType=value  filename=value
+mailslurp uploadMultipartForm  contentType=value  filename=value  x-filename=value
 ```
 
 ### Parameters
@@ -64,6 +64,7 @@ Name | Type | Description  | Notes
  **file** | **binary** | file | [default to null]
  **contentType** | **string** | contentType | [optional] [default to null]
  **filename** | **string** | filename | [optional] [default to null]
+ **xFilename** | **string** | x-filename | [optional] [default to null]
 
 ### Return type
 

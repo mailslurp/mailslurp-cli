@@ -100,14 +100,21 @@ All URIs are relative to **
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AliasControllerApi* | [**createAlias**](docs/AliasControllerApi.md#createalias) | **POST** /aliases | Create an email alias
+*AliasControllerApi* | [**createAnonymousAlias**](docs/AliasControllerApi.md#createanonymousalias) | **POST** /aliases/anonymous | Create an anonymous email alias
+*AliasControllerApi* | [**deleteAlias**](docs/AliasControllerApi.md#deletealias) | **DELETE** /aliases/{aliasId} | Delete an owned alias
+*AliasControllerApi* | [**getAlias**](docs/AliasControllerApi.md#getalias) | **GET** /aliases/{aliasId} | Get an email alias
+*AliasControllerApi* | [**getAliases**](docs/AliasControllerApi.md#getaliases) | **GET** /aliases | Get all email aliases
+*AliasControllerApi* | [**updateAlias**](docs/AliasControllerApi.md#updatealias) | **PUT** /aliases/{aliasId} | Update an owned alias
 *AttachmentControllerApi* | [**uploadAttachment**](docs/AttachmentControllerApi.md#uploadattachment) | **POST** /attachments | Upload an attachment for sending
 *AttachmentControllerApi* | [**uploadMultipartForm**](docs/AttachmentControllerApi.md#uploadmultipartform) | **POST** /attachments/multipart | Upload an attachment for sending using Multipart Form
 *BulkActionsControllerApi* | [**bulkCreateInboxes**](docs/BulkActionsControllerApi.md#bulkcreateinboxes) | **POST** /bulk/inboxes | Bulk create Inboxes (email addresses)
 *BulkActionsControllerApi* | [**bulkDeleteInboxes**](docs/BulkActionsControllerApi.md#bulkdeleteinboxes) | **DELETE** /bulk/inboxes | Bulk Delete Inboxes
 *BulkActionsControllerApi* | [**bulkSendEmails**](docs/BulkActionsControllerApi.md#bulksendemails) | **POST** /bulk/send | Bulk Send Emails
-*CommonActionsControllerApi* | [**createNewEmailAddress**](docs/CommonActionsControllerApi.md#createnewemailaddress) | **POST** /newEmailAddress | Create new random inbox
+*CommonActionsControllerApi* | [**createNewEmailAddress**](docs/CommonActionsControllerApi.md#createnewemailaddress) | **POST** /createInbox | Create new random inbox
+*CommonActionsControllerApi* | [**createNewEmailAddress1**](docs/CommonActionsControllerApi.md#createnewemailaddress1) | **POST** /newEmailAddress | Create new random inbox
 *CommonActionsControllerApi* | [**emptyInbox**](docs/CommonActionsControllerApi.md#emptyinbox) | **DELETE** /emptyInbox | Delete all emails in an inbox
-*CommonActionsControllerApi* | [**sendEmailSimple**](docs/CommonActionsControllerApi.md#sendemailsimple) | **POST** /sendEmail | Send an email from a random email address
+*CommonActionsControllerApi* | [**sendEmailSimple**](docs/CommonActionsControllerApi.md#sendemailsimple) | **POST** /sendEmail | Send an email
 *ContactControllerApi* | [**createContact**](docs/ContactControllerApi.md#createcontact) | **POST** /contacts | Create a contact
 *ContactControllerApi* | [**deleteContact**](docs/ContactControllerApi.md#deletecontact) | **DELETE** /contacts/{contactId} | Delete contact
 *ContactControllerApi* | [**getAllContacts**](docs/ContactControllerApi.md#getallcontacts) | **GET** /contacts/paginated | Get all contacts
@@ -130,6 +137,7 @@ Class | Method | HTTP request | Description
 *EmailControllerApi* | [**getRawEmailJson**](docs/EmailControllerApi.md#getrawemailjson) | **GET** /emails/{emailId}/raw/json | Get raw email in JSON
 *EmailControllerApi* | [**getUnreadEmailCount**](docs/EmailControllerApi.md#getunreademailcount) | **GET** /emails/unreadCount | Get unread email count
 *EmailControllerApi* | [**validateEmail**](docs/EmailControllerApi.md#validateemail) | **POST** /emails/{emailId}/validate | Validate email
+*FormControllerApi* | [**submitForm**](docs/FormControllerApi.md#submitform) | **POST** /forms | Submit a form to be parsed and sent as an email to an address determined by the form fields
 *GroupControllerApi* | [**addContactsToGroup**](docs/GroupControllerApi.md#addcontactstogroup) | **PUT** /groups/{groupId}/contacts | Add contacts to a group
 *GroupControllerApi* | [**createGroup**](docs/GroupControllerApi.md#creategroup) | **POST** /groups | Create a group
 *GroupControllerApi* | [**deleteGroup**](docs/GroupControllerApi.md#deletegroup) | **DELETE** /groups/{groupId} | Delete group
@@ -145,6 +153,7 @@ Class | Method | HTTP request | Description
 *InboxControllerApi* | [**getEmails**](docs/InboxControllerApi.md#getemails) | **GET** /inboxes/{inboxId}/emails | Get emails in an Inbox
 *InboxControllerApi* | [**getInbox**](docs/InboxControllerApi.md#getinbox) | **GET** /inboxes/{inboxId} | Get Inbox
 *InboxControllerApi* | [**getInboxEmailsPaginated**](docs/InboxControllerApi.md#getinboxemailspaginated) | **GET** /inboxes/{inboxId}/emails/paginated | Get inbox emails paginated
+*InboxControllerApi* | [**getInboxTags**](docs/InboxControllerApi.md#getinboxtags) | **GET** /inboxes/tags | Get inbox tags
 *InboxControllerApi* | [**getInboxes**](docs/InboxControllerApi.md#getinboxes) | **GET** /inboxes | List Inboxes / Email Addresses
 *InboxControllerApi* | [**sendEmail**](docs/InboxControllerApi.md#sendemail) | **POST** /inboxes/{inboxId} | Send Email
 *InboxControllerApi* | [**setInboxFavourited**](docs/InboxControllerApi.md#setinboxfavourited) | **PUT** /inboxes/{inboxId}/favourite | Set inbox favourited state
@@ -169,14 +178,17 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Alias](docs/Alias.md)
  - [AttachmentMetaData](docs/AttachmentMetaData.md)
  - [BasicAuthOptions](docs/BasicAuthOptions.md)
  - [BulkSendEmailOptions](docs/BulkSendEmailOptions.md)
  - [ContactDto](docs/ContactDto.md)
  - [ContactProjection](docs/ContactProjection.md)
+ - [CreateAnonymousAliasOptions](docs/CreateAnonymousAliasOptions.md)
  - [CreateContactOptions](docs/CreateContactOptions.md)
  - [CreateDomainOptions](docs/CreateDomainOptions.md)
  - [CreateGroupOptions](docs/CreateGroupOptions.md)
+ - [CreateOwnedAliasOptions](docs/CreateOwnedAliasOptions.md)
  - [CreateTemplateOptions](docs/CreateTemplateOptions.md)
  - [CreateWebhookOptions](docs/CreateWebhookOptions.md)
  - [DomainDto](docs/DomainDto.md)
@@ -196,6 +208,7 @@ Class | Method | HTTP request | Description
  - [MatchOption](docs/MatchOption.md)
  - [MatchOptions](docs/MatchOptions.md)
  - [Pageable](docs/Pageable.md)
+ - [Page«Alias»](docs/Page«Alias».md)
  - [Page«ContactProjection»](docs/Page«ContactProjection».md)
  - [Page«EmailPreview»](docs/Page«EmailPreview».md)
  - [Page«EmailProjection»](docs/Page«EmailProjection».md)
@@ -206,6 +219,7 @@ Class | Method | HTTP request | Description
  - [RawEmailJson](docs/RawEmailJson.md)
  - [SendEmailOptions](docs/SendEmailOptions.md)
  - [SetInboxFavouritedOptions](docs/SetInboxFavouritedOptions.md)
+ - [SimpleSendEmailOptions](docs/SimpleSendEmailOptions.md)
  - [Sort](docs/Sort.md)
  - [TemplateDto](docs/TemplateDto.md)
  - [TemplateProjection](docs/TemplateProjection.md)

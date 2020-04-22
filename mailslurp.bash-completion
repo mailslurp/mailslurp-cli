@@ -68,12 +68,19 @@ _mailslurp()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
+    operations["createAlias"]=1
+    operations["createAnonymousAlias"]=1
+    operations["deleteAlias"]=1
+    operations["getAlias"]=1
+    operations["getAliases"]=1
+    operations["updateAlias"]=1
     operations["uploadAttachment"]=1
     operations["uploadMultipartForm"]=1
     operations["bulkCreateInboxes"]=1
     operations["bulkDeleteInboxes"]=1
     operations["bulkSendEmails"]=1
     operations["createNewEmailAddress"]=1
+    operations["createNewEmailAddress1"]=1
     operations["emptyInbox"]=1
     operations["sendEmailSimple"]=1
     operations["createContact"]=1
@@ -98,6 +105,7 @@ _mailslurp()
     operations["getRawEmailJson"]=1
     operations["getUnreadEmailCount"]=1
     operations["validateEmail"]=1
+    operations["submitForm"]=1
     operations["addContactsToGroup"]=1
     operations["createGroup"]=1
     operations["deleteGroup"]=1
@@ -113,6 +121,7 @@ _mailslurp()
     operations["getEmails"]=1
     operations["getInbox"]=1
     operations["getInboxEmailsPaginated"]=1
+    operations["getInboxTags"]=1
     operations["getInboxes"]=1
     operations["sendEmail"]=1
     operations["setInboxFavourited"]=1
@@ -137,12 +146,19 @@ _mailslurp()
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
+    operation_parameters["createAlias"]=""
+    operation_parameters["createAnonymousAlias"]=""
+    operation_parameters["deleteAlias"]="aliasId= "
+    operation_parameters["getAlias"]="aliasId= "
+    operation_parameters["getAliases"]="page= size= sort= "
+    operation_parameters["updateAlias"]="aliasId= "
     operation_parameters["uploadAttachment"]=""
-    operation_parameters["uploadMultipartForm"]="contentType= filename= "
+    operation_parameters["uploadMultipartForm"]="contentType= filename= x-filename= "
     operation_parameters["bulkCreateInboxes"]="count= "
     operation_parameters["bulkDeleteInboxes"]=""
     operation_parameters["bulkSendEmails"]=""
     operation_parameters["createNewEmailAddress"]=""
+    operation_parameters["createNewEmailAddress1"]=""
     operation_parameters["emptyInbox"]="inboxId= "
     operation_parameters["sendEmailSimple"]=""
     operation_parameters["createContact"]=""
@@ -167,6 +183,7 @@ _mailslurp()
     operation_parameters["getRawEmailJson"]="emailId= "
     operation_parameters["getUnreadEmailCount"]=""
     operation_parameters["validateEmail"]="emailId= "
+    operation_parameters["submitForm"]=""
     operation_parameters["addContactsToGroup"]="groupId= "
     operation_parameters["createGroup"]=""
     operation_parameters["deleteGroup"]="groupId= "
@@ -178,10 +195,11 @@ _mailslurp()
     operation_parameters["createInbox"]="description= emailAddress= expiresAt= favourite= name= tags= "
     operation_parameters["deleteAllInboxes"]=""
     operation_parameters["deleteInbox"]="inboxId= "
-    operation_parameters["getAllInboxes"]="favourite= page= search= size= sort= "
+    operation_parameters["getAllInboxes"]="favourite= page= search= size= sort= tag= "
     operation_parameters["getEmails"]="inboxId= limit= minCount= retryTimeout= since= sort= "
     operation_parameters["getInbox"]="inboxId= "
     operation_parameters["getInboxEmailsPaginated"]="inboxId= page= size= sort= "
+    operation_parameters["getInboxTags"]=""
     operation_parameters["getInboxes"]=""
     operation_parameters["sendEmail"]="inboxId= "
     operation_parameters["setInboxFavourited"]="inboxId= "
@@ -220,6 +238,7 @@ _mailslurp()
     operation_parameters_enum_values["createInbox::favourite"]="true false"
     operation_parameters_enum_values["createInbox::favourite"]="true false"
     operation_parameters_enum_values["createInbox::favourite"]="true false"
+    operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
     operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
     operation_parameters_enum_values["getAllInboxes::favourite"]="true false"
     operation_parameters_enum_values["getAllInboxes::favourite"]="true false"

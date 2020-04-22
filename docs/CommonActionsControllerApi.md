@@ -4,9 +4,10 @@ All URIs are relative to **
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createNewEmailAddress**](CommonActionsControllerApi.md#createNewEmailAddress) | **POST** /newEmailAddress | Create new random inbox
+[**createNewEmailAddress**](CommonActionsControllerApi.md#createNewEmailAddress) | **POST** /createInbox | Create new random inbox
+[**createNewEmailAddress1**](CommonActionsControllerApi.md#createNewEmailAddress1) | **POST** /newEmailAddress | Create new random inbox
 [**emptyInbox**](CommonActionsControllerApi.md#emptyInbox) | **DELETE** /emptyInbox | Delete all emails in an inbox
-[**sendEmailSimple**](CommonActionsControllerApi.md#sendEmailSimple) | **POST** /sendEmail | Send an email from a random email address
+[**sendEmailSimple**](CommonActionsControllerApi.md#sendEmailSimple) | **POST** /sendEmail | Send an email
 
 
 
@@ -20,6 +21,38 @@ Returns an Inbox with an 'id' and an 'emailAddress'
 
 ```bash
 mailslurp createNewEmailAddress
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Inbox**](Inbox.md)
+
+### Authorization
+
+[API_KEY](../README.md#API_KEY)
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## createNewEmailAddress1
+
+Create new random inbox
+
+Returns an Inbox with an 'id' and an 'emailAddress'
+
+### Example
+
+```bash
+mailslurp createNewEmailAddress1
 ```
 
 ### Parameters
@@ -79,9 +112,9 @@ Name | Type | Description  | Notes
 
 ## sendEmailSimple
 
-Send an email from a random email address
+Send an email
 
-To specify an email address first create an inbox and use that with the other send email methods
+If no senderId or inboxId provided a random email address will be used to send from.
 
 ### Example
 
@@ -94,7 +127,7 @@ mailslurp sendEmailSimple
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sendEmailOptions** | [**SendEmailOptions**](SendEmailOptions.md) | sendEmailOptions |
+ **emailOptions** | [**SimpleSendEmailOptions**](SimpleSendEmailOptions.md) | emailOptions |
 
 ### Return type
 
